@@ -1,0 +1,18 @@
+body{
+  width: 100%;
+  /* padding: ; */
+}
+.tbPar{
+  /* width: 50%; */
+  margin: 0px;
+  padding: 0px;
+}
+.tbPar table td{
+  /* max-width: 30px;
+  max-height: 30px; */
+}
+.tbPar table {
+  border: solid 5px red;
+  /* max-width: 30px;
+  max-height: 30px; */
+}
