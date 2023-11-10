@@ -1,8 +1,18 @@
 const myModal =  bootstrap.Modal.getOrCreateInstance('#booking-modal');
+const colors = ['0.1', '0.3', '0.5', '0.7'];
 var diceSound = new Audio('./cf/dice_ass/Rolling-Dice-Sound-effect1.mp3');
-var diceRandNoPlayerOnePlayerOne = 1;
+var diceRandNoPlayerOnePlayerOne;
 
-
+const setMyRandNoStorage = () =>{
+  var myRandNoStorageVar = sessionStorage.setItem("myNum", JSON.stringify(diceRandNoPlayerOnePlayerOne))
+};
+const retriveMyRandNoStorage = () =>{
+  var retrieveMyRandNoStorageVar = JSON.parse(sessionStorage.getItem("myNum"))
+  // console.log(retrieveMyRandNoStorageVar);
+  return (retrieveMyRandNoStorageVar)
+  // return retrieveMyRandNoStorageVar
+};
+// console.log(retriveMyRandNoStorage());
 var arrayofTablesId = {
 forStart: document.getElementById('forStart'),
 for1 : document.getElementById('for1'),
@@ -63,28 +73,24 @@ const dispLuck = ()=>{
     // alert('im work')
     // for1.innerHTML = `<img src='./cf/dice_ass/perspective-dice-six-faces-one.png' style="width: 130px; height: 100px;">`
     // myModal.show()
-  }else if(diceRandNoPlayerOne == 2){
+  }else if(diceRandNoPlayerOnePlayerOne == 2){
     dispDiceRolOne.innerHTML = `<img src='./cf/dice_ass/perspective-dice-six-faces-two.png' style="width: 130px; height: 100px;">`
 
-  }else if(diceRandNoPlayerOne == 3){
+  }else if(diceRandNoPlayerOnePlayerOne == 3){
     dispDiceRolOne.innerHTML = `<img src='./cf/dice_ass/perspective-dice-six-faces-three.png' style="width: 130px; height: 100px;">`
 
-  }else if(diceRandNoPlayerOne == 4){
+  }else if(diceRandNoPlayerOnePlayerOne == 4){
     dispDiceRolOne.innerHTML = `<img src='./cf/dice_ass/perspective-dice-six-faces-four.png' style="width: 130px; height: 100px;">`
     
-  }else if(diceRandNoPlayerOne == 5){
+  }else if(diceRandNoPlayerOnePlayerOne == 5){
     dispDiceRolOne.innerHTML = `<img src='./cf/dice_ass/perspective-dice-six-faces-five.png' style="width: 130px; height: 100px;">`
     
-  }else if(diceRandNoPlayerOne == 6){
+  }else if(diceRandNoPlayerOnePlayerOne == 6){
     dispDiceRolOne.innerHTML = `<img src='./cf/dice_ass/perspective-dice-six-faces-six.png' style="width: 130px; height: 100px;">`
     
   }
 };
 
-// const modalBox = (e) =>{
-//   console.log(e);
-// };
-// document.getElementById('dispDiceRol').addEventListener('click', function(){
   var currentColorIndex = 0;
   // const aFunc = ()=>{
   // }
@@ -94,7 +100,11 @@ const dispLuck = ()=>{
   diceSound.play();
   // diceRandNoPlayerOne = Math.floor((Math.random() * 6 + 1)); ////
   // diceRandNoPlayerOnePlayerOne = diceRandNoPlayerOne
-  diceRandNoPlayerOnePlayerOne = 1
+  diceRandNoPlayerOnePlayerOne = 6
+  setMyRandNoStorage()
+  retriveMyRandNoStorage()
+  // console.log(retrieveMyRandNoStorageVar);
+  ifSixLuck()
   setTimeout(function(){
     dispLuck()  
     diceSound.pause();
@@ -102,41 +112,59 @@ const dispLuck = ()=>{
   }, 1200);
   // var backgroundToBlink = document.getElementById('for40')
   // const colors = ['#ff0000', 'black', '#0000ff'];
-  const colors = ['0.1', '0.3', '0.5', '0.7'];
+  // const colors = ['0.1', '0.3', '0.5', '0.7'];
   // var modalBox = document.getElementById('exampleModal').addEventListener('click', function(){
 
   // })
 
+  
+  
+  
+}
 
-  const blinkBackground = ()=>{
-    if(diceRandNoPlayerOnePlayerOne == 1){
-      let recentImg = document.getElementById('forOne1')
-      recentImg.style.display = 'none'
-      arrayofTablesId.for1.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
-      url("cf/1.JPG")`
-      arrayofTablesId.for1.style.backgroundRepeat = `no-repeat`
-      arrayofTablesId.for1.style.backgroundSize = `100% 100%`
-      // arrayofTablesId.for1.style.backgroundColor = colors[currentColorIndex]
-    }else if(diceRandNoPlayerOnePlayerOne == 2){
-      for2.style.backgroundColor = colors[currentColorIndex]
-    }else if(diceRandNoPlayerOnePlayerOne == 3){
-      for3.style.backgroundColor = colors[currentColorIndex]
-    }else if(diceRandNoPlayerOnePlayerOne == 4){
-      for4.style.backgroundColor = colors[currentColorIndex]
-    }else if(diceRandNoPlayerOnePlayerOne == 5){
-      for5.style.backgroundColor = colors[currentColorIndex]
-    }else if(diceRandNoPlayerOnePlayerOne == 6){
-      for6.style.backgroundColor = colors[currentColorIndex]
-    }
-    // backgroundToBlink.style.backgroundColor = colors[currentColorIndex]
-    currentColorIndex = (currentColorIndex + 1) % colors.length;
-    // console.log(currentColorIndex);
-  }
+const blinkBackground = ()=>{
+  if(diceRandNoPlayerOnePlayerOne == 1){
+    let recentImg = document.getElementById('forOne1')
+  recentImg.style.display = 'none'
+  arrayofTablesId.for1.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
+  url("cf/1.JPG")`
+  arrayofTablesId.for1.style.backgroundRepeat = `no-repeat`
+  arrayofTablesId.for1.style.backgroundSize = `100% 100%`
+  // arrayofTablesId.for1.style.backgroundColor = colors[currentColorIndex]
+}else if(diceRandNoPlayerOnePlayerOne == 2){
+  for2.style.backgroundColor = colors[currentColorIndex]
+}else if(diceRandNoPlayerOnePlayerOne == 3){
+  for3.style.backgroundColor = colors[currentColorIndex]
+}else if(diceRandNoPlayerOnePlayerOne == 4){
+  for4.style.backgroundColor = colors[currentColorIndex]
+}else if(diceRandNoPlayerOnePlayerOne == 5){
+  for5.style.backgroundColor = colors[currentColorIndex]
+}else if(diceRandNoPlayerOnePlayerOne == 6){
+  // for6.style.backgroundColor = colors[currentColorIndex]
+  let recentImg6 = document.getElementById('forImgSix')
+  recentImg6.style.display = 'none'
+  arrayofTablesId.for6.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
+  url("cf/6.JPG")`
+  arrayofTablesId.for6.style.backgroundRepeat = `no-repeat`
+  arrayofTablesId.for6.style.backgroundSize = `100% 100%`
+}
+currentColorIndex = (currentColorIndex + 1) % colors.length;
+};
+
+// console.log(paraRet);
+const ifSixLuck = () =>{
+  var paraRet = retriveMyRandNoStorage()
+  // console.log(typeof(retrieveMyRandNoStorageVar));
+
+if(paraRet == 6){
   const blinkingInterval = setInterval(blinkBackground, 800)
-
   setTimeout(()=>{
     clearInterval(blinkingInterval);
   }, 8000)
+  }else{alert("Hum! You Need 6 to get on road")};     
+  // backgroundToBlink.style.backgroundColor = colors[currentColorIndex]
+  // console.log(currentColorIndex);
+}
 
-};
+
 //  )
