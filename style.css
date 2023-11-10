@@ -1,6 +1,7 @@
 body{
   width: 100%;
   /* padding: ; */
+  scroll-behavior: smooth;
 }
 .tbPar{
   /* width: 50%; */
