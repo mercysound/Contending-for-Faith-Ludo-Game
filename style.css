@@ -16,3 +16,9 @@ body{
   /* max-width: 30px;
   max-height: 30px; */
 }
+.editable{
+  border: none;
+  outline: none;
+  background-color: transparent;
+  cursor: pointer;
+}

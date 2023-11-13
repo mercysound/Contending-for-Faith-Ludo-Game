@@ -1,60 +1,4 @@
 const myModal =  bootstrap.Modal.getOrCreateInstance('#booking-modal');
-
-var diceSound = new Audio('./cf/dice_ass/Rolling-Dice-Sound-effect1.mp3');
-var diceRandNoPlayerOnePlayerOne;
-var currentColorIndex = 0;
-// modal box trigger variable
-const myModalStart =  bootstrap.Modal.getOrCreateInstance('#modalStart');
-const myModal1 =  bootstrap.Modal.getOrCreateInstance('#modal1');
-const myModal2 =  bootstrap.Modal.getOrCreateInstance('#modal2');
-const myModal3 =  bootstrap.Modal.getOrCreateInstance('#modal3');
-const myModal4 =  bootstrap.Modal.getOrCreateInstance('#modal4');
-const myModal5 =  bootstrap.Modal.getOrCreateInstance('#modal5');
-const myModal6 =  bootstrap.Modal.getOrCreateInstance('#modal6');
-const myModal7 =  bootstrap.Modal.getOrCreateInstance('#modal7');
-const myModal8 =  bootstrap.Modal.getOrCreateInstance('#modal8');
-const myModal9 =  bootstrap.Modal.getOrCreateInstance('#modal9');
-const myModal10 =  bootstrap.Modal.getOrCreateInstance('#modal10');
-const myModal11 =  bootstrap.Modal.getOrCreateInstance('#modal11');
-const myModal12 =  bootstrap.Modal.getOrCreateInstance('#modal12');
-const myModal13 =  bootstrap.Modal.getOrCreateInstance('#modal13');
-const myModal14 =  bootstrap.Modal.getOrCreateInstance('#modal14');
-const myModal15 =  bootstrap.Modal.getOrCreateInstance('#modal15');
-const myModal16 =  bootstrap.Modal.getOrCreateInstance('#modal16');
-const myModal17 =  bootstrap.Modal.getOrCreateInstance('#modal17');
-const myModal18 =  bootstrap.Modal.getOrCreateInstance('#modal18');
-const myModal19 =  bootstrap.Modal.getOrCreateInstance('#modal19');
-const myModal20 =  bootstrap.Modal.getOrCreateInstance('#modal20');
-const myModal21 =  bootstrap.Modal.getOrCreateInstance('#modal21');
-const myModal22 =  bootstrap.Modal.getOrCreateInstance('#modal22');
-const myModal23 =  bootstrap.Modal.getOrCreateInstance('#modal23');
-const myModal24 =  bootstrap.Modal.getOrCreateInstance('#modal24');
-const myModal25 =  bootstrap.Modal.getOrCreateInstance('#modal25');
-const myModal26 =  bootstrap.Modal.getOrCreateInstance('#modal26');
-const myModal27 =  bootstrap.Modal.getOrCreateInstance('#modal27');
-const myModal28 =  bootstrap.Modal.getOrCreateInstance('#modal28');
-const myModal29 =  bootstrap.Modal.getOrCreateInstance('#modal29');
-const myModal30 =  bootstrap.Modal.getOrCreateInstance('#modal30');
-const myModal31 =  bootstrap.Modal.getOrCreateInstance('#modal31');
-const myModal32 =  bootstrap.Modal.getOrCreateInstance('#modal32');
-const myModal33 =  bootstrap.Modal.getOrCreateInstance('#modal33');
-const myModal34 =  bootstrap.Modal.getOrCreateInstance('#modal34');
-const myModal35 =  bootstrap.Modal.getOrCreateInstance('#modal35');
-const myModal36 =  bootstrap.Modal.getOrCreateInstance('#modal36');
-const myModal37 =  bootstrap.Modal.getOrCreateInstance('#modal37');
-const myModal38 =  bootstrap.Modal.getOrCreateInstance('#modal38');
-const myModal39 =  bootstrap.Modal.getOrCreateInstance('#modal39');
-const myModal40 =  bootstrap.Modal.getOrCreateInstance('#modal40');
-const myModal41 =  bootstrap.Modal.getOrCreateInstance('#modal41');
-const myModal42 =  bootstrap.Modal.getOrCreateInstance('#modal42');
-const myModal43 =  bootstrap.Modal.getOrCreateInstance('#modal43');
-const myModal44 =  bootstrap.Modal.getOrCreateInstance('#modal44');
-const myModal46 =  bootstrap.Modal.getOrCreateInstance('#modal46');
-const myModal47 =  bootstrap.Modal.getOrCreateInstance('#modal47');
-const myModal48 =  bootstrap.Modal.getOrCreateInstance('#modal48');
-const myModal49 =  bootstrap.Modal.getOrCreateInstance('#modal49');
-const myModal50 =  bootstrap.Modal.getOrCreateInstance('#modal50');
-
 const colors = ['0.1', '0.3', '0.5', '0.7'];
 var diceSound = new Audio('./cf/dice_ass/Rolling-Dice-Sound-effect1.mp3');
 var diceRandNoPlayerOnePlayerOne;
@@ -151,7 +95,7 @@ const dispLuck = ()=>{
   // const aFunc = ()=>{
   // }
   // here is the function to dice
-  const rolDicePlayerOne = ()=>{
+  const rolDicePlayerOneTurn = ()=>{
   dispDiceRolOne.innerHTML = `<img style="width: 130px; height: 100px;" src='./cf/dice_ass/dice.gif'>`
   diceSound.play();
   // diceRandNoPlayerOne = Math.floor((Math.random() * 6 + 1)); ////
@@ -180,33 +124,30 @@ const dispLuck = ()=>{
 
 const blinkBackground = ()=>{
   if(diceRandNoPlayerOnePlayerOne == 1){
-    let recentImg = document.getElementById('forPicOne')
-    recentImg.style.display = 'block'
-    // diceTableElementObject.for1.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
-    // url("cf/1.JPG")`
-    // diceTableElementObject.for1.style.backgroundRepeat = `no-repeat`
-    // diceTableElementObject.for1.style.backgroundSize = `100% 100%`
-    // diceTableElementObject.for1.style.backgroundColor = colors[currentColorIndex]
-  }else if(diceRandNoPlayerOnePlayerOne == 2){
-    let recentImg2 = document.getElementById('forPicTwo')
-    recentImg2.style.display = 'block'
-    // diceTableElementObject.for2.style.backgroundColor = colors[currentColorIndex]
-  }else if(diceRandNoPlayerOnePlayerOne == 3){
-    let recentImg3 = document.getElementById('forPicThree')
-    recentImg3.style.display = 'block'
-    // for3.style.backgroundColor = colors[currentColorIndex]
-  }else if(diceRandNoPlayerOnePlayerOne == 4){
-    let recentImg4 = document.getElementById('forPicFour')
-    recentImg4.style.display = 'block'
-    // recentImg4.innerHTML = `<img src='./cf/4.JPG'/>`
-    // for4.style.backgroundColor = colors[currentColorIndex]
-  }else if(diceRandNoPlayerOnePlayerOne == 5){
-    let recentImg5 = document.getElementById('forPicFive')
-    recentImg5.style.display = 'block'
-  }else if(diceRandNoPlayerOnePlayerOne == 6){
-    let recentImg6 = document.getElementById('forPicSix')
-    recentImg6.style.display = 'block'
-  }
+    let recentImg = document.getElementById('forImgOne')
+  recentImg.style.display = 'none'
+  arrayofTablesId.for1.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
+  url("cf/1.JPG")`
+  arrayofTablesId.for1.style.backgroundRepeat = `no-repeat`
+  arrayofTablesId.for1.style.backgroundSize = `100% 100%`
+  // arrayofTablesId.for1.style.backgroundColor = colors[currentColorIndex]
+}else if(diceRandNoPlayerOnePlayerOne == 2){
+  for2.style.backgroundColor = colors[currentColorIndex]
+}else if(diceRandNoPlayerOnePlayerOne == 3){
+  for3.style.backgroundColor = colors[currentColorIndex]
+}else if(diceRandNoPlayerOnePlayerOne == 4){
+  for4.style.backgroundColor = colors[currentColorIndex]
+}else if(diceRandNoPlayerOnePlayerOne == 5){
+  for5.style.backgroundColor = colors[currentColorIndex]
+}else if(diceRandNoPlayerOnePlayerOne == 6){
+  // for6.style.backgroundColor = colors[currentColorIndex]
+  let recentImg6 = document.getElementById('forImgSix')
+  recentImg6.style.display = 'none'
+  arrayofTablesId.for6.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
+  url("cf/6.JPG")`
+  arrayofTablesId.for6.style.backgroundRepeat = `no-repeat`
+  arrayofTablesId.for6.style.backgroundSize = `100% 100%`
+}
 currentColorIndex = (currentColorIndex + 1) % colors.length;
 };
 

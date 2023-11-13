@@ -1,4 +1,77 @@
-const myModal =  bootstrap.Modal.getOrCreateInstance('#booking-modal');
+// jQuery(document).ready(function() {
+//   // $('#modalStart').on('show.bs.model', function (e) {
+//   //   console.log('modal is about to show');
+//   // })
+//   // $('#modalStart').on('shown.bs.model', function (e) {
+//   //   console.log('modal is about to show');
+//   // });
+//   // $('#modalStart').on('hide.bs.model', function (e) {
+//   //   console.log('modal is about to show');
+//   // })
+//   // $('#modalStart').on('hidden.bs.model', function (e) {
+//   //   console.log('modal is about to show');
+//   // })
+//   // alert("gen")
+// });
+// jQuery(function(){
+//   })
+//if any event need to triger after close of modal
+// $('.modalStarter').on('hidden.bs.modal', function (e) {
+//   // Handle the event after the modal is shown
+//   console.log('Modal is fully shown');
+//   // Add your custom logic here
+// });
+const myModalStart =  bootstrap.Modal.getOrCreateInstance('#modalStart');
+const myModal1 =  bootstrap.Modal.getOrCreateInstance('#modal1');
+const myModal2 =  bootstrap.Modal.getOrCreateInstance('#modal2');
+const myModal3 =  bootstrap.Modal.getOrCreateInstance('#modal3');
+const myModal4 =  bootstrap.Modal.getOrCreateInstance('#modal4');
+const myModal5 =  bootstrap.Modal.getOrCreateInstance('#modal5');
+const myModal6 =  bootstrap.Modal.getOrCreateInstance('#modal6');
+const myModal7 =  bootstrap.Modal.getOrCreateInstance('#modal7');
+const myModal8 =  bootstrap.Modal.getOrCreateInstance('#modal8');
+const myModal9 =  bootstrap.Modal.getOrCreateInstance('#modal9');
+const myModal10 =  bootstrap.Modal.getOrCreateInstance('#modal10');
+const myModal11 =  bootstrap.Modal.getOrCreateInstance('#modal11');
+const myModal12 =  bootstrap.Modal.getOrCreateInstance('#modal12');
+const myModal13 =  bootstrap.Modal.getOrCreateInstance('#modal13');
+const myModal14 =  bootstrap.Modal.getOrCreateInstance('#modal14');
+const myModal15 =  bootstrap.Modal.getOrCreateInstance('#modal15');
+const myModal16 =  bootstrap.Modal.getOrCreateInstance('#modal16');
+const myModal17 =  bootstrap.Modal.getOrCreateInstance('#modal17');
+const myModal18 =  bootstrap.Modal.getOrCreateInstance('#modal18');
+const myModal19 =  bootstrap.Modal.getOrCreateInstance('#modal19');
+const myModal20 =  bootstrap.Modal.getOrCreateInstance('#modal20');
+const myModal21 =  bootstrap.Modal.getOrCreateInstance('#modal21');
+const myModal22 =  bootstrap.Modal.getOrCreateInstance('#modal22');
+const myModal23 =  bootstrap.Modal.getOrCreateInstance('#modal23');
+const myModal24 =  bootstrap.Modal.getOrCreateInstance('#modal24');
+const myModal25 =  bootstrap.Modal.getOrCreateInstance('#modal25');
+const myModal26 =  bootstrap.Modal.getOrCreateInstance('#modal26');
+const myModal27 =  bootstrap.Modal.getOrCreateInstance('#modal27');
+const myModal28 =  bootstrap.Modal.getOrCreateInstance('#modal28');
+const myModal29 =  bootstrap.Modal.getOrCreateInstance('#modal29');
+const myModal30 =  bootstrap.Modal.getOrCreateInstance('#modal30');
+const myModal31 =  bootstrap.Modal.getOrCreateInstance('#modal31');
+const myModal32 =  bootstrap.Modal.getOrCreateInstance('#modal32');
+const myModal33 =  bootstrap.Modal.getOrCreateInstance('#modal33');
+const myModal34 =  bootstrap.Modal.getOrCreateInstance('#modal34');
+const myModal35 =  bootstrap.Modal.getOrCreateInstance('#modal35');
+const myModal36 =  bootstrap.Modal.getOrCreateInstance('#modal36');
+const myModal37 =  bootstrap.Modal.getOrCreateInstance('#modal37');
+const myModal38 =  bootstrap.Modal.getOrCreateInstance('#modal38');
+const myModal39 =  bootstrap.Modal.getOrCreateInstance('#modal39');
+const myModal40 =  bootstrap.Modal.getOrCreateInstance('#modal40');
+const myModal41 =  bootstrap.Modal.getOrCreateInstance('#modal41');
+const myModal42 =  bootstrap.Modal.getOrCreateInstance('#modal42');
+const myModal43 =  bootstrap.Modal.getOrCreateInstance('#modal43');
+const myModal44 =  bootstrap.Modal.getOrCreateInstance('#modal44');
+const myModal46 =  bootstrap.Modal.getOrCreateInstance('#modal46');
+const myModal47 =  bootstrap.Modal.getOrCreateInstance('#modal47');
+const myModal48 =  bootstrap.Modal.getOrCreateInstance('#modal48');
+const myModal49 =  bootstrap.Modal.getOrCreateInstance('#modal49');
+const myModal50 =  bootstrap.Modal.getOrCreateInstance('#modal50');
+
 const colors = ['0.1', '0.3', '0.5', '0.7'];
 var diceSound = new Audio('./cf/dice_ass/Rolling-Dice-Sound-effect1.mp3');
 var diceRandNoPlayerOnePlayerOne;
@@ -12,8 +85,33 @@ const retriveMyRandNoStorage = () =>{
   return (retrieveMyRandNoStorageVar)
   // return retrieveMyRandNoStorageVar
 };
+
+const forEntr = (e) =>{
+  if(e.key === 'Enter'){
+    // alert('work')
+    rolDicePlayerOne()
+  }
+  // rolDicePlayerOne()
+}
+// This section is use to focus back on roll dice
+let dispDiceHole = document.getElementById('dispDiceRolOne')
+// // document.getElementById
+window.addEventListener('DOMContentLoaded', ()=>{
+  // alert()
+  dispDiceHole.focus()
+})
+
+document.getElementById('btn-continue').addEventListener('click', ()=>{
+  // alert('iz working')
+  dispDiceHole.focus()
+  // rolDicePlayerOne('cell1')
+
+})
+
+
+var getSessStorFigurVar = retriveMyRandNoStorage()
 // console.log(retriveMyRandNoStorage());
-var arrayofTablesId = {
+var tableObjec = {
 forStart: document.getElementById('forStart'),
 for1 : document.getElementById('for1'),
 for2 : document.getElementById('for2'),
@@ -67,48 +165,79 @@ for49 : document.getElementById('for49')
 }
 // var diceRandNoPlayerOnePlayerTwo;
 // dice luck display condition
+// document.getElementsByClassName
+// below fuction help me to focus on continue btn
+// of modal
+const trigClose = () =>{
+  setTimeout(function(){
+    $('.contine-focus').focus()
+   }, 700)
+}
 const dispLuck = ()=>{
-  if(diceRandNoPlayerOnePlayerOne == 1){
-    dispDiceRolOne.innerHTML = `<img src='./cf/dice_ass/perspective-dice-six-faces-one.png' style="width: 130px; height: 100px;">`
+  if(getSessStorFigurVar == 6){
+    dispDiceRolOne.innerHTML = `<img src='./cf/dice_ass/perspective-dice-six-faces-six.png' style="width: 130px; height: 100px;">`
     // alert('im work')
     // for1.innerHTML = `<img src='./cf/dice_ass/perspective-dice-six-faces-one.png' style="width: 130px; height: 100px;">`
-    // myModal.show()
-  }else if(diceRandNoPlayerOnePlayerOne == 2){
-    dispDiceRolOne.innerHTML = `<img src='./cf/dice_ass/perspective-dice-six-faces-two.png' style="width: 130px; height: 100px;">`
+    dispDiceHole.focus()
+    myModalStart.show()
+    trigClose()
+    
+  }else if(getSessStorFigurVar == 7){
+    dispDiceRolOne.innerHTML = `<img src='./cf/dice_ass/perspective-dice-six-faces-one.png' style="width: 130px; height: 100px;">`
+    dispDiceHole.focus()
+    myModal1.show()
+    trigClose()
+    
+  }else if(getSessStorFigurVar == 8){
+    dispDiceRolOne.innerHTML = `<img src='./cf/dice_ass/perspective-dice-six-faces-two.png' style="width: 130px; height: 100px;">`;
+    dispDiceHole.focus()
+    myModal2.show()
+    trigClose()
 
-  }else if(diceRandNoPlayerOnePlayerOne == 3){
+  }else if(getSessStorFigurVar == 9){
     dispDiceRolOne.innerHTML = `<img src='./cf/dice_ass/perspective-dice-six-faces-three.png' style="width: 130px; height: 100px;">`
-
-  }else if(diceRandNoPlayerOnePlayerOne == 4){
+    dispDiceHole.focus()
+    myModal3.show()
+    trigClose()
+  }else if(getSessStorFigurVar == 10){
     dispDiceRolOne.innerHTML = `<img src='./cf/dice_ass/perspective-dice-six-faces-four.png' style="width: 130px; height: 100px;">`
+    dispDiceHole.focus()
+    myModal4.show()
+    trigClose()
     
-  }else if(diceRandNoPlayerOnePlayerOne == 5){
+  }else if(getSessStorFigurVar == 11){
     dispDiceRolOne.innerHTML = `<img src='./cf/dice_ass/perspective-dice-six-faces-five.png' style="width: 130px; height: 100px;">`
-    
-  }else if(diceRandNoPlayerOnePlayerOne == 6){
-    dispDiceRolOne.innerHTML = `<img src='./cf/dice_ass/perspective-dice-six-faces-six.png' style="width: 130px; height: 100px;">`
-    
+    dispDiceHole.focus()
+    myModal5.show()
+    trigClose()
   }
 };
 
-  var currentColorIndex = 0;
-  // const aFunc = ()=>{
+var currentColorIndex = 0;
+// const aFunc = ()=>{
   // }
   // here is the function to dice
+
+  
   const rolDicePlayerOne = ()=>{
-  dispDiceRolOne.innerHTML = `<img style="width: 130px; height: 100px;" src='./cf/dice_ass/dice.gif'>`
-  diceSound.play();
+    // dispDiceHole.focus()
+    // var cell = document.getElementById(cellId);
+    // if(cell){
+    //   cell.focus();
+    // }
+    dispDiceRolOne.innerHTML = `<img style="width: 130px; height: 100px;" src='./cf/dice_ass/dice.gif'>`
+    diceSound.play();
   // diceRandNoPlayerOne = Math.floor((Math.random() * 6 + 1)); ////
   // diceRandNoPlayerOnePlayerOne = diceRandNoPlayerOne
-  diceRandNoPlayerOnePlayerOne = 6
+  diceRandNoPlayerOnePlayerOne = 10
   setMyRandNoStorage()
   retriveMyRandNoStorage()
   // console.log(retrieveMyRandNoStorageVar);
   ifSixLuck()
   setTimeout(function(){
-    dispLuck()  
+    dispLuck()
     diceSound.pause();
-    myModal.show()
+    // myModal.show()
   }, 1200);
   // var backgroundToBlink = document.getElementById('for40')
   // const colors = ['#ff0000', 'black', '#0000ff'];
@@ -123,40 +252,97 @@ const dispLuck = ()=>{
 }
 
 const blinkBackground = ()=>{
-  if(diceRandNoPlayerOnePlayerOne == 1){
-    let recentImg = document.getElementById('forOne1')
-  recentImg.style.display = 'none'
-  arrayofTablesId.for1.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
-  url("cf/1.JPG")`
-  arrayofTablesId.for1.style.backgroundRepeat = `no-repeat`
-  arrayofTablesId.for1.style.backgroundSize = `100% 100%`
-  // arrayofTablesId.for1.style.backgroundColor = colors[currentColorIndex]
-}else if(diceRandNoPlayerOnePlayerOne == 2){
-  for2.style.backgroundColor = colors[currentColorIndex]
-}else if(diceRandNoPlayerOnePlayerOne == 3){
-  for3.style.backgroundColor = colors[currentColorIndex]
-}else if(diceRandNoPlayerOnePlayerOne == 4){
-  for4.style.backgroundColor = colors[currentColorIndex]
-}else if(diceRandNoPlayerOnePlayerOne == 5){
-  for5.style.backgroundColor = colors[currentColorIndex]
-}else if(diceRandNoPlayerOnePlayerOne == 6){
-  // for6.style.backgroundColor = colors[currentColorIndex]
+  if(getSessStorFigurVar == 6){
+    let recentImgStart = document.getElementById('forImgStart')
+    recentImgStart.style.display = 'none'
+    tableObjec.forStart.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
+    url("cf/start.JPG")`
+    tableObjec.forStart.style.backgroundRepeat = `no-repeat`
+    tableObjec.forStart.style.backgroundSize = `100% 100%`
+  // tableObjec.for1.style.backgroundColor = colors[currentColorIndex]
+}else if(getSessStorFigurVar == 7){
+  let recentImg1 = document.getElementById('forImgOne')
+  recentImg1.style.display = 'none'
+    tableObjec.for1.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
+    url("cf/1.JPG")`
+    tableObjec.for1.style.backgroundRepeat = `no-repeat`
+    tableObjec.for1.style.backgroundSize = `100% 100%`
+  // for2.style.backgroundColor = colors[currentColorIndex]
+}else if(getSessStorFigurVar == 8){
+  let recentImg2 = document.getElementById('forImgTwo')
+  recentImg2.style.display = 'none'
+    tableObjec.for2.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
+    url("cf/2.JPG")`
+    tableObjec.for2.style.backgroundRepeat = `no-repeat`
+    tableObjec.for2.style.backgroundSize = `100% 100%`
+  // for2.style.backgroundColor = colors[currentColorIndex]
+}else if(getSessStorFigurVar == 9){
+  let recentImg3 = document.getElementById('forImgThree')
+  recentImg3.style.display = 'none'
+    tableObjec.for3.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
+    url("cf/3.JPG")`
+    tableObjec.for3.style.backgroundRepeat = `no-repeat`
+    tableObjec.for3.style.backgroundSize = `100% 100%`
+  // for2.style.backgroundColor = colors[currentColorIndex]
+}else if(getSessStorFigurVar == 10){
+  let recentImg4 = document.getElementById('forImgFour')
+  recentImg4.style.display = 'none'
+    tableObjec.for4.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
+    url("cf/4.JPG")`
+    tableObjec.for4.style.backgroundRepeat = `no-repeat`
+    tableObjec.for4.style.backgroundSize = `100% 100%`
+  // for2.style.backgroundColor = colors[currentColorIndex]
+}else if(getSessStorFigurVar == 11){
+  let recentImg5 = document.getElementById('forImgFive')
+  recentImg5.style.display = 'none'
+    tableObjec.for5.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
+    url("cf/5.JPG")`
+    tableObjec.for5.style.backgroundRepeat = `no-repeat`
+    tableObjec.for5.style.backgroundSize = `100% 100%`
+}else if(getSessStorFigurVar == 12){
   let recentImg6 = document.getElementById('forImgSix')
   recentImg6.style.display = 'none'
-  arrayofTablesId.for6.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
-  url("cf/6.JPG")`
-  arrayofTablesId.for6.style.backgroundRepeat = `no-repeat`
-  arrayofTablesId.for6.style.backgroundSize = `100% 100%`
+    tableObjec.for6.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
+    url("cf/6.JPG")`
+    tableObjec.for6.style.backgroundRepeat = `no-repeat`
+    tableObjec.for6.style.backgroundSize = `100% 100%`
+}else if(getSessStorFigurVar == 13){
+  let recentImg7 = document.getElementById('forImgSeven')
+  recentImg7.style.display = 'none'
+    tableObjec.for7.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
+    url("cf/7.JPG")`
+    tableObjec.for7.style.backgroundRepeat = `no-repeat`
+    tableObjec.for7.style.backgroundSize = `100% 100%`
+}else if(getSessStorFigurVar == 14){
+  let recentImg7 = document.getElementById('forImgEight')
+  recentImg7.style.display = 'none'
+    tableObjec.for7.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
+    url("cf/7.JPG")`
+    tableObjec.for7.style.backgroundRepeat = `no-repeat`
+    tableObjec.for7.style.backgroundSize = `100% 100%`
+}else if(getSessStorFigurVar == 12){
+  let recentImg6 = document.getElementById('forImgSix')
+  recentImg6.style.display = 'none'
+    tableObjec.for6.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
+    url("cf/6.JPG")`
+    tableObjec.for6.style.backgroundRepeat = `no-repeat`
+    tableObjec.for6.style.backgroundSize = `100% 100%`
+}else if(getSessStorFigurVar == 12){
+  let recentImg6 = document.getElementById('forImgSix')
+  recentImg6.style.display = 'none'
+    tableObjec.for6.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
+    url("cf/6.JPG")`
+    tableObjec.for6.style.backgroundRepeat = `no-repeat`
+    tableObjec.for6.style.backgroundSize = `100% 100%`
 }
 currentColorIndex = (currentColorIndex + 1) % colors.length;
 };
 
-// console.log(paraRet);
+// console.log(getSessStorFigurVar);
 const ifSixLuck = () =>{
-  var paraRet = retriveMyRandNoStorage()
   // console.log(typeof(retrieveMyRandNoStorageVar));
 
-if(paraRet == 6){
+if(getSessStorFigurVar >= 6){
   const blinkingInterval = setInterval(blinkBackground, 800)
   setTimeout(()=>{
     clearInterval(blinkingInterval);

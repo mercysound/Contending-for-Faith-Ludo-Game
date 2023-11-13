@@ -6,7 +6,10 @@
   <title>Contending for Faith</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="css/bootstrap.css">
+  <script src="jquery.js"></script>
   <script defer src="./js/bootstrap.js"></script>
+  <!-- <script defer src="./js/jq"></script> -->
+
   <script defer src="contendFaith.js"></script>
 </head>
 <body>
@@ -17,51 +20,954 @@
 </button>
 
 <!-- Modal -->
-<!-- for mod 1 -->
-<section class="modal fade" id="booking-modal" tabindex="-1" >
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-       <img src="./cf/1.JPG" alt="" width="100%">
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Continue</button>
-        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+<!-- for modal box group -->
+<section>
+  <div class="modalStarter modal fade" id="modalStart" tabindex="-1" >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+         <img src="./cf/start.JPG" alt="" width="100%">
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="btn-continue" class="btn btn-secondary contine-focus" data-bs-dismiss="modal" >Continue</button>
+        </div>
       </div>
     </div>
   </div>
-</section>
-<section class="modal fade" id="modal2" tabindex="-1" >
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+  <div class="modal fade" id="modal1" tabindex="-1" >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+         <img src="./cf/1.JPG" alt="" width="100%">
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="btn-continue" class="btn btn-secondary contine-focus" data-bs-dismiss="modal" >Continue</button>
+          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+        </div>
       </div>
-      <div class="modal-body">
-       <img src="./cf/2.JPG" alt="" width="100%">
+    </div>
+  </div>
+  <div class="modal fade" id="modal2" tabindex="-1" >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+         <img src="./cf/2.JPG" alt="" width="100%">
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="btn-continue" class="btn btn-secondary contine-focus" data-bs-dismiss="modal" >Continue</button>
+          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+        </div>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Continue</button>
-        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+    </div>
+  </div>
+  <div class="modal fade" id="modal3" tabindex="-1" >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+         <img src="./cf/3.JPG" alt="" width="100%">
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="btn-continue" class="btn btn-secondary contine-focus" data-bs-dismiss="modal" >Continue</button>
+          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="modal4" tabindex="-1" >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+         <img src="./cf/4.JPG" alt="" width="100%">
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="btn-continue" class="btn btn-secondary contine-focus" data-bs-dismiss="modal" >Continue</button>
+          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="modal5" tabindex="-1" >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+         <img src="./cf/5.JPG" alt="" width="100%">
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="btn-continue" class="btn btn-secondary contine-focus" data-bs-dismiss="modal" >Continue</button>
+          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="modal6" tabindex="-1" >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+         <img src="./cf/6.JPG" alt="" width="100%">
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="btn-continue" class="btn btn-secondary contine-focus" data-bs-dismiss="modal" >Continue</button>
+          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="modal7" tabindex="-1" >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+         <img src="./cf/7.JPG" alt="" width="100%">
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="btn-continue" class="btn btn-secondary contine-focus" data-bs-dismiss="modal" >Continue</button>
+          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="modal8" tabindex="-1" >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+         <img src="./cf/8.JPG" alt="" width="100%">
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="btn-continue" class="btn btn-secondary contine-focus" data-bs-dismiss="modal" >Continue</button>
+          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="modal9" tabindex="-1" >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+         <img src="./cf/9.JPG" alt="" width="100%">
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="btn-continue" class="btn btn-secondary contine-focus" data-bs-dismiss="modal" >Continue</button>
+          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="modal10" tabindex="-1" >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+         <img src="./cf/10.JPG" alt="" width="100%">
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="btn-continue" class="btn btn-secondary contine-focus" data-bs-dismiss="modal" >Continue</button>
+          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="modal11" tabindex="-1" >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+         <img src="./cf/11.JPG" alt="" width="100%">
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="btn-continue" class="btn btn-secondary contine-focus" data-bs-dismiss="modal" >Continue</button>
+          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="modal12" tabindex="-1" >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+         <img src="./cf/12.JPG" alt="" width="100%">
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="btn-continue" class="btn btn-secondary contine-focus" data-bs-dismiss="modal" >Continue</button>
+          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="modal13" tabindex="-1" >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+         <img src="./cf/13.JPG" alt="" width="100%">
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="btn-continue" class="btn btn-secondary contine-focus" data-bs-dismiss="modal" >Continue</button>
+          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="modal14" tabindex="-1" >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+         <img src="./cf/14.JPG" alt="" width="100%">
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="btn-continue" class="btn btn-secondary contine-focus" data-bs-dismiss="modal" >Continue</button>
+          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="modal15" tabindex="-1" >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+         <img src="./cf/15.JPG" alt="" width="100%">
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="btn-continue" class="btn btn-secondary contine-focus" data-bs-dismiss="modal" >Continue</button>
+          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="modal16" tabindex="-1" >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+         <img src="./cf/16.JPG" alt="" width="100%">
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="btn-continue" class="btn btn-secondary contine-focus" data-bs-dismiss="modal" >Continue</button>
+          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="modal17" tabindex="-1" >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+         <img src="./cf/17.JPG" alt="" width="100%">
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="btn-continue" class="btn btn-secondary contine-focus" data-bs-dismiss="modal" >Continue</button>
+          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="modal18" tabindex="-1" >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+         <img src="./cf/18.JPG" alt="" width="100%">
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="btn-continue" class="btn btn-secondary contine-focus" data-bs-dismiss="modal" >Continue</button>
+          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="modal19" tabindex="-1" >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+         <img src="./cf/19.JPG" alt="" width="100%">
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="btn-continue" class="btn btn-secondary contine-focus" data-bs-dismiss="modal" >Continue</button>
+          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="modal20" tabindex="-1" >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+         <img src="./cf/20.JPG" alt="" width="100%">
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="btn-continue" class="btn btn-secondary contine-focus" data-bs-dismiss="modal" >Continue</button>
+          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="modal21" tabindex="-1" >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+         <img src="./cf/21.JPG" alt="" width="100%">
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="btn-continue" class="btn btn-secondary contine-focus" data-bs-dismiss="modal" >Continue</button>
+          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="modal22" tabindex="-1" >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+         <img src="./cf/22.JPG" alt="" width="100%">
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="btn-continue" class="btn btn-secondary contine-focus" data-bs-dismiss="modal" >Continue</button>
+          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="modal21" tabindex="-1" >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+         <img src="./cf/21.JPG" alt="" width="100%">
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="btn-continue" class="btn btn-secondary contine-focus" data-bs-dismiss="modal" >Continue</button>
+          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="modal22" tabindex="-1" >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+         <img src="./cf/22.JPG" alt="" width="100%">
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="btn-continue" class="btn btn-secondary contine-focus" data-bs-dismiss="modal" >Continue</button>
+          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="modal23" tabindex="-1" >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+         <img src="./cf/23.JPG" alt="" width="100%">
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="btn-continue" class="btn btn-secondary contine-focus" data-bs-dismiss="modal" >Continue</button>
+          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="modal24" tabindex="-1" >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+         <img src="./cf/24.JPG" alt="" width="100%">
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="btn-continue" class="btn btn-secondary contine-focus" data-bs-dismiss="modal" >Continue</button>
+          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="modal25" tabindex="-1" >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+         <img src="./cf/25.JPG" alt="" width="100%">
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="btn-continue" class="btn btn-secondary contine-focus" data-bs-dismiss="modal" >Continue</button>
+          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="modal26" tabindex="-1" >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+         <img src="./cf/26.JPG" alt="" width="100%">
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="btn-continue" class="btn btn-secondary contine-focus" data-bs-dismiss="modal" >Continue</button>
+          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="modal27" tabindex="-1" >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+         <img src="./cf/27.JPG" alt="" width="100%">
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="btn-continue" class="btn btn-secondary contine-focus" data-bs-dismiss="modal" >Continue</button>
+          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="modal28" tabindex="-1" >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+         <img src="./cf/28.JPG" alt="" width="100%">
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="btn-continue" class="btn btn-secondary contine-focus" data-bs-dismiss="modal" >Continue</button>
+          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="modal29" tabindex="-1" >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+         <img src="./cf/29.JPG" alt="" width="100%">
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="btn-continue" class="btn btn-secondary contine-focus" data-bs-dismiss="modal" >Continue</button>
+          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="modal30" tabindex="-1" >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+         <img src="./cf/30.JPG" alt="" width="100%">
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="btn-continue" class="btn btn-secondary contine-focus" data-bs-dismiss="modal" >Continue</button>
+          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="modal31" tabindex="-1" >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+         <img src="./cf/31.JPG" alt="" width="100%">
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="btn-continue" class="btn btn-secondary contine-focus" data-bs-dismiss="modal" >Continue</button>
+          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="modal32" tabindex="-1" >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+         <img src="./cf/32.JPG" alt="" width="100%">
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="btn-continue" class="btn btn-secondary contine-focus" data-bs-dismiss="modal" >Continue</button>
+          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="modal33" tabindex="-1" >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+         <img src="./cf/33.JPG" alt="" width="100%">
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="btn-continue" class="btn btn-secondary contine-focus" data-bs-dismiss="modal" >Continue</button>
+          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="modal34" tabindex="-1" >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+         <img src="./cf/34.JPG" alt="" width="100%">
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="btn-continue" class="btn btn-secondary contine-focus" data-bs-dismiss="modal" >Continue</button>
+          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="modal35" tabindex="-1" >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+         <img src="./cf/35.JPG" alt="" width="100%">
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="btn-continue" class="btn btn-secondary contine-focus" data-bs-dismiss="modal" >Continue</button>
+          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="modal36" tabindex="-1" >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+         <img src="./cf/36.JPG" alt="" width="100%">
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="btn-continue" class="btn btn-secondary contine-focus" data-bs-dismiss="modal" >Continue</button>
+          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="modal37" tabindex="-1" >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+         <img src="./cf/37.JPG" alt="" width="100%">
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="btn-continue" class="btn btn-secondary contine-focus" data-bs-dismiss="modal" >Continue</button>
+          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="modal38" tabindex="-1" >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+         <img src="./cf/38.JPG" alt="" width="100%">
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="btn-continue" class="btn btn-secondary contine-focus" data-bs-dismiss="modal" >Continue</button>
+          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="modal39" tabindex="-1" >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+         <img src="./cf/39.JPG" alt="" width="100%">
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="btn-continue" class="btn btn-secondary contine-focus" data-bs-dismiss="modal" >Continue</button>
+          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="modal40" tabindex="-1" >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+         <img src="./cf/40.JPG" alt="" width="100%">
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="btn-continue" class="btn btn-secondary contine-focus" data-bs-dismiss="modal" >Continue</button>
+          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="modal41" tabindex="-1" >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+         <img src="./cf/41.JPG" alt="" width="100%">
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="btn-continue" class="btn btn-secondary contine-focus" data-bs-dismiss="modal" >Continue</button>
+          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="modal42" tabindex="-1" >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+         <img src="./cf/42.JPG" alt="" width="100%">
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="btn-continue" class="btn btn-secondary contine-focus" data-bs-dismiss="modal" >Continue</button>
+          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="modal43" tabindex="-1" >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+         <img src="./cf/43.JPG" alt="" width="100%">
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="btn-continue" class="btn btn-secondary contine-focus" data-bs-dismiss="modal" >Continue</button>
+          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="modal44" tabindex="-1" >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+         <img src="./cf/44.JPG" alt="" width="100%">
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="btn-continue" class="btn btn-secondary contine-focus" data-bs-dismiss="modal" >Continue</button>
+          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="modal45" tabindex="-1" >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+         <img src="./cf/45.JPG" alt="" width="100%">
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="btn-continue" class="btn btn-secondary contine-focus" data-bs-dismiss="modal" >Continue</button>
+          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="modal46" tabindex="-1" >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+         <img src="./cf/46.JPG" alt="" width="100%">
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="btn-continue" class="btn btn-secondary contine-focus" data-bs-dismiss="modal" >Continue</button>
+          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="modal47" tabindex="-1" >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+         <img src="./cf/47.JPG" alt="" width="100%">
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="btn-continue" class="btn btn-secondary contine-focus" data-bs-dismiss="modal" >Continue</button>
+          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="modal48" tabindex="-1" >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+         <img src="./cf/48.JPG" alt="" width="100%">
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="btn-continue" class="btn btn-secondary contine-focus" data-bs-dismiss="modal" >Continue</button>
+          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="modal49" tabindex="-1" >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+         <img src="./cf/49.JPG" alt="" width="100%">
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="btn-continue" class="btn btn-secondary contine-focus" data-bs-dismiss="modal" >Continue</button>
+          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="modal50" tabindex="-1" >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+         <img src="./cf/50.JPG" alt="" width="100%">
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="btn-continue" class="btn btn-secondary contine-focus" data-bs-dismiss="modal" >Continue</button>
+          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="modalEnd" tabindex="-1" >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+         <img src="./cf/end.JPG" alt="" width="100%">
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="btn-continue" class="btn btn-secondary contine-focus" data-bs-dismiss="modal" >Continue</button>
+          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="modal6" tabindex="-1" >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+         <img src="./cf/6.JPG" alt="" width="100%">
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="btn-continue" class="btn btn-secondary contine-focus" data-bs-dismiss="modal" >Continue</button>
+          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+        </div>
       </div>
     </div>
   </div>
 </section>
 
+
   <div class="tbPar">
     <table>
-      <tr>
-        <td colspan="3" id="dispDiceRolOne" onclick="rolDicePlayerOne()"><img src="./cf/dice_ass/dice-rest-state.JPG" alt="" style="width: 130px; height: 110px;"></td>
+      <tr id="forCol6">
+        <td class="editable" colspan="3" id="dispDiceRolOne" contenteditable="true" onkeydown="forEntr(event)" onclick="rolDicePlayerOne()"><img src="./cf/dice_ass/dice-rest-state.JPG" alt="" style="width: 130px; height: 110px;"></td>
         <td colspan="5"></td>
         <td colspan="" id="dispDiceRolTwo" onclick="rolDicePlayerTwo()"><img src="./cf/dice_ass/dice-rest-state.JPG" alt="" style="width: 130px; height: 110px;"></td>
         <td rowspan=""><img src="./cf/50.JPG" alt=""></td>
       </tr>
-      <tr>
+      <tr id="forCol5">
         <td id="for40"><img src="./cf/40.JPG" alt=""></td>
         <td id="for41"><img src="./cf/41.JPG" alt=""></td>
         <td id="for42"><img src="./cf/42.JPG" alt=""></td>
@@ -73,7 +979,7 @@
         <td id="for48"><img src="./cf/48.JPG" alt=""></td>
         <td id="for49"><img src="./cf/49.JPG" alt=""></td>
       </tr>
-      <tr>
+      <tr id="forCol4">
         <td id="for30"><img src="./cf/30.JPG" alt=""></td>
         <td id="for31"><img src="./cf/31.JPG" alt=""></td>
         <td id="for32"><img src="./cf/32.JPG" alt=""></td>
@@ -85,7 +991,7 @@
         <td id="for38"><img src="./cf/38.JPG" alt=""></td>
         <td id="for39"><img src="./cf/39.JPG" alt=""></td>
       </tr>
-      <tr>
+      <tr id="forCol3">
         <td id="for20"><img src="./cf/20.JPG" alt=""></td>
         <td id="for21"><img src="./cf/21.JPG" alt=""></td>
         <td id="for22"><img src="./cf/22.JPG" alt=""></td>
@@ -97,7 +1003,7 @@
         <td id="for28"><img src="./cf/28.JPG" alt=""></td>
         <td id="for29"><img src="./cf/29.JPG" alt=""></td>
       </tr>
-      <tr>
+      <tr id="forCol2">
         <td id="for10"><img src="./cf/10.JPG" alt=""></td>
         <td id="for11"><img src="./cf/11.JPG" alt=""></td>
         <td id="for12"><img src="./cf/12.JPG" alt=""></td>
@@ -109,17 +1015,17 @@
         <td id="for18"><img src="./cf/18.JPG" alt=""></td>
         <td id="for19"><img src="./cf/19.JPG" alt=""></td>
       </tr>
-      <tr>
-        <td id="forStart"><img id="forSt" src="./cf/start.JPG" alt=""></td>
-        <td id="for1"><img id="forOne1" src="./cf/1.JPG" alt=""></td>
-        <td id="for2"><img id="forTwo" src="./cf/2.JPG" alt=""></td>
-        <td id="for3"><img id="forThre" src="./cf/3.JPG" alt=""></td>
-        <td id="for4"><img id="for4" src="./cf/4.JPG" alt=""></td>
-        <td id="for5"><img id="for5" src="./cf/5.JPG" alt=""></td>
+      <tr id="forCol1">
+        <td id="forStart"><img id="forImgStart" src="./cf/start.JPG" alt=""></td>
+        <td id="for1"><img id="forImgOne" src="./cf/1.JPG" alt=""></td>
+        <td id="for2"><img id="forImgTwo" src="./cf/2.JPG" alt=""></td>
+        <td id="for3"><img id="forImgThree" src="./cf/3.JPG" alt=""></td>
+        <td id="for4"><img id="forImgFour" src="./cf/4.JPG" alt=""></td>
+        <td id="for5"><img id="forImgFive" src="./cf/5.JPG" alt=""></td>
         <td id="for6"><img id="forImgSix" src="./cf/6.JPG" alt=""></td>
-        <td id="for7"><img id="for7" src="./cf/7.JPG" alt=""></td>
-        <td id="for8"><img id="for8" src="./cf/8.JPG" alt=""></td>
-        <td id="for9"><img id="for9" src="./cf/9.JPG" alt=""></td>
+        <td id="for7"><img id="forImgSeven" src="./cf/7.JPG" alt=""></td>
+        <td id="for8"><img id="forImgEight" src="./cf/8.JPG" alt=""></td>
+        <td id="for9"><img id="forImgNine" src="./cf/9.JPG" alt=""></td>
       </tr>
     </table>
   </div>
