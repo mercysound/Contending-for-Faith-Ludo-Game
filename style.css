@@ -8,6 +8,8 @@ body{
   padding: 0px;
 }
 .tbPar table td{
+  width: 150px;
+  height: 100px;
   /* max-width: 30px;
   max-height: 30px; */
 }
@@ -21,4 +23,5 @@ body{
   outline: none;
   background-color: transparent;
   cursor: pointer;
+  display: hide;
 }

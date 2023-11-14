@@ -16,11 +16,12 @@
 // jQuery(function(){
 //   })
 //if any event need to triger after close of modal
-// $('.modalStarter').on('hidden.bs.modal', function (e) {
-//   // Handle the event after the modal is shown
-//   console.log('Modal is fully shown');
-//   // Add your custom logic here
-// });
+$('.modalStarter').on('hidden.bs.modal', function (e) {
+  // Handle the event after the modal is shown
+  console.log('Modal is fully shown');
+  dispDiceHole.focus()
+  // Add your custom logic here
+});
 const myModalStart =  bootstrap.Modal.getOrCreateInstance('#modalStart');
 const myModal1 =  bootstrap.Modal.getOrCreateInstance('#modal1');
 const myModal2 =  bootstrap.Modal.getOrCreateInstance('#modal2');
@@ -79,12 +80,28 @@ var diceRandNoPlayerOnePlayerOne;
 const setMyRandNoStorage = () =>{
   var myRandNoStorageVar = sessionStorage.setItem("myNum", JSON.stringify(diceRandNoPlayerOnePlayerOne))
 };
+var retrieveMyRandNoStorageVar
 const retriveMyRandNoStorage = () =>{
-  var retrieveMyRandNoStorageVar = JSON.parse(sessionStorage.getItem("myNum"))
+   retrieveMyRandNoStorageVar = JSON.parse(sessionStorage.getItem("myNum"))
   // console.log(retrieveMyRandNoStorageVar);
   return (retrieveMyRandNoStorageVar)
   // return retrieveMyRandNoStorageVar
 };
+
+// This section is use to focus back on roll dice
+let dispDiceHole = $('.editable')
+// // document.getElementById
+window.addEventListener('DOMContentLoaded', ()=>{
+  dispDiceHole.focus()
+  // alert()
+})
+// this is to add onclick to all cont btn
+document.getElementById('btn-continue').addEventListener('click', ()=>{
+  // alert('iz working')
+  dispDiceHole.focus()
+  // rolDicePlayerOne('cell1')
+
+})
 
 const forEntr = (e) =>{
   if(e.key === 'Enter'){
@@ -93,23 +110,11 @@ const forEntr = (e) =>{
   }
   // rolDicePlayerOne()
 }
-// This section is use to focus back on roll dice
-let dispDiceHole = document.getElementById('dispDiceRolOne')
-// // document.getElementById
-window.addEventListener('DOMContentLoaded', ()=>{
-  // alert()
-  dispDiceHole.focus()
-})
-
-document.getElementById('btn-continue').addEventListener('click', ()=>{
-  // alert('iz working')
-  dispDiceHole.focus()
-  // rolDicePlayerOne('cell1')
-
-})
 
 
-var getSessStorFigurVar = retriveMyRandNoStorage()
+
+var getSessStorFigurVar;
+console.log(getSessStorFigurVar);
 // console.log(retriveMyRandNoStorage());
 var tableObjec = {
 forStart: document.getElementById('forStart'),
@@ -178,41 +183,63 @@ const dispLuck = ()=>{
     dispDiceRolOne.innerHTML = `<img src='./cf/dice_ass/perspective-dice-six-faces-six.png' style="width: 130px; height: 100px;">`
     // alert('im work')
     // for1.innerHTML = `<img src='./cf/dice_ass/perspective-dice-six-faces-one.png' style="width: 130px; height: 100px;">`
-    dispDiceHole.focus()
+    // dispDiceHole.focus()
     myModalStart.show()
     trigClose()
-    
-  }else if(getSessStorFigurVar == 7){
+  
+  }
+  else if(getSessStorFigurVar == 7){
+    // try{
     dispDiceRolOne.innerHTML = `<img src='./cf/dice_ass/perspective-dice-six-faces-one.png' style="width: 130px; height: 100px;">`
-    dispDiceHole.focus()
     myModal1.show()
     trigClose()
-    
+    // dispDiceHole.focus()
+  // }catch(e){
+  //   console.log(e);
+  // }
   }else if(getSessStorFigurVar == 8){
     dispDiceRolOne.innerHTML = `<img src='./cf/dice_ass/perspective-dice-six-faces-two.png' style="width: 130px; height: 100px;">`;
-    dispDiceHole.focus()
+    // dispDiceHole.focus()
     myModal2.show()
     trigClose()
 
   }else if(getSessStorFigurVar == 9){
     dispDiceRolOne.innerHTML = `<img src='./cf/dice_ass/perspective-dice-six-faces-three.png' style="width: 130px; height: 100px;">`
-    dispDiceHole.focus()
+    // dispDiceHole.focus()
     myModal3.show()
     trigClose()
   }else if(getSessStorFigurVar == 10){
     dispDiceRolOne.innerHTML = `<img src='./cf/dice_ass/perspective-dice-six-faces-four.png' style="width: 130px; height: 100px;">`
-    dispDiceHole.focus()
+    // dispDiceHole.focus()
     myModal4.show()
     trigClose()
     
   }else if(getSessStorFigurVar == 11){
     dispDiceRolOne.innerHTML = `<img src='./cf/dice_ass/perspective-dice-six-faces-five.png' style="width: 130px; height: 100px;">`
-    dispDiceHole.focus()
+    // dispDiceHole.focus()
     myModal5.show()
     trigClose()
-  }
-};
+  
+}else if(getSessStorFigurVar == 12){
+  dispDiceRolOne.innerHTML = `<img src='./cf/dice_ass/perspective-dice-six-faces-six.png' style="width: 130px; height: 100px;">`
+  // dispDiceHole.focus()
+  myModal6.show()
+  trigClose()
 
+}else if(getSessStorFigurVar == 13){
+  dispDiceRolOne.innerHTML = `<img src='./cf/dice_ass/perspective-dice-six-faces-seven.png' style="width: 130px; height: 100px;">`
+  // dispDiceHole.focus()
+  myModal6.show()
+  trigClose()
+
+}else if(getSessStorFigurVar == 14){
+  dispDiceRolOne.innerHTML = `<img src='./cf/dice_ass/perspective-dice-six-faces-eight.png' style="width: 130px; height: 100px;">`
+  // dispDiceHole.focus()
+  myModal7.show()
+  trigClose()
+
+}
+}
 var currentColorIndex = 0;
 // const aFunc = ()=>{
   // }
@@ -229,10 +256,11 @@ var currentColorIndex = 0;
     diceSound.play();
   // diceRandNoPlayerOne = Math.floor((Math.random() * 6 + 1)); ////
   // diceRandNoPlayerOnePlayerOne = diceRandNoPlayerOne
-  diceRandNoPlayerOnePlayerOne = 10
+  diceRandNoPlayerOnePlayerOne = 8
   setMyRandNoStorage()
   retriveMyRandNoStorage()
   // console.log(retrieveMyRandNoStorageVar);
+  getSessStorFigurVar = retrieveMyRandNoStorageVar
   ifSixLuck()
   setTimeout(function(){
     dispLuck()
@@ -257,8 +285,8 @@ const blinkBackground = ()=>{
     recentImgStart.style.display = 'none'
     tableObjec.forStart.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
     url("cf/start.JPG")`
-    tableObjec.forStart.style.backgroundRepeat = `no-repeat`
     tableObjec.forStart.style.backgroundSize = `100% 100%`
+    tableObjec.forStart.style.backgroundRepeat = `no-repeat`
   // tableObjec.for1.style.backgroundColor = colors[currentColorIndex]
 }else if(getSessStorFigurVar == 7){
   let recentImg1 = document.getElementById('forImgOne')
@@ -314,26 +342,12 @@ const blinkBackground = ()=>{
     tableObjec.for7.style.backgroundRepeat = `no-repeat`
     tableObjec.for7.style.backgroundSize = `100% 100%`
 }else if(getSessStorFigurVar == 14){
-  let recentImg7 = document.getElementById('forImgEight')
-  recentImg7.style.display = 'none'
+  let recentImg8 = document.getElementById('forImgEight')
+  recentImg8.style.display = 'none'
     tableObjec.for7.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
     url("cf/7.JPG")`
-    tableObjec.for7.style.backgroundRepeat = `no-repeat`
-    tableObjec.for7.style.backgroundSize = `100% 100%`
-}else if(getSessStorFigurVar == 12){
-  let recentImg6 = document.getElementById('forImgSix')
-  recentImg6.style.display = 'none'
-    tableObjec.for6.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
-    url("cf/6.JPG")`
-    tableObjec.for6.style.backgroundRepeat = `no-repeat`
-    tableObjec.for6.style.backgroundSize = `100% 100%`
-}else if(getSessStorFigurVar == 12){
-  let recentImg6 = document.getElementById('forImgSix')
-  recentImg6.style.display = 'none'
-    tableObjec.for6.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
-    url("cf/6.JPG")`
-    tableObjec.for6.style.backgroundRepeat = `no-repeat`
-    tableObjec.for6.style.backgroundSize = `100% 100%`
+    tableObjec.for8.style.backgroundRepeat = `no-repeat`
+    tableObjec.for8.style.backgroundSize = `100% 100%`
 }
 currentColorIndex = (currentColorIndex + 1) % colors.length;
 };
