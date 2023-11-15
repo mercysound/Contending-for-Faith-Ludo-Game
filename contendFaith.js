@@ -77,7 +77,8 @@ const myModal50 =  bootstrap.Modal.getOrCreateInstance('#modal50');
 const colors = ['0.1', '0.3', '0.5', '0.7'];
 var diceSound = new Audio('./cf/dice_ass/Rolling-Dice-Sound-effect1.mp3');
 var diceRandNoPlayerOnePlayerOne = 0;
-
+var currentColorIndex = 0;
+var restart;
 // Here is my session stor setter and getter func
 const setMyRandNoStorage = () =>{
     var myRandNoStorageVar = sessionStorage.setItem("myNum", JSON.stringify(diceRandNoPlayerOnePlayerOne))
@@ -200,10 +201,7 @@ const dispLuck = ()=>{
     ifSixLuck();
   }, 500);
 }
-
-var currentColorIndex = 0;
-  var restart;
-  restart = pro
+  
   const rolDicePlayerOne = ()=>{
 
 
@@ -214,13 +212,23 @@ var currentColorIndex = 0;
 
   if(diceRandNoPlayerOnePlayerOne + diceRandNoPlayerOne >= 56){
     diceRandNoPlayerOnePlayerOne = 56
-
     alert("you won")
+    restart = confirm("do you want to restart")
+    if(restart){
+      sessionStorage.clear()
+      // setMyRandNoStorage()
+      window.location.reload()
+    }
   }else if((diceRandNoPlayerOnePlayerOne == 50 && diceRandNoPlayerOne == 6) || (diceRandNoPlayerOnePlayerOne >= 51 && diceRandNoPlayerOne == 5)  || (diceRandNoPlayerOnePlayerOne >= 52 && diceRandNoPlayerOne == 4)  || (diceRandNoPlayerOnePlayerOne >= 53 && diceRandNoPlayerOne == 3)  || (diceRandNoPlayerOnePlayerOne >= 54 && diceRandNoPlayerOne == 2)  || (diceRandNoPlayerOnePlayerOne >= 55 && diceRandNoPlayerOne == 1)){
     diceRandNoPlayerOnePlayerOne += diceRandNoPlayerOne
     diceRandNoPlayerOnePlayerOne = 56
     alert("You WOn")
-    
+    restart = confirm("do you want to restart")
+    if(restart){
+      sessionStorage.clear()
+      // setMyRandNoStorage()
+      window.location.reload()
+    }
   }else if(diceRandNoPlayerOne == 6 && diceRandNoPlayerOnePlayerOne == 0){
     diceRandNoPlayerOnePlayerOne = diceRandNoPlayerOne
   }else if(diceRandNoPlayerOnePlayerOne >= 6){
