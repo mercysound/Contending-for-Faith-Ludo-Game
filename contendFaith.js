@@ -633,90 +633,90 @@ const blinkBackground = ()=>{
     url("cf/25.JPG")`
     tableObjec.for25.style.backgroundRepeat = `no-repeat`
     tableObjec.for25.style.backgroundSize = `100% 100%`
-}else if(getSessStorFigurVar == 16){
-  let recentImg10 = document.getElementById('forImgTen')
-  recentImg10.style.display = 'none'
-    tableObjec.for10.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
-    url("cf/10.JPG")`
-    tableObjec.for10.style.backgroundRepeat = `no-repeat`
-    tableObjec.for10.style.backgroundSize = `100% 100%`
-}else if(getSessStorFigurVar == 16){
-  let recentImg10 = document.getElementById('forImgTen')
-  recentImg10.style.display = 'none'
-    tableObjec.for10.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
-    url("cf/10.JPG")`
-    tableObjec.for10.style.backgroundRepeat = `no-repeat`
-    tableObjec.for10.style.backgroundSize = `100% 100%`
-}else if(getSessStorFigurVar == 16){
-  let recentImg10 = document.getElementById('forImgTen')
-  recentImg10.style.display = 'none'
-    tableObjec.for10.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
-    url("cf/10.JPG")`
-    tableObjec.for10.style.backgroundRepeat = `no-repeat`
-    tableObjec.for10.style.backgroundSize = `100% 100%`
-}else if(getSessStorFigurVar == 16){
-  let recentImg10 = document.getElementById('forImgTen')
-  recentImg10.style.display = 'none'
-    tableObjec.for10.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
-    url("cf/10.JPG")`
-    tableObjec.for10.style.backgroundRepeat = `no-repeat`
-    tableObjec.for10.style.backgroundSize = `100% 100%`
-}else if(getSessStorFigurVar == 16){
-  let recentImg10 = document.getElementById('forImgTen')
-  recentImg10.style.display = 'none'
-    tableObjec.for10.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
-    url("cf/10.JPG")`
-    tableObjec.for10.style.backgroundRepeat = `no-repeat`
-    tableObjec.for10.style.backgroundSize = `100% 100%`
-}else if(getSessStorFigurVar == 16){
-  let recentImg10 = document.getElementById('forImgTen')
-  recentImg10.style.display = 'none'
-    tableObjec.for10.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
-    url("cf/10.JPG")`
-    tableObjec.for10.style.backgroundRepeat = `no-repeat`
-    tableObjec.for10.style.backgroundSize = `100% 100%`
-}else if(getSessStorFigurVar == 16){
-  let recentImg10 = document.getElementById('forImgTen')
-  recentImg10.style.display = 'none'
-    tableObjec.for10.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
-    url("cf/10.JPG")`
-    tableObjec.for10.style.backgroundRepeat = `no-repeat`
-    tableObjec.for10.style.backgroundSize = `100% 100%`
-}else if(getSessStorFigurVar == 16){
-  let recentImg10 = document.getElementById('forImgTen')
-  recentImg10.style.display = 'none'
-    tableObjec.for10.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
-    url("cf/10.JPG")`
-    tableObjec.for10.style.backgroundRepeat = `no-repeat`
-    tableObjec.for10.style.backgroundSize = `100% 100%`
-}else if(getSessStorFigurVar == 16){
-  let recentImg10 = document.getElementById('forImgTen')
-  recentImg10.style.display = 'none'
-    tableObjec.for10.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
-    url("cf/10.JPG")`
-    tableObjec.for10.style.backgroundRepeat = `no-repeat`
-    tableObjec.for10.style.backgroundSize = `100% 100%`
-}else if(getSessStorFigurVar == 16){
-  let recentImg10 = document.getElementById('forImgTen')
-  recentImg10.style.display = 'none'
-    tableObjec.for10.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
-    url("cf/10.JPG")`
-    tableObjec.for10.style.backgroundRepeat = `no-repeat`
-    tableObjec.for10.style.backgroundSize = `100% 100%`
-}else if(getSessStorFigurVar == 16){
-  let recentImg10 = document.getElementById('forImgTen')
-  recentImg10.style.display = 'none'
-    tableObjec.for10.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
-    url("cf/10.JPG")`
-    tableObjec.for10.style.backgroundRepeat = `no-repeat`
-    tableObjec.for10.style.backgroundSize = `100% 100%`
-}else if(getSessStorFigurVar == 16){
-  let recentImg10 = document.getElementById('forImgTen')
-  recentImg10.style.display = 'none'
-    tableObjec.for10.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
-    url("cf/10.JPG")`
-    tableObjec.for10.style.backgroundRepeat = `no-repeat`
-    tableObjec.for10.style.backgroundSize = `100% 100%`
+}else if(getSessStorFigurVar == 32){
+  let recentImg26 = document.getElementById('forImgTwentySix')
+  recentImg26.style.display = 'none'
+    tableObjec.for26.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
+    url("cf/26.JPG")`
+    tableObjec.for26.style.backgroundRepeat = `no-repeat`
+    tableObjec.for26.style.backgroundSize = `100% 100%`
+}else if(getSessStorFigurVar == 33){
+  let recentImg27 = document.getElementById('forImgTwentySeven')
+  recentImg27.style.display = 'none'
+    tableObjec.for27.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
+    url("cf/27.JPG")`
+    tableObjec.for27.style.backgroundRepeat = `no-repeat`
+    tableObjec.for27.style.backgroundSize = `100% 100%`
+}else if(getSessStorFigurVar == 34){
+  let recentImg28 = document.getElementById('forImgTwentyEight')
+  recentImg28.style.display = 'none'
+    tableObjec.for28.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
+    url("cf/28.JPG")`
+    tableObjec.for28.style.backgroundRepeat = `no-repeat`
+    tableObjec.for28.style.backgroundSize = `100% 100%`
+}else if(getSessStorFigurVar == 35){
+  let recentImg29 = document.getElementById('forImgTwentyNine')
+  recentImg29.style.display = 'none'
+    tableObjec.for29.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
+    url("cf/29.JPG")`
+    tableObjec.for29.style.backgroundRepeat = `no-repeat`
+    tableObjec.for29.style.backgroundSize = `100% 100%`
+}else if(getSessStorFigurVar == 36){
+  let recentImg30 = document.getElementById('forImgThirty')
+  recentImg30.style.display = 'none'
+    tableObjec.for30.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
+    url("cf/30.JPG")`
+    tableObjec.for30.style.backgroundRepeat = `no-repeat`
+    tableObjec.for30.style.backgroundSize = `100% 100%`
+}else if(getSessStorFigurVar == 37){
+  let recentImg31 = document.getElementById('forImgThirtyOne')
+  recentImg31.style.display = 'none'
+    tableObjec.for31.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
+    url("cf/31.JPG")`
+    tableObjec.for31.style.backgroundRepeat = `no-repeat`
+    tableObjec.for31.style.backgroundSize = `100% 100%`
+}else if(getSessStorFigurVar == 38){
+  let recentImg32 = document.getElementById('forImgThirtyTwo')
+  recentImg32.style.display = 'none'
+    tableObjec.for32.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
+    url("cf/32.JPG")`
+    tableObjec.for32.style.backgroundRepeat = `no-repeat`
+    tableObjec.for32.style.backgroundSize = `100% 100%`
+}else if(getSessStorFigurVar == 39){
+  let recentImg33 = document.getElementById('forImgThirtyThree')
+  recentImg33.style.display = 'none'
+    tableObjec.for33.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
+    url("cf/33.JPG")`
+    tableObjec.for33.style.backgroundRepeat = `no-repeat`
+    tableObjec.for33.style.backgroundSize = `100% 100%`
+}else if(getSessStorFigurVar == 40){
+  let recentImg34 = document.getElementById('forImgThirtyFour')
+  recentImg34.style.display = 'none'
+    tableObjec.for34.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
+    url("cf/34.JPG")`
+    tableObjec.for34.style.backgroundRepeat = `no-repeat`
+    tableObjec.for34.style.backgroundSize = `100% 100%`
+}else if(getSessStorFigurVar == 41){
+  let recentImg35 = document.getElementById('forImgThirtyFive')
+  recentImg35.style.display = 'none'
+    tableObjec.for35.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
+    url("cf/35.JPG")`
+    tableObjec.for35.style.backgroundRepeat = `no-repeat`
+    tableObjec.for35.style.backgroundSize = `100% 100%`
+}else if(getSessStorFigurVar == 42){
+  let recentImg36 = document.getElementById('forImgThirtySix')
+  recentImg36.style.display = 'none'
+    tableObjec.for36.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
+    url("cf/36.JPG")`
+    tableObjec.for36.style.backgroundRepeat = `no-repeat`
+    tableObjec.for36.style.backgroundSize = `100% 100%`
+}else if(getSessStorFigurVar == 43){
+  let recentImg37 = document.getElementById('forImgThirtySeven')
+  recentImg37.style.display = 'none'
+    tableObjec.for37.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
+    url("cf/37.JPG")`
+    tableObjec.for37.style.backgroundRepeat = `no-repeat`
+    tableObjec.for37.style.backgroundSize = `100% 100%`
 }else if(getSessStorFigurVar == 16){
   let recentImg10 = document.getElementById('forImgTen')
   recentImg10.style.display = 'none'
