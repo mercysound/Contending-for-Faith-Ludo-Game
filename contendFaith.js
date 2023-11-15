@@ -67,6 +67,7 @@ const myModal41 =  bootstrap.Modal.getOrCreateInstance('#modal41');
 const myModal42 =  bootstrap.Modal.getOrCreateInstance('#modal42');
 const myModal43 =  bootstrap.Modal.getOrCreateInstance('#modal43');
 const myModal44 =  bootstrap.Modal.getOrCreateInstance('#modal44');
+const myModal45 =  bootstrap.Modal.getOrCreateInstance('#modal45');
 const myModal46 =  bootstrap.Modal.getOrCreateInstance('#modal46');
 const myModal47 =  bootstrap.Modal.getOrCreateInstance('#modal47');
 const myModal48 =  bootstrap.Modal.getOrCreateInstance('#modal48');
@@ -77,47 +78,38 @@ const colors = ['0.1', '0.3', '0.5', '0.7'];
 var diceSound = new Audio('./cf/dice_ass/Rolling-Dice-Sound-effect1.mp3');
 var diceRandNoPlayerOnePlayerOne = 0;
 
+// Here is my session stor setter and getter func
 const setMyRandNoStorage = () =>{
     var myRandNoStorageVar = sessionStorage.setItem("myNum", JSON.stringify(diceRandNoPlayerOnePlayerOne))
-    // console.log(myRandNoStorageVar);
 };
 var retrieveMyRandNoStorageVar
 const retriveMyRandNoStorage = () =>{
-   
    retrieveMyRandNoStorageVar = JSON.parse(sessionStorage.getItem("myNum"));
-  // console.log(retrieveMyRandNoStorageVar);
-  // return (retrieveMyRandNoStorageVar)
-  // return retrieveMyRandNoStorageVar
 };
 
 // This section is use to focus back on roll dice
 let dispDiceHole = $('.editable')
-// // document.getElementById
 window.addEventListener('DOMContentLoaded', ()=>{
   dispDiceHole.focus()
-  // alert()
 })
+
 // this is to add onclick to all cont btn
 document.getElementById('btn-continue').addEventListener('click', ()=>{
-  // alert('iz working')
   dispDiceHole.focus()
-  // rolDicePlayerOne('cell1')
-
 })
+
+// to get the session figure
+var getSessStorFigurVar;
 
 const forEntr = (e) =>{
   if(e.key === 'Enter'){
     // alert('work')
     rolDicePlayerOne()
   }
-  // rolDicePlayerOne()
 }
 
 
-// to get th session vigor
-var getSessStorFigurVar;
-// console.log(getSessStorFigurVar);
-// console.log(retriveMyRandNoStorage());
+
 var tableObjec = {
 forStart: document.getElementById('forStart'),
 for1 : document.getElementById('for1'),
@@ -168,39 +160,25 @@ for45 : document.getElementById('for45'),
 for46 : document.getElementById('for46'),
 for47 : document.getElementById('for47'),
 for48 : document.getElementById('for48'),
-for49 : document.getElementById('for49')
+for49 : document.getElementById('for49'),
+for50 : document.getElementById('for50')
 }
-// var diceRandNoPlayerOnePlayerTwo;
-// dice luck display condition
-// document.getElementsByClassName
+
 // below fuction help me to focus on continue btn
-// of modal
+// of triggered modal
 const trigClose = () =>{
   setTimeout(function(){
     $('.contine-focus').focus()
    }, 700)
 }
+
 const dispLuck = ()=>{
   if(diceRandNoPlayerOne == 1){
     dispDiceRolOne.innerHTML = `<img src='./cf/dice_ass/perspective-dice-six-faces-one.png' style="width: 130px; height: 100px;">`;
-    // ifSixLuck();
-    // alert('im work')
-    // for1.innerHTML = `<img src='./cf/dice_ass/perspective-dice-six-faces-one.png' style="width: 130px; height: 100px;">`
-    // dispDiceHole.focus()
-    // myModalStart.show()
-    // trigClose()
   
   }
   else if(diceRandNoPlayerOne == 2){
-    // try{
     dispDiceRolOne.innerHTML = `<img src='./cf/dice_ass/perspective-dice-six-faces-two.png' style="width: 130px; height: 100px;">`;
-    // ifSixLuck();
-    // myModal1.show()
-    // trigClose()
-    // dispDiceHole.focus()
-  // }catch(e){
-  //   console.log(e);
-  // }
   }else if(diceRandNoPlayerOne == 3){
     dispDiceRolOne.innerHTML = `<img src='./cf/dice_ass/perspective-dice-six-faces-three.png' style="width: 130px; height: 100px;">`;
     // ifSixLuck();
@@ -210,55 +188,22 @@ const dispLuck = ()=>{
 
   }else if(diceRandNoPlayerOne == 4){
     dispDiceRolOne.innerHTML = `<img src='./cf/dice_ass/perspective-dice-six-faces-four.png' style="width: 130px; height: 100px;">`;
-    // ifSixLuck();
-    // dispDiceHole.focus()
-    // myModal3.show()
-    // trigClose()
+    
   }else if(diceRandNoPlayerOne == 5){
     dispDiceRolOne.innerHTML = `<img src='./cf/dice_ass/perspective-dice-six-faces-five.png' style="width: 130px; height: 100px;">`;
-    // ifSixLuck();
-    // dispDiceHole.focus()
-    // myModal4.show()
-    // trigClose()
     
   }else if(diceRandNoPlayerOne == 6){
     dispDiceRolOne.innerHTML = `<img src='./cf/dice_ass/perspective-dice-six-faces-six.png' style="width: 130px; height: 100px;">`;
-  // ifSixLuck();
-    // dispDiceHole.focus()
-    // myModal5.show()
-    // trigClose()
-  
 }
+
   setTimeout(()=>{
     ifSixLuck();
   }, 500);
-// else if(getSessStorFigurVar == 12){
-//   dispDiceRolOne.innerHTML = `<img src='./cf/dice_ass/perspective-dice-six-faces-six.png' style="width: 130px; height: 100px;">`
-//   // dispDiceHole.focus()
-//   myModal6.show()
-//   trigClose()
-
-// }else if(getSessStorFigurVar == 13){
-//   dispDiceRolOne.innerHTML = `<img src='./cf/dice_ass/perspective-dice-six-faces-seven.png' style="width: 130px; height: 100px;">`
-//   // dispDiceHole.focus()
-//   myModal6.show()
-//   trigClose()
-
-// }else if(getSessStorFigurVar == 14){
-//   dispDiceRolOne.innerHTML = `<img src='./cf/dice_ass/perspective-dice-six-faces-eight.png' style="width: 130px; height: 100px;">`
-//   // dispDiceHole.focus()
-//   myModal7.show()
-//   trigClose()
-
-// }
-  // ifSixLuck()
 }
-var currentColorIndex = 0;
-// const aFunc = ()=>{
-  // }
-  // here is the function to dice
 
-  
+var currentColorIndex = 0;
+  var restart;
+  restart = pro
   const rolDicePlayerOne = ()=>{
 
 
@@ -266,12 +211,22 @@ var currentColorIndex = 0;
     diceSound.play();
   diceRandNoPlayerOne = Math.floor((Math.random() * 6 + 1)); ////
   // diceRandNoPlayerOnePlayerOne = diceRandNoPlayerOne
-  console.log(diceRandNoPlayerOne);
-  if(diceRandNoPlayerOne == 6 && diceRandNoPlayerOnePlayerOne == 0){
+
+  if(diceRandNoPlayerOnePlayerOne + diceRandNoPlayerOne >= 56){
+    diceRandNoPlayerOnePlayerOne = 56
+
+    alert("you won")
+  }else if((diceRandNoPlayerOnePlayerOne == 50 && diceRandNoPlayerOne == 6) || (diceRandNoPlayerOnePlayerOne >= 51 && diceRandNoPlayerOne == 5)  || (diceRandNoPlayerOnePlayerOne >= 52 && diceRandNoPlayerOne == 4)  || (diceRandNoPlayerOnePlayerOne >= 53 && diceRandNoPlayerOne == 3)  || (diceRandNoPlayerOnePlayerOne >= 54 && diceRandNoPlayerOne == 2)  || (diceRandNoPlayerOnePlayerOne >= 55 && diceRandNoPlayerOne == 1)){
+    diceRandNoPlayerOnePlayerOne += diceRandNoPlayerOne
+    diceRandNoPlayerOnePlayerOne = 56
+    alert("You WOn")
+    
+  }else if(diceRandNoPlayerOne == 6 && diceRandNoPlayerOnePlayerOne == 0){
     diceRandNoPlayerOnePlayerOne = diceRandNoPlayerOne
   }else if(diceRandNoPlayerOnePlayerOne >= 6){
     diceRandNoPlayerOnePlayerOne += diceRandNoPlayerOne
   }
+  console.log(diceRandNoPlayerOne);
   // diceRandNoPlayerOnePlayerOne = 19
   setMyRandNoStorage()
   retriveMyRandNoStorage()
@@ -284,7 +239,7 @@ var currentColorIndex = 0;
     diceSound.pause();
     // ifSixLuck()
     // myModal.show()
-  }, 1200); 
+  }, 1100); 
 }
 const modalTrigFun = () =>{
   if(getSessStorFigurVar == 6){
@@ -717,55 +672,97 @@ const blinkBackground = ()=>{
     url("cf/37.JPG")`
     tableObjec.for37.style.backgroundRepeat = `no-repeat`
     tableObjec.for37.style.backgroundSize = `100% 100%`
-}else if(getSessStorFigurVar == 16){
-  let recentImg10 = document.getElementById('forImgTen')
-  recentImg10.style.display = 'none'
-    tableObjec.for10.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
-    url("cf/10.JPG")`
-    tableObjec.for10.style.backgroundRepeat = `no-repeat`
-    tableObjec.for10.style.backgroundSize = `100% 100%`
-}else if(getSessStorFigurVar == 16){
-  let recentImg10 = document.getElementById('forImgTen')
-  recentImg10.style.display = 'none'
-    tableObjec.for10.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
-    url("cf/10.JPG")`
-    tableObjec.for10.style.backgroundRepeat = `no-repeat`
-    tableObjec.for10.style.backgroundSize = `100% 100%`
-}else if(getSessStorFigurVar == 16){
-  let recentImg10 = document.getElementById('forImgTen')
-  recentImg10.style.display = 'none'
-    tableObjec.for10.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
-    url("cf/10.JPG")`
-    tableObjec.for10.style.backgroundRepeat = `no-repeat`
-    tableObjec.for10.style.backgroundSize = `100% 100%`
-}else if(getSessStorFigurVar == 16){
-  let recentImg10 = document.getElementById('forImgTen')
-  recentImg10.style.display = 'none'
-    tableObjec.for10.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
-    url("cf/10.JPG")`
-    tableObjec.for10.style.backgroundRepeat = `no-repeat`
-    tableObjec.for10.style.backgroundSize = `100% 100%`
-}else if(getSessStorFigurVar == 16){
-  let recentImg10 = document.getElementById('forImgTen')
-  recentImg10.style.display = 'none'
-    tableObjec.for10.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
-    url("cf/10.JPG")`
-    tableObjec.for10.style.backgroundRepeat = `no-repeat`
-    tableObjec.for10.style.backgroundSize = `100% 100%`
-}else if(getSessStorFigurVar == 16){
-  let recentImg10 = document.getElementById('forImgTen')
-  recentImg10.style.display = 'none'
-    tableObjec.for10.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
-    url("cf/10.JPG")`
-    tableObjec.for10.style.backgroundRepeat = `no-repeat`
-    tableObjec.for10.style.backgroundSize = `100% 100%`
-}else if(getSessStorFigurVar == 16){
-  let recentImg10 = document.getElementById('forImgTen')
-  recentImg10.style.display = 'none'
-    tableObjec.for10.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
-    url("cf/10.JPG")`
-    tableObjec.for10.style.backgroundRepeat = `no-repeat`
-    tableObjec.for10.style.backgroundSize = `100% 100%`
+}else if(getSessStorFigurVar == 44){
+  let recentImg38 = document.getElementById('forImgThirtyEight')
+  recentImg38.style.display = 'none'
+    tableObjec.for38.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
+    url("cf/38.JPG")`
+    tableObjec.for38.style.backgroundRepeat = `no-repeat`
+    tableObjec.for38.style.backgroundSize = `100% 100%`
+}else if(getSessStorFigurVar == 45){
+  let recentImg39 = document.getElementById('forImgThirtyNine')
+  recentImg39.style.display = 'none'
+    tableObjec.for39.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
+    url("cf/39.JPG")`
+    tableObjec.for39.style.backgroundRepeat = `no-repeat`
+    tableObjec.for39.style.backgroundSize = `100% 100%`
+}else if(getSessStorFigurVar == 46){
+  let recentImg40 = document.getElementById('forImgFourty')
+  recentImg40.style.display = 'none'
+    tableObjec.for40.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
+    url("cf/40.JPG")`
+    tableObjec.for40.style.backgroundRepeat = `no-repeat`
+    tableObjec.for40.style.backgroundSize = `100% 100%`
+}else if(getSessStorFigurVar == 47){
+  let recentImg41 = document.getElementById('forImgFourtyOne')
+  recentImg41.style.display = 'none'
+    tableObjec.for41.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
+    url("cf/41.JPG")`
+    tableObjec.for41.style.backgroundRepeat = `no-repeat`
+    tableObjec.for41.style.backgroundSize = `100% 100%`
+}else if(getSessStorFigurVar == 48){
+  let recentImg42 = document.getElementById('forImgFourtyTwo')
+  recentImg42.style.display = 'none'
+    tableObjec.for42.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
+    url("cf/42.JPG")`
+    tableObjec.for42.style.backgroundRepeat = `no-repeat`
+    tableObjec.for42.style.backgroundSize = `100% 100%`
+}else if(getSessStorFigurVar == 49){
+  let recentImg43 = document.getElementById('forImgFourtyThree')
+  recentImg43.style.display = 'none'
+    tableObjec.for43.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
+    url("cf/43.JPG")`
+    tableObjec.for43.style.backgroundRepeat = `no-repeat`
+    tableObjec.for43.style.backgroundSize = `100% 100%`
+}else if(getSessStorFigurVar == 50){
+  let recentImg44 = document.getElementById('forImgFourtyFour')
+  recentImg44.style.display = 'none'
+    tableObjec.for44.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
+    url("cf/44.JPG")`
+    tableObjec.for44.style.backgroundRepeat = `no-repeat`
+    tableObjec.for44.style.backgroundSize = `100% 100%`
+}else if(getSessStorFigurVar == 51){
+  let recentImg45 = document.getElementById('forImgFourtyFive')
+  recentImg45.style.display = 'none'
+    tableObjec.for45.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
+    url("cf/45.JPG")`
+    tableObjec.for45.style.backgroundRepeat = `no-repeat`
+    tableObjec.for45.style.backgroundSize = `100% 100%`
+}else if(getSessStorFigurVar == 52){
+  let recentImg46 = document.getElementById('forImgFourtySix')
+  recentImg46.style.display = 'none'
+    tableObjec.for46.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
+    url("cf/46.JPG")`
+    tableObjec.for46.style.backgroundRepeat = `no-repeat`
+    tableObjec.for46.style.backgroundSize = `100% 100%`
+}else if(getSessStorFigurVar == 53){
+  let recentImg47 = document.getElementById('forImgFourtySeven')
+  recentImg47.style.display = 'none'
+    tableObjec.for47.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
+    url("cf/47.JPG")`
+    tableObjec.for47.style.backgroundRepeat = `no-repeat`
+    tableObjec.for47.style.backgroundSize = `100% 100%`
+}else if(getSessStorFigurVar == 54){
+  let recentImg48 = document.getElementById('forImgFourtyEight')
+  recentImg48.style.display = 'none'
+    tableObjec.for48.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
+    url("cf/48.JPG")`
+    tableObjec.for48.style.backgroundRepeat = `no-repeat`
+    tableObjec.for48.style.backgroundSize = `100% 100%`
+}else if(getSessStorFigurVar == 55){
+  let recentImg49 = document.getElementById('forImgFourtyNine')
+  recentImg49.style.display = 'none'
+    tableObjec.for49.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
+    url("cf/49.JPG")`
+    tableObjec.for49.style.backgroundRepeat = `no-repeat`
+    tableObjec.for49.style.backgroundSize = `100% 100%`
+}else if(getSessStorFigurVar == 56){
+  let recentImg50 = document.getElementById('forImgFifty')
+  recentImg50.style.display = 'none'
+    tableObjec.for50.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
+    url("cf/50.JPG")`
+    tableObjec.for50.style.backgroundRepeat = `no-repeat`
+    tableObjec.for50.style.backgroundSize = `100% 100%`
 }
 currentColorIndex = (currentColorIndex + 1) % colors.length;
 };
@@ -774,7 +771,7 @@ currentColorIndex = (currentColorIndex + 1) % colors.length;
 const ifSixLuck = () =>{
   // console.log(typeof(retrieveMyRandNoStorageVar));
 if(getSessStorFigurVar == 6){
-  alert("hallelujah")
+  // alert("hallelujah")
   const blinkingInterval = setInterval(blinkBackground, 800)
   setTimeout(()=>{
     clearInterval(blinkingInterval);
@@ -784,10 +781,11 @@ if(getSessStorFigurVar == 6){
   setTimeout(()=>{
     clearInterval(blinkingInterval);
   }, 8000)
-  }else{alert("Hum! You Need 6 to get on road")};     
+  }else{
+    // setTimeout(()=>{
+      alert("Hum! You Need 6 to get on road")
+    // }, 500)
+  };     
   // backgroundToBlink.style.backgroundColor = colors[currentColorIndex]
   // console.log(currentColorIndex);
 }
-
-
-//  )
