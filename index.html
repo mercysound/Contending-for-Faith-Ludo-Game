@@ -2,13 +2,14 @@
 <html lang="en">
   <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Contending for Faith</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="css/bootstrap.css">
   <script src="jquery.js"></script>
   <script defer src="./js/bootstrap.js"></script>
   <!-- <script defer src="./js/jq"></script> -->
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"> -->
 
   <script defer src="contendFaith.js"></script>
 </head>
@@ -22,8 +23,8 @@
 <!-- Modal -->
 <!-- for modal box group -->
 <section>
-  <div class="modalStarter modal fade" id="modalStart" tabindex="-1" >
-    <div class="modal-dialog">
+  <div class="modalStarter modal fade" id="modalStart" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-centered">
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
@@ -39,7 +40,7 @@
     </div>
   </div>
   <div class="modalStarter modal fade" id="modal1" tabindex="-1" >
-    <div class="modal-dialog">
+    <div class="mediaSta modal-dialog"  >
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
@@ -56,7 +57,7 @@
     </div>
   </div>
   <div class="modalStarter modal fade" id="modal2" tabindex="-1" >
-    <div class="modal-dialog">
+    <div class="mediaSta modal-dialog"  >
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
@@ -73,7 +74,7 @@
     </div>
   </div>
   <div class="modalStarter modal fade" id="modal3" tabindex="-1" >
-    <div class="modal-dialog">
+    <div class="mediaSta modal-dialog"  >
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
@@ -90,7 +91,7 @@
     </div>
   </div>
   <div class="modalStarter modal fade" id="modal4" tabindex="-1" >
-    <div class="modal-dialog">
+    <div class="mediaSta modal-dialog"  >
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
@@ -107,7 +108,7 @@
     </div>
   </div>
   <div class="modalStarter modal fade" id="modal5" tabindex="-1" >
-    <div class="modal-dialog">
+    <div class="mediaSta modal-dialog"  >
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
@@ -124,7 +125,7 @@
     </div>
   </div>
   <div class="modalStarter modal fade" id="modal6" tabindex="-1" >
-    <div class="modal-dialog">
+    <div class="mediaSta modal-dialog"  >
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
@@ -141,7 +142,7 @@
     </div>
   </div>
   <div class="modalStarter modal fade" id="modal7" tabindex="-1" >
-    <div class="modal-dialog">
+    <div class="mediaSta modal-dialog"  >
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
@@ -158,7 +159,7 @@
     </div>
   </div>
   <div class="modalStarter modal fade" id="modal8" tabindex="-1" >
-    <div class="modal-dialog">
+    <div class="mediaSta modal-dialog"  >
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
@@ -175,7 +176,7 @@
     </div>
   </div>
   <div class="modalStarter modal fade" id="modal9" tabindex="-1" >
-    <div class="modal-dialog">
+    <div class="mediaSta modal-dialog"  >
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
@@ -192,10 +193,10 @@
     </div>
   </div>
   <div class="modalStarter modal fade" id="modal10" tabindex="-1" >
-    <div class="modal-dialog">
+    <div class="mediaSta modal-dialog"  >
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <h1 class="modal-title fs-5" id="exampleModalLabel">28</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
@@ -203,13 +204,12 @@
         </div>
         <div class="modal-footer">
           <button type="button" id="btn-continue" class="btn btn-secondary contine-focus" data-bs-dismiss="modal" >Continue</button>
-          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
         </div>
       </div>
     </div>
   </div>
   <div class="modalStarter modal fade" id="modal11" tabindex="-1" >
-    <div class="modal-dialog">
+    <div class="mediaSta modal-dialog"  >
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
@@ -217,6 +217,22 @@
         </div>
         <div class="modal-body">
          <img src="./cf/11.JPG" alt="" width="100%">
+         <div id="option11">
+          <p>pick and option</p>
+          <form>
+            <label>
+              <input type="radio" name="options" value="option1"> Option 1
+            </label>
+            <label>
+              <input type="radio" name="options" value="option2"> Option 2
+            </label>
+            <label>
+              <input type="radio" name="options" value="option3"> Option 3
+            </label>
+        
+            <button type="button" onclick="getSelectedOption()">Get Selected Option</button>
+          </form>
+         </div>
         </div>
         <div class="modal-footer">
           <button type="button" id="btn-continue" class="btn btn-secondary contine-focus" data-bs-dismiss="modal" >Continue</button>
@@ -226,7 +242,7 @@
     </div>
   </div>
   <div class="modalStarter modal fade" id="modal12" tabindex="-1" >
-    <div class="modal-dialog">
+    <div class="mediaSta modal-dialog"  >
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
@@ -243,7 +259,7 @@
     </div>
   </div>
   <div class="modalStarter modal fade" id="modal13" tabindex="-1" >
-    <div class="modal-dialog">
+    <div class="mediaSta modal-dialog"  >
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
@@ -260,7 +276,7 @@
     </div>
   </div>
   <div class="modalStarter modal fade" id="modal14" tabindex="-1" >
-    <div class="modal-dialog">
+    <div class="mediaSta modal-dialog"  >
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
@@ -277,7 +293,7 @@
     </div>
   </div>
   <div class="modalStarter modal fade" id="modal15" tabindex="-1" >
-    <div class="modal-dialog">
+    <div class="mediaSta modal-dialog"  >
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
@@ -294,7 +310,7 @@
     </div>
   </div>
   <div class="modalStarter modal fade" id="modal16" tabindex="-1" >
-    <div class="modal-dialog">
+    <div class="mediaSta modal-dialog"  >
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
@@ -311,7 +327,7 @@
     </div>
   </div>
   <div class="modalStarter modal fade" id="modal17" tabindex="-1" >
-    <div class="modal-dialog">
+    <div class="mediaSta modal-dialog"  >
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
@@ -328,7 +344,7 @@
     </div>
   </div>
   <div class="modalStarter modal fade" id="modal18" tabindex="-1" >
-    <div class="modal-dialog">
+    <div class="mediaSta modal-dialog"  >
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
@@ -345,7 +361,7 @@
     </div>
   </div>
   <div class="modalStarter modal fade" id="modal19" tabindex="-1" >
-    <div class="modal-dialog">
+    <div class="mediaSta modal-dialog"  >
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
@@ -362,7 +378,7 @@
     </div>
   </div>
   <div class="modalStarter modal fade" id="modal20" tabindex="-1" >
-    <div class="modal-dialog">
+    <div class="mediaSta modal-dialog"  >
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
@@ -379,7 +395,7 @@
     </div>
   </div>
   <div class="modalStarter modal fade" id="modal21" tabindex="-1" >
-    <div class="modal-dialog">
+    <div class="mediaSta modal-dialog"  >
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
@@ -396,7 +412,7 @@
     </div>
   </div>
   <div class="modalStarter modal fade" id="modal22" tabindex="-1" >
-    <div class="modal-dialog">
+    <div class="mediaSta modal-dialog"  >
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
@@ -413,7 +429,7 @@
     </div>
   </div>
   <div class="modalStarter modal fade" id="modal21" tabindex="-1" >
-    <div class="modal-dialog">
+    <div class="mediaSta modal-dialog"  >
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
@@ -430,7 +446,7 @@
     </div>
   </div>
   <div class="modalStarter modal fade" id="modal22" tabindex="-1" >
-    <div class="modal-dialog">
+    <div class="mediaSta modal-dialog"  >
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
@@ -447,7 +463,7 @@
     </div>
   </div>
   <div class="modalStarter modal fade" id="modal23" tabindex="-1" >
-    <div class="modal-dialog">
+    <div class="mediaSta modal-dialog"  >
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
@@ -464,7 +480,7 @@
     </div>
   </div>
   <div class="modalStarter modal fade" id="modal24" tabindex="-1" >
-    <div class="modal-dialog">
+    <div class="mediaSta modal-dialog"  >
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
@@ -481,7 +497,7 @@
     </div>
   </div>
   <div class="modalStarter modal fade" id="modal25" tabindex="-1" >
-    <div class="modal-dialog">
+    <div class="mediaSta modal-dialog"  >
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
@@ -498,7 +514,7 @@
     </div>
   </div>
   <div class="modalStarter modal fade" id="modal26" tabindex="-1" >
-    <div class="modal-dialog">
+    <div class="mediaSta modal-dialog"  >
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
@@ -515,7 +531,7 @@
     </div>
   </div>
   <div class="modalStarter modal fade" id="modal27" tabindex="-1" >
-    <div class="modal-dialog">
+    <div class="mediaSta modal-dialog"  >
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
@@ -532,7 +548,7 @@
     </div>
   </div>
   <div class="modalStarter modal fade" id="modal28" tabindex="-1" >
-    <div class="modal-dialog">
+    <div class="mediaSta modal-dialog"  >
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
@@ -549,7 +565,7 @@
     </div>
   </div>
   <div class="modalStarter modal fade" id="modal29" tabindex="-1" >
-    <div class="modal-dialog">
+    <div class="mediaSta modal-dialog"  >
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
@@ -566,7 +582,7 @@
     </div>
   </div>
   <div class="modalStarter modal fade" id="modal30" tabindex="-1" >
-    <div class="modal-dialog">
+    <div class="mediaSta modal-dialog"  >
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
@@ -583,7 +599,7 @@
     </div>
   </div>
   <div class="modalStarter modal fade" id="modal31" tabindex="-1" >
-    <div class="modal-dialog">
+    <div class="mediaSta modal-dialog"  >
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
@@ -600,7 +616,7 @@
     </div>
   </div>
   <div class="modalStarter modal fade" id="modal32" tabindex="-1" >
-    <div class="modal-dialog">
+    <div class="mediaSta modal-dialog"  >
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
@@ -617,7 +633,7 @@
     </div>
   </div>
   <div class="modalStarter modal fade" id="modal33" tabindex="-1" >
-    <div class="modal-dialog">
+    <div class="mediaSta modal-dialog"  >
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
@@ -634,7 +650,7 @@
     </div>
   </div>
   <div class="modalStarter modal fade" id="modal34" tabindex="-1" >
-    <div class="modal-dialog">
+    <div class="mediaSta modal-dialog"  >
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
@@ -651,7 +667,7 @@
     </div>
   </div>
   <div class="modalStarter modal fade" id="modal35" tabindex="-1" >
-    <div class="modal-dialog">
+    <div class="mediaSta modal-dialog"  >
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
@@ -668,7 +684,7 @@
     </div>
   </div>
   <div class="modalStarter modal fade" id="modal36" tabindex="-1" >
-    <div class="modal-dialog">
+    <div class="mediaSta modal-dialog"  >
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
@@ -685,7 +701,7 @@
     </div>
   </div>
   <div class="modalStarter modal fade" id="modal37" tabindex="-1" >
-    <div class="modal-dialog">
+    <div class="mediaSta modal-dialog"  >
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
@@ -702,7 +718,7 @@
     </div>
   </div>
   <div class="modalStarter modal fade" id="modal38" tabindex="-1" >
-    <div class="modal-dialog">
+    <div class="mediaSta modal-dialog"  >
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
@@ -719,7 +735,7 @@
     </div>
   </div>
   <div class="modalStarter modal fade" id="modal39" tabindex="-1" >
-    <div class="modal-dialog">
+    <div class="mediaSta modal-dialog"  >
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
@@ -736,7 +752,7 @@
     </div>
   </div>
   <div class="modalStarter modal fade" id="modal40" tabindex="-1" >
-    <div class="modal-dialog">
+    <div class="mediaSta modal-dialog"  >
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
@@ -753,7 +769,7 @@
     </div>
   </div>
   <div class="modalStarter modal fade" id="modal41" tabindex="-1" >
-    <div class="modal-dialog">
+    <div class="mediaSta modal-dialog"  >
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
@@ -770,7 +786,7 @@
     </div>
   </div>
   <div class="modalStarter modal fade" id="modal42" tabindex="-1" >
-    <div class="modal-dialog">
+    <div class="mediaSta modal-dialog"  >
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
@@ -787,7 +803,7 @@
     </div>
   </div>
   <div class="modalStarter modal fade" id="modal43" tabindex="-1" >
-    <div class="modal-dialog">
+    <div class="mediaSta modal-dialog"  >
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
@@ -804,7 +820,7 @@
     </div>
   </div>
   <div class="modalStarter modal fade" id="modal44" tabindex="-1" >
-    <div class="modal-dialog">
+    <div class="mediaSta modal-dialog"  >
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
@@ -821,7 +837,7 @@
     </div>
   </div>
   <div class="modalStarter modal fade" id="modal45" tabindex="-1" >
-    <div class="modal-dialog">
+    <div class="mediaSta modal-dialog"  >
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
@@ -838,7 +854,7 @@
     </div>
   </div>
   <div class="modalStarter modal fade" id="modal46" tabindex="-1" >
-    <div class="modal-dialog">
+    <div class="mediaSta modal-dialog"  >
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
@@ -855,7 +871,7 @@
     </div>
   </div>
   <div class="modalStarter modal fade" id="modal47" tabindex="-1" >
-    <div class="modal-dialog">
+    <div class="mediaSta modal-dialog"  >
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
@@ -872,7 +888,7 @@
     </div>
   </div>
   <div class="modalStarter modal fade" id="modal48" tabindex="-1" >
-    <div class="modal-dialog">
+    <div class="mediaSta modal-dialog"  >
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
@@ -889,7 +905,7 @@
     </div>
   </div>
   <div class="modalStarter modal fade" id="modal49" tabindex="-1" >
-    <div class="modal-dialog">
+    <div class="mediaSta modal-dialog"  >
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
@@ -906,7 +922,7 @@
     </div>
   </div>
   <div class="modalStarter modal fade" id="modal50" tabindex="-1" >
-    <div class="modal-dialog">
+    <div class="mediaSta modal-dialog"  >
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
@@ -923,7 +939,7 @@
     </div>
   </div>
   <div class="modalStarter modal fade" id="modalEnd" tabindex="-1" >
-    <div class="modal-dialog">
+    <div class="mediaSta modal-dialog"  >
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
@@ -940,7 +956,7 @@
     </div>
   </div>
   <div class="modalStarter modal fade" id="modal6" tabindex="-1" >
-    <div class="modal-dialog">
+    <div class="mediaSta modal-dialog"  >
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
@@ -958,11 +974,10 @@
   </div>
 </section>
 
-
   <div class="tbPar">
-    <table>
+    <table class="table">
       <tr id="forCol6">
-        <td class="editable" colspan="3" id="dispDiceRolOne" contenteditable="true" onkeydown="forEntr(event)" onclick="rolDicePlayerOne()"><img src="./cf/dice_ass/dice-rest-state.JPG" alt="" style="width: 130px; height: 110px;"></td>
+        <td class="editable" colspan="3" id="dispDiceRolOne" contenteditable="false" onkeydown="forEntr(event)" onclick="rolDicePlayerOne()"><img src="./cf/dice_ass/dice-rest-state.JPG" alt="" style="width: 130px; height: 110px;"></td>
         <td colspan="5"></td>
         <td colspan="" id="dispDiceRolTwo" onclick="rolDicePlayerTwo()"><img src="./cf/dice_ass/dice-rest-state.JPG" alt="" style="width: 130px; height: 110px;"></td>
         <td id="for50" rowspan=""><img id="forImgFifty" src="./cf/50.JPG" alt=""></td>
@@ -1029,9 +1044,9 @@
       </tr>
     </table>
   </div>
-  <!-- <script>
-
-  </script> -->
   <!-- <script src="contendFaith.js"></script> -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script> -->
+
 </body>
 </html>

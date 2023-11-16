@@ -173,15 +173,23 @@ const trigClose = () =>{
    }, 700)
 }
 
+const timeOutIfSIxLuck = ()=>{
+  setTimeout(()=>{
+    ifSixLuck();
+  }, 400);
+}
 const dispLuck = ()=>{
   if(diceRandNoPlayerOne == 1){
     dispDiceRolOne.innerHTML = `<img src='./cf/dice_ass/perspective-dice-six-faces-one.png' style="width: 130px; height: 100px;">`;
+    timeOutIfSIxLuck()
   
   }
   else if(diceRandNoPlayerOne == 2){
     dispDiceRolOne.innerHTML = `<img src='./cf/dice_ass/perspective-dice-six-faces-two.png' style="width: 130px; height: 100px;">`;
+    timeOutIfSIxLuck()
   }else if(diceRandNoPlayerOne == 3){
     dispDiceRolOne.innerHTML = `<img src='./cf/dice_ass/perspective-dice-six-faces-three.png' style="width: 130px; height: 100px;">`;
+    timeOutIfSIxLuck()
     // ifSixLuck();
     // dispDiceHole.focus()
     // myModal2.show()
@@ -189,17 +197,17 @@ const dispLuck = ()=>{
 
   }else if(diceRandNoPlayerOne == 4){
     dispDiceRolOne.innerHTML = `<img src='./cf/dice_ass/perspective-dice-six-faces-four.png' style="width: 130px; height: 100px;">`;
+    timeOutIfSIxLuck()
     
   }else if(diceRandNoPlayerOne == 5){
     dispDiceRolOne.innerHTML = `<img src='./cf/dice_ass/perspective-dice-six-faces-five.png' style="width: 130px; height: 100px;">`;
+    timeOutIfSIxLuck()
     
   }else if(diceRandNoPlayerOne == 6){
     dispDiceRolOne.innerHTML = `<img src='./cf/dice_ass/perspective-dice-six-faces-six.png' style="width: 130px; height: 100px;">`;
+    timeOutIfSIxLuck()
 }
 
-  setTimeout(()=>{
-    ifSixLuck();
-  }, 500);
 }
   
   const rolDicePlayerOne = ()=>{
@@ -368,7 +376,7 @@ const modalTrigFun = () =>{
     myModal37.show()
     trigClose()
   }else if(getSessStorFigurVar == 44){
-    myModa38.show()
+    myModal38.show()
     trigClose()
   }else if(getSessStorFigurVar == 45){
     myModal39.show()
