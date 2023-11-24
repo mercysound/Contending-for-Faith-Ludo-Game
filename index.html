@@ -8,10 +8,10 @@
   <link rel="stylesheet" href="css/bootstrap.css">
   <script src="jquery.js"></script>
   <script defer src="./js/bootstrap.js"></script>
+  <script defer src="contendFaith.js"></script>
   <!-- <script defer src="./js/jq"></script> -->
   <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"> -->
 
-  <script defer src="contendFaith.js"></script>
 </head>
 <body>
   <!-- modalbox -->
@@ -22,6 +22,12 @@
 
 <!-- Modal -->
 <!-- for modal box group -->
+
+<!-- Popup container -->
+<div id="popup" class="popup">
+  <span class="popup-text" id="popupText">Your Popup Text Here</span>
+</div>
+
 <section>
   <div class="modalStarter modal fade" id="modalStart" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-centered">
@@ -208,52 +214,57 @@
       </div>
     </div>
   </div>
-  <div class="modalStarter modal fade" id="modal11" tabindex="-1" >
-    <div class="mediaSta modal-dialog"  >
+   <div class="modalStarter modal fade" id="modal11" tabindex="-1" style="background-color: transparent;">
+    <div class="mediaSta modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <h1 class="modal-title fs-5 text-success" id="exampleModalLabel">Welcome to (11) Space</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-         <img src="./cf/11.JPG" alt="" width="100%">
-         <div id="option11">
-          <p>pick and option</p>
-          <form>
-            <label>
-              <input type="radio" name="options" value="option1"> Option 1
-            </label>
-            <label>
-              <input type="radio" name="options" value="option2"> Option 2
-            </label>
-            <label>
-              <input type="radio" name="options" value="option3"> Option 3
-            </label>
-        
-            <button type="button" onclick="getSelectedOption()">Get Selected Option</button>
-          </form>
+         <div class="content d-flex justify-content-between column-gap-2 ">
+           <img class="w-75" src="./cf/11.JPG" alt="" width="">
+         <div id="option11" class="text-center">
+          <h6>Please choose an option:</h6>
+          <div>
+            <input type="radio" id="continueOption" name="options" value="continue"> 1. Faith of our fathers, living still for this is the only faith we have In God's ...
+          </div>
+          <div>
+            <input type="radio" id="otherOption" name="options" value="other"> 2. Faith of our fathers, living still
+            In spite of dungeon, fire and sword, ....
+          </div>
+          <button type="button" id="btn-continue" class="btn btn-secondary contine-focus" onclick="getSelectedOption(this)">Continue</button>
+         </div>
          </div>
         </div>
         <div class="modal-footer">
-          <button type="button" id="btn-continue" class="btn btn-secondary contine-focus" data-bs-dismiss="modal" >Continue</button>
-          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
         </div>
       </div>
     </div>
   </div>
-  <div class="modalStarter modal fade" id="modal12" tabindex="-1" >
-    <div class="mediaSta modal-dialog"  >
+  <div class="modal" id="modal12" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="background-color: transparent;">
+    <div class="mediaSta modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <h1 class="modal-title fs-5 text-success" id="exampleModalLabel">Welcome to (12) Space</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-         <img src="./cf/12.JPG" alt="" width="100%">
+         <div class="content d-flex justify-content-between column-gap-2 ">
+           <img class="w-75" src="./cf/12.JPG" alt="" width="">
+         <div id="option12" class="text-center">
+          <h6>Please choose an option:</h6>
+          <div>
+            <input type="radio" id="continueOption" name="options" value="continue"> 1. Therefore leaving the principles of the doctrine of Christ, let us go on unto perfection; not laying again the foundation of repentance from dead works, and of faith toward God,
+          </div>
+          <div>
+            <input type="radio" id="otherOption" name="options" value="other"> 2. Therefore leaving the principles of the doctrine of Christ, not laying again the foundation of repentance from dead works, and of faith toward God, let us go on unto perfection;
+          </div>
+          <button type="button" id="btn-continue" class="byClassName btn btn-secondary contine-focus" onclick="getSelectedOption(this)" data-bs-dismiss="">Continue</button>
+         </div>
+         </div>
         </div>
         <div class="modal-footer">
-          <button type="button" id="btn-continue" class="btn btn-secondary contine-focus" data-bs-dismiss="modal" >Continue</button>
-          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
         </div>
       </div>
     </div>
@@ -275,36 +286,57 @@
       </div>
     </div>
   </div>
-  <div class="modalStarter modal fade" id="modal14" tabindex="-1" >
-    <div class="mediaSta modal-dialog"  >
+  <div class="modal" id="modal14" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="background-color: transparent;">
+    <div class="mediaSta modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <h1 class="modal-title fs-5 text-success" id="exampleModalLabel">Welcome to (14) Space</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-         <img src="./cf/14.JPG" alt="" width="100%">
+         <div class="content d-flex justify-content-between column-gap-2 ">
+           <img class="w-75" src="./cf/14.JPG" alt="" width="">
+         <div id="option12" class="text-center">
+          <h6>Please choose an option:</h6>
+          <div>
+            <input type="radio" id="continueOption" name="options" value="continue"> 1. Elijah and Job
+          </div>
+          <div>
+            <input type="radio" id="otherOption" name="options" value="other"> 2. David and Abraham
+          </div>
+          <button type="button" id="btn-continue" class="byClassName btn btn-secondary contine-focus" onclick="getSelectedOption(this)" data-bs-dismiss="">Continue</button>
+         </div>
+         </div>
         </div>
         <div class="modal-footer">
-          <button type="button" id="btn-continue" class="btn btn-secondary contine-focus" data-bs-dismiss="modal" >Continue</button>
-          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
         </div>
       </div>
     </div>
   </div>
-  <div class="modalStarter modal fade" id="modal15" tabindex="-1" >
-    <div class="mediaSta modal-dialog"  >
+  <div class="modal" id="modal15" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="background-color: transparent;">
+    <div class="mediaSta modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <h1 class="modal-title fs-5 text-success" id="exampleModalLabel">Welcome to (15) Space</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-         <img src="./cf/15.JPG" alt="" width="100%">
+         <div class="content d-flex justify-content-between column-gap-2 ">
+           <img class="w-75" src="./cf/15.JPG" alt="" width="">
+         <div id="option12" class="text-center">
+          <h6>Please choose an option:</h6>
+          <div>
+            <input type="radio" id="continueOption" name="options" value="continue"> <h6>1. Men of Faith: Moses, Daniel, Abraham, Paul and David</h6>
+            h6
+          </div>
+          <div>
+            <input type="radio" id="otherOption" name="options" value="other"> 2. David and Abraham
+          </div>
+          <button type="button" id="btn-continue" class="byClassName btn btn-secondary contine-focus" onclick="getSelectedOption(this)" data-bs-dismiss="">Continue</button>
+         </div>
+         </div>
         </div>
         <div class="modal-footer">
-          <button type="button" id="btn-continue" class="btn btn-secondary contine-focus" data-bs-dismiss="modal" >Continue</button>
-          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
         </div>
       </div>
     </div>
@@ -982,7 +1014,7 @@
         <td colspan="" id="dispDiceRolTwo" onclick="rolDicePlayerTwo()"><img src="./cf/dice_ass/dice-rest-state.JPG" alt="" style="width: 130px; height: 110px;"></td>
         <td id="for50" rowspan=""><img id="forImgFifty" src="./cf/50.JPG" alt=""></td>
       </tr>
-      <tr id="forCol5">
+      <!-- <tr id="forCol5">
         <td id="for40"><img id="forImgFourty" src="./cf/40.JPG" alt=""></td>
         <td id="for41"><img id="forImgFourtyOne" src="./cf/41.JPG" alt=""></td>
         <td id="for42"><img id="forImgFourtyTwo" src="./cf/42.JPG" alt=""></td>
@@ -1017,19 +1049,19 @@
         <td id="for27"><img id="forImgTwentySeven" src="./cf/27.JPG" alt=""></td>
         <td id="for28"><img id="forImgTwentyEight" src="./cf/28.JPG" alt=""></td>
         <td id="for29"><img id="forImgTwentyNine" src="./cf/29.JPG" alt=""></td>
-      </tr>
+      </tr> -->
       <tr id="forCol2">
-        <td id="for10"><img id="forImgTen" src="./cf/10.JPG" alt=""></td>
-        <td id="for11"><img id="forImgEleven" src="./cf/11.JPG" alt=""></td>
+        <!-- <td id="for10"><img id="forImgTen" src="./cf/10.JPG" alt=""></td>
+        <td id="for11"><img id="forImgEleven" src="./cf/11.JPG" alt=""></td> -->
         <td id="for12"><img id="forImgTwelve" src="./cf/12.JPG" alt=""></td>
-        <td id="for13"><img id="forImgThirteen" src="./cf/13.JPG" alt=""></td>
+        <!-- <td id="for13"><img id="forImgThirteen" src="./cf/13.JPG" alt=""></td>
         <td id="for14"><img id="forImgFourteen" src="./cf/14.JPG" alt=""></td>
         <td id="for15"><img id="forImgFiften" src="./cf/15.JPG" alt=""></td>
         <td id="for16"><img id="forImgSixteen" src="./cf/16.JPG" alt=""></td>
         <td id="for17"><img id="forImgSeventeen" src="./cf/17.JPG" alt=""></td>
         <td id="for18"><img id="forImgEighteen" src="./cf/18.JPG" alt=""></td>
-        <td id="for19"><img id="forImgNineteen" src="./cf/19.JPG" alt=""></td>
-      </tr>
+        <td id="for19"><img id="forImgNineteen" src="./cf/19.JPG" alt=""></td> -->
+      <!-- </tr>
       <tr id="forCol1">
         <td id="forStart"><img id="forImgStart" src="./cf/start.JPG" alt=""></td>
         <td id="for1"><img id="forImgOne" src="./cf/1.JPG" alt=""></td>
@@ -1041,12 +1073,12 @@
         <td id="for7"><img id="forImgSeven" src="./cf/7.JPG" alt=""></td>
         <td id="for8"><img id="forImgEight" src="./cf/8.JPG" alt=""></td>
         <td id="for9"><img id="forImgNine" src="./cf/9.JPG" alt=""></td>
-      </tr>
+      </tr> -->
     </table>
   </div>
-  <!-- <script src="contendFaith.js"></script> -->
-  <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script> -->
-
+ <!-- <link rel="stylesheet" href="css/bootstrap.css">
+  <script src="jquery.js"></script>
+  <script defer src="./js/bootstrap.js"></script>
+  <script defer src="contendFaith.js"></script> -->
 </body>
 </html>

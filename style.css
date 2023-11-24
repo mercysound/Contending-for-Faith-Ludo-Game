@@ -1,6 +1,25 @@
 body{
-  /* width: 100%; */
+  width: 100%;
   /* padding: ; */
+  max-height: 100vh;
+}
+
+/* Style for the popup container */
+.popup {
+  display: none;
+  position: fixed;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #f1f1f1;
+  padding: 20px;
+  border: 1px solid #d3d3d3;
+}
+
+/* Style for the popup text */
+.popup-text {
+  color: #333;
+  font-size: 18px;
 }
 
 table{
@@ -29,6 +48,7 @@ table{
   background-color: transparent;
   cursor: pointer;
   display: hide;
+  position: relative;
 }
 
 .modal-centered {
@@ -42,4 +62,24 @@ table{
     align-items: initial;
   }
 }
+/* .question{
+  margin: auto;
+} */
+.question label{
+  display: block;
+}
 
+/* #jumUpWord{
+  display: block;
+  color: yellow;
+  position: absolute;
+  position: relative;
+  transition: transform 0.5s ease-out;
+  position: ;
+  display: block;
+  z-index: 5;
+  top: 50px;
+  left: 100px;
+  transform: translateY(-30px);
+
+} */
