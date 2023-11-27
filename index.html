@@ -2,19 +2,20 @@
 <html lang="en">
   <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Contending for Faith</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="css/bootstrap.css">
   <script src="jquery.js"></script>
   <script defer src="./js/bootstrap.js"></script>
-  <script defer src="contendFaith.js"></script>
+  <!-- <script defer src="contendFaith.js"></script> -->
   <!-- <script defer src="./js/jq"></script> -->
   <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"> -->
 
 </head>
 <body>
-  <!-- modalbox -->
+  <div class="content">
+    <!-- modalbox -->
   <!-- Button trigger modal -->
 <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"  onclick="modalBox(event)">
   Launch demo modal
@@ -214,7 +215,7 @@
       </div>
     </div>
   </div>
-   <div class="modalStarter modal fade" id="modal11" tabindex="-1" style="background-color: transparent;">
+  <div class="modalStarter modal fade" id="modal11" tabindex="-1" style="background-color: transparent;">
     <div class="mediaSta modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -269,8 +270,8 @@
       </div>
     </div>
   </div>
-  <div class="modalStarter modal fade" id="modal13" tabindex="-1" >
-    <div class="mediaSta modal-dialog"  >
+  <div class="modal" id="modal13" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="background-color: transparent;">
+    <div class="mediaSta modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
@@ -280,8 +281,7 @@
          <img src="./cf/13.JPG" alt="" width="100%">
         </div>
         <div class="modal-footer">
-          <button type="button" id="btn-continue" class="btn btn-secondary contine-focus" data-bs-dismiss="modal" >Continue</button>
-          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+          <button type="button" id="btn-continue" class="btn btn-secondary contine-focus" data-bs-dismiss="modal"  onclick="getSelectedOption(this)">Continue</button>
         </div>
       </div>
     </div>
@@ -299,12 +299,12 @@
          <div id="option12" class="text-center">
           <h6>Please choose an option:</h6>
           <div>
-            <input type="radio" id="continueOption" name="options" value="continue"> 1. Elijah and Job
+            <input type="radio" id="continueOption" name="options" value="continue">1. Elijah and Job
           </div>
           <div>
-            <input type="radio" id="otherOption" name="options" value="other"> 2. David and Abraham
+            <input type="radio" id="otherOption" name="options" value="other">2. David and Abraham
           </div>
-          <button type="button" id="btn-continue" class="byClassName btn btn-secondary contine-focus" onclick="getSelectedOption(this)" data-bs-dismiss="">Continue</button>
+          <button type="button" id="btn-continue" class="byClassName btn btn-secondary contine-focus mt-2" onclick="getSelectedOption(this)" data-bs-dismiss="">Continue</button>
          </div>
          </div>
         </div>
@@ -323,14 +323,15 @@
         <div class="modal-body">
          <div class="content d-flex justify-content-between column-gap-2 ">
            <img class="w-75" src="./cf/15.JPG" alt="" width="">
-         <div id="option12" class="text-center">
+         <div id="option15" class="text-center">
           <h6>Please choose an option:</h6>
           <div>
-            <input type="radio" id="continueOption" name="options" value="continue"> <h6>1. Men of Faith: Moses, Daniel, Abraham, Paul and David</h6>
-            h6
+            <h6><input type="radio" id="continueOption" name="options" value="continue"> A. For Men of Faith: Moses, Daniel, Abraham, Paul and David</h6>
+            <h6>For Women of Faith: Ruth and Esther</h6>
           </div>
           <div>
-            <input type="radio" id="otherOption" name="options" value="other"> 2. David and Abraham
+            <h6><input type="radio" id="otherOption" name="options" value="other"> B. For Men of Faith: Saul, Elijah, Job, Thomas and David</h6>
+            <h6>For Women of Faith: Lot's Wife and Jezebel</h6>
           </div>
           <button type="button" id="btn-continue" class="byClassName btn btn-secondary contine-focus" onclick="getSelectedOption(this)" data-bs-dismiss="">Continue</button>
          </div>
@@ -1025,8 +1026,8 @@
         <td id="for47"><img id="forImgFourtySeven" src="./cf/47.JPG" alt=""></td>
         <td id="for48"><img id="forImgFourtyEight" src="./cf/48.JPG" alt=""></td>
         <td id="for49"><img id="forImgFourtyNine" src="./cf/49.JPG" alt=""></td>
-      </tr>
-      <tr id="forCol4">
+      </tr> -->
+      <!-- <tr id="forCol4">
         <td id="for30"><img id="forImgThirty" src="./cf/30.JPG" alt=""></td>
         <td id="for31"><img id="forImgThirtyOne" src="./cf/31.JPG" alt=""></td>
         <td id="for32"><img id="forImgThirtyTwo" src="./cf/32.JPG" alt=""></td>
@@ -1037,8 +1038,8 @@
         <td id="for37"><img id="forImgThirtySeven" src="./cf/37.JPG" alt=""></td>
         <td id="for38"><img id="forImgThirtyEight" src="./cf/38.JPG" alt=""></td>
         <td id="for39"><img id="forImgThirtyNine" src="./cf/39.JPG" alt=""></td>
-      </tr>
-      <tr id="forCol3">
+      </tr> -->
+      <!-- <tr id="forCol3">
         <td id="for20"><img id="forImgTwenty" src="./cf/20.JPG" alt=""></td>
         <td id="for21"><img id="forImgTwentyOne" src="./cf/21.JPG" alt=""></td>
         <td id="for22"><img id="forImgTwentyTwo" src="./cf/22.JPG" alt=""></td>
@@ -1051,17 +1052,17 @@
         <td id="for29"><img id="forImgTwentyNine" src="./cf/29.JPG" alt=""></td>
       </tr> -->
       <tr id="forCol2">
-        <!-- <td id="for10"><img id="forImgTen" src="./cf/10.JPG" alt=""></td>
-        <td id="for11"><img id="forImgEleven" src="./cf/11.JPG" alt=""></td> -->
+        <td id="for10"><img id="forImgTen" src="./cf/10.JPG" alt=""></td>
+        <td id="for11"><img id="forImgEleven" src="./cf/11.JPG" alt=""></td>
         <td id="for12"><img id="forImgTwelve" src="./cf/12.JPG" alt=""></td>
-        <!-- <td id="for13"><img id="forImgThirteen" src="./cf/13.JPG" alt=""></td>
+        <td id="for13"><img id="forImgThirteen" src="./cf/13.JPG" alt=""></td>
         <td id="for14"><img id="forImgFourteen" src="./cf/14.JPG" alt=""></td>
         <td id="for15"><img id="forImgFiften" src="./cf/15.JPG" alt=""></td>
         <td id="for16"><img id="forImgSixteen" src="./cf/16.JPG" alt=""></td>
         <td id="for17"><img id="forImgSeventeen" src="./cf/17.JPG" alt=""></td>
         <td id="for18"><img id="forImgEighteen" src="./cf/18.JPG" alt=""></td>
-        <td id="for19"><img id="forImgNineteen" src="./cf/19.JPG" alt=""></td> -->
-      <!-- </tr>
+        <td id="for19"><img id="forImgNineteen" src="./cf/19.JPG" alt=""></td>
+      </tr>
       <tr id="forCol1">
         <td id="forStart"><img id="forImgStart" src="./cf/start.JPG" alt=""></td>
         <td id="for1"><img id="forImgOne" src="./cf/1.JPG" alt=""></td>
@@ -1073,12 +1074,13 @@
         <td id="for7"><img id="forImgSeven" src="./cf/7.JPG" alt=""></td>
         <td id="for8"><img id="forImgEight" src="./cf/8.JPG" alt=""></td>
         <td id="for9"><img id="forImgNine" src="./cf/9.JPG" alt=""></td>
-      </tr> -->
+      </tr>
     </table>
+  </div>
   </div>
  <!-- <link rel="stylesheet" href="css/bootstrap.css">
   <script src="jquery.js"></script>
-  <script defer src="./js/bootstrap.js"></script>
-  <script defer src="contendFaith.js"></script> -->
+  <script defer src="./js/bootstrap.js"></script>-->
+  <script defer src="contendFaith.js"></script> 
 </body>
 </html>

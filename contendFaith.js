@@ -17,8 +17,20 @@
 //   })
 //if any event need to triger after close of modal
  // to get the session figure
-var getSessStorFigurVar;
-var computerTurnLocalStorVar = 0;
+ // variable to set and get session stor 
+var setComputerStoVar;
+var getBackComputerStoVar;
+//here is the var setting the new number
+// here is the var of the number saving to session stor
+var computerTurnToSaveSessi = 0;
+var myTurnToSaveSessi = 0;
+
+// player to play turn
+var myTurn = false;
+var computerTurn = true;
+
+var globeChangNum = 20;
+
 var currentColorIndex = 0;
 var restart;
 var confirmAnsObj ={
@@ -46,6 +58,7 @@ var confirmAnsObj ={
   modalshow22: false,
   modalshow23: false,
   modalshow24: false,
+  modalshow25: false,
   modalshow26: false,
   modalshow27: false,
   modalshow28: false,
@@ -72,19 +85,16 @@ var confirmAnsObj ={
   modalshow49: false,
   modalshow50: false,
 };
-var globeChangNum = 20;
-var myTurn = false;
-var computerTurn = true;
-
 const rolDicePlayerOne = () => {
-   if (computerTurn == true) {
+  if (computerTurn == true) {
     var correctAnswer;
     $(".modalStarter").on("hidden.bs.modal", function (e) {
       // Handle the event after the modal is shown
-      console.log("Modal is fully shown");
+      // console.log("Modal is fully shown");
       dispDiceHole.focus();
       // Add your custom logic here
     });
+
     const myModalStart = bootstrap.Modal.getOrCreateInstance("#modalStart");
     const myModal1 = bootstrap.Modal.getOrCreateInstance("#modal1");
     const myModal2 = bootstrap.Modal.getOrCreateInstance("#modal2");
@@ -96,7 +106,7 @@ const rolDicePlayerOne = () => {
     const myModal8 = bootstrap.Modal.getOrCreateInstance("#modal8");
     const myModal9 = bootstrap.Modal.getOrCreateInstance("#modal9");
     const myModal10 = bootstrap.Modal.getOrCreateInstance("#modal10");
-    const myModal11 = bootstrap.Modal.getOrCreateInstance("#modal11");
+    const myModal11 = bootstrap.Modal.getOrCreateInstance('#modal11');
     const myModal12 = bootstrap.Modal.getOrCreateInstance("#modal12");
     const myModal13 = bootstrap.Modal.getOrCreateInstance("#modal13");
     const myModal14 = bootstrap.Modal.getOrCreateInstance("#modal14");
@@ -140,13 +150,13 @@ const rolDicePlayerOne = () => {
     const colors = ["0.1", "0.3", "0.5", "0.7"];
     var diceSound = new Audio("./cf/dice_ass/Rolling-Dice-Sound-effect1.mp3");
     // Here is my session stor setter and getter func
+    
     const setMyRandNoStorage = () => {
-      var setComputerStoVar = sessionStorage.setItem(
+     setComputerStoVar = sessionStorage.setItem(
         "computerNum",
-        JSON.stringify(computerTurnLocalStorVar)
+        JSON.stringify(computerTurnToSaveSessi)
       );
     };
-    var getBackComputerStoVar;
     const retriveMyRandNoStorage = () => {
       getBackComputerStoVar = JSON.parse(sessionStorage.getItem("computerNum"));
     };
@@ -162,7 +172,6 @@ const rolDicePlayerOne = () => {
       dispDiceHole.focus();
     });
 
-
     const forEntr = (e) => {
       if (e.key === "Enter") {
         // alert('work')
@@ -173,11 +182,11 @@ const rolDicePlayerOne = () => {
     diceSound.play();
     // diceRandNoPlayerOne = Math.floor((Math.random() * 6 + 1)); ////
     diceRandNoPlayerOne = 6;
-    computerTurnLocalStorVar = 11;
-    // computerTurnLocalStorVar = diceRandNoPlayerOne
+    computerTurnToSaveSessi = 11;
+    // computerTurnToSaveSessi = diceRandNoPlayerOne
 
-    // if(computerTurnLocalStorVar + diceRandNoPlayerOne >= 56){
-    //   computerTurnLocalStorVar = 56
+    // if(computerTurnToSaveSessi + diceRandNoPlayerOne >= 56){
+    //   computerTurnToSaveSessi = 56
     //   alert("you won")
     //   restart = confirm("do you want to restart")
     //   if(restart){
@@ -185,9 +194,9 @@ const rolDicePlayerOne = () => {
     //     // setMyRandNoStorage()
     //     window.location.reload()
     //   }
-    // }else if((computerTurnLocalStorVar == 50 && diceRandNoPlayerOne == 6) || (computerTurnLocalStorVar >= 51 && diceRandNoPlayerOne == 5)  || (computerTurnLocalStorVar >= 52 && diceRandNoPlayerOne == 4)  || (computerTurnLocalStorVar >= 53 && diceRandNoPlayerOne == 3)  || (computerTurnLocalStorVar >= 54 && diceRandNoPlayerOne == 2)  || (computerTurnLocalStorVar >= 55 && diceRandNoPlayerOne == 1)){
-    //   computerTurnLocalStorVar += diceRandNoPlayerOne
-    //   computerTurnLocalStorVar = 56
+    // }else if((computerTurnToSaveSessi == 50 && diceRandNoPlayerOne == 6) || (computerTurnToSaveSessi >= 51 && diceRandNoPlayerOne == 5)  || (computerTurnToSaveSessi >= 52 && diceRandNoPlayerOne == 4)  || (computerTurnToSaveSessi >= 53 && diceRandNoPlayerOne == 3)  || (computerTurnToSaveSessi >= 54 && diceRandNoPlayerOne == 2)  || (computerTurnToSaveSessi >= 55 && diceRandNoPlayerOne == 1)){
+    //   computerTurnToSaveSessi += diceRandNoPlayerOne
+    //   computerTurnToSaveSessi = 56
     //   alert("You WOn")
     //   restart = confirm("do you want to restart")
     //   if(restart){
@@ -195,18 +204,18 @@ const rolDicePlayerOne = () => {
     //     // setMyRandNoStorage()
     //     window.location.reload()
     //   }
-    // }else if(diceRandNoPlayerOne == 6 && computerTurnLocalStorVar == 0){
-    //   computerTurnLocalStorVar = diceRandNoPlayerOne
-    // }else if(computerTurnLocalStorVar >= 6){
-    //   computerTurnLocalStorVar += diceRandNoPlayerOne
+    // }else if(diceRandNoPlayerOne == 6 && computerTurnToSaveSessi == 0){
+    //   computerTurnToSaveSessi = diceRandNoPlayerOne
+    // }else if(computerTurnToSaveSessi >= 6){
+    //   computerTurnToSaveSessi += diceRandNoPlayerOne
     // }
     // console.log(diceRandNoPlayerOne);
-    // computerTurnLocalStorVar = 19
+    // computerTurnToSaveSessi = 19
     setMyRandNoStorage();
     retriveMyRandNoStorage();
     // console.log(getBackComputerStoVar);
-    getSessStorFigurVar = globeChangNum;
-    console.log(getSessStorFigurVar);
+    getBackComputerStoVar = globeChangNum;
+    console.log(getBackComputerStoVar);
     setTimeout(function () {
       dispLuck();
       modalTrigFun();
@@ -216,13 +225,13 @@ const rolDicePlayerOne = () => {
     }, 1100);
     const ifSixLuck = () => {
       // console.log(typeof(getBackComputerStoVar));
-      if (getSessStorFigurVar == 6) {
+      if (getBackComputerStoVar == 6) {
         // alert("hallelujah")
         const blinkingInterval = setInterval(blinkBackground, 800);
         setTimeout(() => {
           clearInterval(blinkingInterval);
         }, 8000);
-      } else if (getSessStorFigurVar >= 6) {
+      } else if (getBackComputerStoVar >= 6) {
         const blinkingInterval = setInterval(blinkBackground, 800);
         setTimeout(() => {
           clearInterval(blinkingInterval);
@@ -323,7 +332,7 @@ const rolDicePlayerOne = () => {
     };
 
     const blinkBackground = () => {
-      if (getSessStorFigurVar == 6) {
+      if (getBackComputerStoVar == 6) {
         let recentImgStart = document.getElementById("forImgStart");
         recentImgStart.style.display = "none";
         tableObjec.forStart.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
@@ -331,7 +340,7 @@ const rolDicePlayerOne = () => {
         tableObjec.forStart.style.backgroundSize = `100% 100%`;
         tableObjec.forStart.style.backgroundRepeat = `no-repeat`;
         // tableObjec.for1.style.backgroundColor = colors[currentColorIndex]
-      } else if (getSessStorFigurVar == 7) {
+      } else if (getBackComputerStoVar == 7) {
         let recentImg1 = document.getElementById("forImgOne");
         recentImg1.style.display = "none";
         tableObjec.for1.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
@@ -339,7 +348,7 @@ const rolDicePlayerOne = () => {
         tableObjec.for1.style.backgroundRepeat = `no-repeat`;
         tableObjec.for1.style.backgroundSize = `100% 100%`;
         // for2.style.backgroundColor = colors[currentColorIndex]
-      } else if (getSessStorFigurVar == 8) {
+      } else if (getBackComputerStoVar == 8) {
         let recentImg2 = document.getElementById("forImgTwo");
         recentImg2.style.display = "none";
         tableObjec.for2.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
@@ -347,7 +356,7 @@ const rolDicePlayerOne = () => {
         tableObjec.for2.style.backgroundRepeat = `no-repeat`;
         tableObjec.for2.style.backgroundSize = `100% 100%`;
         // for2.style.backgroundColor = colors[currentColorIndex]
-      } else if (getSessStorFigurVar == 9) {
+      } else if (getBackComputerStoVar == 9) {
         let recentImg3 = document.getElementById("forImgThree");
         recentImg3.style.display = "none";
         tableObjec.for3.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
@@ -355,7 +364,7 @@ const rolDicePlayerOne = () => {
         tableObjec.for3.style.backgroundRepeat = `no-repeat`;
         tableObjec.for3.style.backgroundSize = `100% 100%`;
         // for2.style.backgroundColor = colors[currentColorIndex]
-      } else if (getSessStorFigurVar == 10) {
+      } else if (getBackComputerStoVar == 10) {
         let recentImg4 = document.getElementById("forImgFour");
         recentImg4.style.display = "none";
         tableObjec.for4.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
@@ -363,322 +372,322 @@ const rolDicePlayerOne = () => {
         tableObjec.for4.style.backgroundRepeat = `no-repeat`;
         tableObjec.for4.style.backgroundSize = `100% 100%`;
         // for2.style.backgroundColor = colors[currentColorIndex]
-      } else if (getSessStorFigurVar == 11) {
+      } else if (getBackComputerStoVar == 11) {
         let recentImg5 = document.getElementById("forImgFive");
         recentImg5.style.display = "none";
         tableObjec.for5.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
       url("cf/5.JPG")`;
         tableObjec.for5.style.backgroundRepeat = `no-repeat`;
         tableObjec.for5.style.backgroundSize = `100% 100%`;
-      } else if (getSessStorFigurVar == 12) {
+      } else if (getBackComputerStoVar == 12) {
         let recentImg6 = document.getElementById("forImgSix");
         recentImg6.style.display = "none";
         tableObjec.for6.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
       url("cf/6.JPG")`;
         tableObjec.for6.style.backgroundRepeat = `no-repeat`;
         tableObjec.for6.style.backgroundSize = `100% 100%`;
-      } else if (getSessStorFigurVar == 13) {
+      } else if (getBackComputerStoVar == 13) {
         let recentImg7 = document.getElementById("forImgSeven");
         recentImg7.style.display = "none";
         tableObjec.for7.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
       url("cf/7.JPG")`;
         tableObjec.for7.style.backgroundRepeat = `no-repeat`;
         tableObjec.for7.style.backgroundSize = `100% 100%`;
-      } else if (getSessStorFigurVar == 14) {
+      } else if (getBackComputerStoVar == 14) {
         let recentImg8 = document.getElementById("forImgEight");
         recentImg8.style.display = "none";
         tableObjec.for8.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
       url("cf/8.JPG")`;
         tableObjec.for8.style.backgroundRepeat = `no-repeat`;
         tableObjec.for8.style.backgroundSize = `100% 100%`;
-      } else if (getSessStorFigurVar == 15) {
+      } else if (getBackComputerStoVar == 15) {
         let recentImg9 = document.getElementById("forImgNine");
         recentImg9.style.display = "none";
         tableObjec.for9.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
       url("cf/9.JPG")`;
         tableObjec.for9.style.backgroundRepeat = `no-repeat`;
         tableObjec.for9.style.backgroundSize = `100% 100%`;
-      } else if (getSessStorFigurVar == 16) {
+      } else if (getBackComputerStoVar == 16) {
         let recentImg10 = document.getElementById("forImgTen");
         recentImg10.style.display = "none";
         tableObjec.for10.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
       url("cf/10.JPG")`;
         tableObjec.for10.style.backgroundRepeat = `no-repeat`;
         tableObjec.for10.style.backgroundSize = `100% 100%`;
-      } else if (getSessStorFigurVar == 17) {
+      } else if (getBackComputerStoVar == 17) {
         let recentImg11 = document.getElementById("forImgEleven");
         recentImg11.style.display = "none";
         tableObjec.for11.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
       url("cf/11.JPG")`;
         tableObjec.for11.style.backgroundRepeat = `no-repeat`;
         tableObjec.for11.style.backgroundSize = `100% 100%`;
-      } else if (getSessStorFigurVar == 18) {
+      } else if (getBackComputerStoVar == 18) {
         let recentImg12 = document.getElementById("forImgTwelve");
         recentImg12.style.display = "none";
         tableObjec.for12.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
       url("cf/12.JPG")`;
         tableObjec.for12.style.backgroundRepeat = `no-repeat`;
         tableObjec.for12.style.backgroundSize = `100% 100%`;
-      } else if (getSessStorFigurVar == 19) {
+      } else if (getBackComputerStoVar == 19) {
         let recentImg13 = document.getElementById("forImgThirteen");
         recentImg13.style.display = "none";
         tableObjec.for13.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
       url("cf/13.JPG")`;
         tableObjec.for13.style.backgroundRepeat = `no-repeat`;
         tableObjec.for13.style.backgroundSize = `100% 100%`;
-      } else if (getSessStorFigurVar == 20) {
+      } else if (getBackComputerStoVar == 20) {
         let recentImg14 = document.getElementById("forImgFourteen");
         recentImg14.style.display = "none";
         tableObjec.for14.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
       url("cf/14.JPG")`;
         tableObjec.for14.style.backgroundRepeat = `no-repeat`;
         tableObjec.for14.style.backgroundSize = `100% 100%`;
-      } else if (getSessStorFigurVar == 21) {
+      } else if (getBackComputerStoVar == 21) {
         let recentImg15 = document.getElementById("forImgFiften");
         recentImg15.style.display = "none";
         tableObjec.for15.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
       url("cf/15.JPG")`;
         tableObjec.for15.style.backgroundRepeat = `no-repeat`;
         tableObjec.for15.style.backgroundSize = `100% 100%`;
-      } else if (getSessStorFigurVar == 22) {
+      } else if (getBackComputerStoVar == 22) {
         let recentImg16 = document.getElementById("forImgSixteen");
         recentImg16.style.display = "none";
         tableObjec.for16.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
       url("cf/16.JPG")`;
         tableObjec.for16.style.backgroundRepeat = `no-repeat`;
         tableObjec.for16.style.backgroundSize = `100% 100%`;
-      } else if (getSessStorFigurVar == 23) {
+      } else if (getBackComputerStoVar == 23) {
         let recentImg17 = document.getElementById("forImgSeventeen");
         recentImg17.style.display = "none";
         tableObjec.for17.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
       url("cf/17.JPG")`;
         tableObjec.for17.style.backgroundRepeat = `no-repeat`;
         tableObjec.for17.style.backgroundSize = `100% 100%`;
-      } else if (getSessStorFigurVar == 24) {
+      } else if (getBackComputerStoVar == 24) {
         let recentImg18 = document.getElementById("forImgEighteen");
         recentImg18.style.display = "none";
         tableObjec.for18.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
       url("cf/18.JPG")`;
         tableObjec.for18.style.backgroundRepeat = `no-repeat`;
         tableObjec.for18.style.backgroundSize = `100% 100%`;
-      } else if (getSessStorFigurVar == 25) {
+      } else if (getBackComputerStoVar == 25) {
         let recentImg19 = document.getElementById("forImgNineteen");
         recentImg19.style.display = "none";
         tableObjec.for19.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
       url("cf/19.JPG")`;
         tableObjec.for19.style.backgroundRepeat = `no-repeat`;
         tableObjec.for19.style.backgroundSize = `100% 100%`;
-      } else if (getSessStorFigurVar == 26) {
+      } else if (getBackComputerStoVar == 26) {
         let recentImg20 = document.getElementById("forImgTwenty");
         recentImg20.style.display = "none";
         tableObjec.for20.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
       url("cf/20.JPG")`;
         tableObjec.for20.style.backgroundRepeat = `no-repeat`;
         tableObjec.for20.style.backgroundSize = `100% 100%`;
-      } else if (getSessStorFigurVar == 27) {
+      } else if (getBackComputerStoVar == 27) {
         let recentImg21 = document.getElementById("forImgTwentyOne");
         recentImg21.style.display = "none";
         tableObjec.for21.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
       url("cf/21.JPG")`;
         tableObjec.for21.style.backgroundRepeat = `no-repeat`;
         tableObjec.for21.style.backgroundSize = `100% 100%`;
-      } else if (getSessStorFigurVar == 28) {
+      } else if (getBackComputerStoVar == 28) {
         let recentImg22 = document.getElementById("forImgTwentyTwo");
         recentImg22.style.display = "none";
         tableObjec.for22.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
       url("cf/22.JPG")`;
         tableObjec.for22.style.backgroundRepeat = `no-repeat`;
         tableObjec.for22.style.backgroundSize = `100% 100%`;
-      } else if (getSessStorFigurVar == 29) {
+      } else if (getBackComputerStoVar == 29) {
         let recentImg23 = document.getElementById("forImgTwentyThree");
         recentImg23.style.display = "none";
         tableObjec.for23.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
       url("cf/23.JPG")`;
         tableObjec.for23.style.backgroundRepeat = `no-repeat`;
         tableObjec.for23.style.backgroundSize = `100% 100%`;
-      } else if (getSessStorFigurVar == 30) {
+      } else if (getBackComputerStoVar == 30) {
         let recentImg24 = document.getElementById("forImgTwentyFour");
         recentImg24.style.display = "none";
         tableObjec.for24.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
       url("cf/24.JPG")`;
         tableObjec.for24.style.backgroundRepeat = `no-repeat`;
         tableObjec.for24.style.backgroundSize = `100% 100%`;
-      } else if (getSessStorFigurVar == 31) {
+      } else if (getBackComputerStoVar == 31) {
         let recentImg25 = document.getElementById("forImgTwentyFive");
         recentImg25.style.display = "none";
         tableObjec.for25.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
       url("cf/25.JPG")`;
         tableObjec.for25.style.backgroundRepeat = `no-repeat`;
         tableObjec.for25.style.backgroundSize = `100% 100%`;
-      } else if (getSessStorFigurVar == 32) {
+      } else if (getBackComputerStoVar == 32) {
         let recentImg26 = document.getElementById("forImgTwentySix");
         recentImg26.style.display = "none";
         tableObjec.for26.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
       url("cf/26.JPG")`;
         tableObjec.for26.style.backgroundRepeat = `no-repeat`;
         tableObjec.for26.style.backgroundSize = `100% 100%`;
-      } else if (getSessStorFigurVar == 33) {
+      } else if (getBackComputerStoVar == 33) {
         let recentImg27 = document.getElementById("forImgTwentySeven");
         recentImg27.style.display = "none";
         tableObjec.for27.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
       url("cf/27.JPG")`;
         tableObjec.for27.style.backgroundRepeat = `no-repeat`;
         tableObjec.for27.style.backgroundSize = `100% 100%`;
-      } else if (getSessStorFigurVar == 34) {
+      } else if (getBackComputerStoVar == 34) {
         let recentImg28 = document.getElementById("forImgTwentyEight");
         recentImg28.style.display = "none";
         tableObjec.for28.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
       url("cf/28.JPG")`;
         tableObjec.for28.style.backgroundRepeat = `no-repeat`;
         tableObjec.for28.style.backgroundSize = `100% 100%`;
-      } else if (getSessStorFigurVar == 35) {
+      } else if (getBackComputerStoVar == 35) {
         let recentImg29 = document.getElementById("forImgTwentyNine");
         recentImg29.style.display = "none";
         tableObjec.for29.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
       url("cf/29.JPG")`;
         tableObjec.for29.style.backgroundRepeat = `no-repeat`;
         tableObjec.for29.style.backgroundSize = `100% 100%`;
-      } else if (getSessStorFigurVar == 36) {
+      } else if (getBackComputerStoVar == 36) {
         let recentImg30 = document.getElementById("forImgThirty");
         recentImg30.style.display = "none";
         tableObjec.for30.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
       url("cf/30.JPG")`;
         tableObjec.for30.style.backgroundRepeat = `no-repeat`;
         tableObjec.for30.style.backgroundSize = `100% 100%`;
-      } else if (getSessStorFigurVar == 37) {
+      } else if (getBackComputerStoVar == 37) {
         let recentImg31 = document.getElementById("forImgThirtyOne");
         recentImg31.style.display = "none";
         tableObjec.for31.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
       url("cf/31.JPG")`;
         tableObjec.for31.style.backgroundRepeat = `no-repeat`;
         tableObjec.for31.style.backgroundSize = `100% 100%`;
-      } else if (getSessStorFigurVar == 38) {
+      } else if (getBackComputerStoVar == 38) {
         let recentImg32 = document.getElementById("forImgThirtyTwo");
         recentImg32.style.display = "none";
         tableObjec.for32.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
       url("cf/32.JPG")`;
         tableObjec.for32.style.backgroundRepeat = `no-repeat`;
         tableObjec.for32.style.backgroundSize = `100% 100%`;
-      } else if (getSessStorFigurVar == 39) {
+      } else if (getBackComputerStoVar == 39) {
         let recentImg33 = document.getElementById("forImgThirtyThree");
         recentImg33.style.display = "none";
         tableObjec.for33.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
       url("cf/33.JPG")`;
         tableObjec.for33.style.backgroundRepeat = `no-repeat`;
         tableObjec.for33.style.backgroundSize = `100% 100%`;
-      } else if (getSessStorFigurVar == 40) {
+      } else if (getBackComputerStoVar == 40) {
         let recentImg34 = document.getElementById("forImgThirtyFour");
         recentImg34.style.display = "none";
         tableObjec.for34.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
       url("cf/34.JPG")`;
         tableObjec.for34.style.backgroundRepeat = `no-repeat`;
         tableObjec.for34.style.backgroundSize = `100% 100%`;
-      } else if (getSessStorFigurVar == 41) {
+      } else if (getBackComputerStoVar == 41) {
         let recentImg35 = document.getElementById("forImgThirtyFive");
         recentImg35.style.display = "none";
         tableObjec.for35.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
       url("cf/35.JPG")`;
         tableObjec.for35.style.backgroundRepeat = `no-repeat`;
         tableObjec.for35.style.backgroundSize = `100% 100%`;
-      } else if (getSessStorFigurVar == 42) {
+      } else if (getBackComputerStoVar == 42) {
         let recentImg36 = document.getElementById("forImgThirtySix");
         recentImg36.style.display = "none";
         tableObjec.for36.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
       url("cf/36.JPG")`;
         tableObjec.for36.style.backgroundRepeat = `no-repeat`;
         tableObjec.for36.style.backgroundSize = `100% 100%`;
-      } else if (getSessStorFigurVar == 43) {
+      } else if (getBackComputerStoVar == 43) {
         let recentImg37 = document.getElementById("forImgThirtySeven");
         recentImg37.style.display = "none";
         tableObjec.for37.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
       url("cf/37.JPG")`;
         tableObjec.for37.style.backgroundRepeat = `no-repeat`;
         tableObjec.for37.style.backgroundSize = `100% 100%`;
-      } else if (getSessStorFigurVar == 44) {
+      } else if (getBackComputerStoVar == 44) {
         let recentImg38 = document.getElementById("forImgThirtyEight");
         recentImg38.style.display = "none";
         tableObjec.for38.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
       url("cf/38.JPG")`;
         tableObjec.for38.style.backgroundRepeat = `no-repeat`;
         tableObjec.for38.style.backgroundSize = `100% 100%`;
-      } else if (getSessStorFigurVar == 45) {
+      } else if (getBackComputerStoVar == 45) {
         let recentImg39 = document.getElementById("forImgThirtyNine");
         recentImg39.style.display = "none";
         tableObjec.for39.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
       url("cf/39.JPG")`;
         tableObjec.for39.style.backgroundRepeat = `no-repeat`;
         tableObjec.for39.style.backgroundSize = `100% 100%`;
-      } else if (getSessStorFigurVar == 46) {
+      } else if (getBackComputerStoVar == 46) {
         let recentImg40 = document.getElementById("forImgFourty");
         recentImg40.style.display = "none";
         tableObjec.for40.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
       url("cf/40.JPG")`;
         tableObjec.for40.style.backgroundRepeat = `no-repeat`;
         tableObjec.for40.style.backgroundSize = `100% 100%`;
-      } else if (getSessStorFigurVar == 47) {
+      } else if (getBackComputerStoVar == 47) {
         let recentImg41 = document.getElementById("forImgFourtyOne");
         recentImg41.style.display = "none";
         tableObjec.for41.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
       url("cf/41.JPG")`;
         tableObjec.for41.style.backgroundRepeat = `no-repeat`;
         tableObjec.for41.style.backgroundSize = `100% 100%`;
-      } else if (getSessStorFigurVar == 48) {
+      } else if (getBackComputerStoVar == 48) {
         let recentImg42 = document.getElementById("forImgFourtyTwo");
         recentImg42.style.display = "none";
         tableObjec.for42.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
       url("cf/42.JPG")`;
         tableObjec.for42.style.backgroundRepeat = `no-repeat`;
         tableObjec.for42.style.backgroundSize = `100% 100%`;
-      } else if (getSessStorFigurVar == 49) {
+      } else if (getBackComputerStoVar == 49) {
         let recentImg43 = document.getElementById("forImgFourtyThree");
         recentImg43.style.display = "none";
         tableObjec.for43.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
       url("cf/43.JPG")`;
         tableObjec.for43.style.backgroundRepeat = `no-repeat`;
         tableObjec.for43.style.backgroundSize = `100% 100%`;
-      } else if (getSessStorFigurVar == 50) {
+      } else if (getBackComputerStoVar == 50) {
         let recentImg44 = document.getElementById("forImgFourtyFour");
         recentImg44.style.display = "none";
         tableObjec.for44.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
       url("cf/44.JPG")`;
         tableObjec.for44.style.backgroundRepeat = `no-repeat`;
         tableObjec.for44.style.backgroundSize = `100% 100%`;
-      } else if (getSessStorFigurVar == 51) {
+      } else if (getBackComputerStoVar == 51) {
         let recentImg45 = document.getElementById("forImgFourtyFive");
         recentImg45.style.display = "none";
         tableObjec.for45.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
       url("cf/45.JPG")`;
         tableObjec.for45.style.backgroundRepeat = `no-repeat`;
         tableObjec.for45.style.backgroundSize = `100% 100%`;
-      } else if (getSessStorFigurVar == 52) {
+      } else if (getBackComputerStoVar == 52) {
         let recentImg46 = document.getElementById("forImgFourtySix");
         recentImg46.style.display = "none";
         tableObjec.for46.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
       url("cf/46.JPG")`;
         tableObjec.for46.style.backgroundRepeat = `no-repeat`;
         tableObjec.for46.style.backgroundSize = `100% 100%`;
-      } else if (getSessStorFigurVar == 53) {
+      } else if (getBackComputerStoVar == 53) {
         let recentImg47 = document.getElementById("forImgFourtySeven");
         recentImg47.style.display = "none";
         tableObjec.for47.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
       url("cf/47.JPG")`;
         tableObjec.for47.style.backgroundRepeat = `no-repeat`;
         tableObjec.for47.style.backgroundSize = `100% 100%`;
-      } else if (getSessStorFigurVar == 54) {
+      } else if (getBackComputerStoVar == 54) {
         let recentImg48 = document.getElementById("forImgFourtyEight");
         recentImg48.style.display = "none";
         tableObjec.for48.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
       url("cf/48.JPG")`;
         tableObjec.for48.style.backgroundRepeat = `no-repeat`;
         tableObjec.for48.style.backgroundSize = `100% 100%`;
-      } else if (getSessStorFigurVar == 55) {
+      } else if (getBackComputerStoVar == 55) {
         let recentImg49 = document.getElementById("forImgFourtyNine");
         recentImg49.style.display = "none";
         tableObjec.for49.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
       url("cf/49.JPG")`;
         tableObjec.for49.style.backgroundRepeat = `no-repeat`;
         tableObjec.for49.style.backgroundSize = `100% 100%`;
-      } else if (getSessStorFigurVar == 56) {
+      } else if (getBackComputerStoVar == 56) {
         let recentImg50 = document.getElementById("forImgFifty");
         recentImg50.style.display = "none";
         tableObjec.for50.style.background = `linear-gradient( 120deg, rgba(180, 212, 26, ${colors[currentColorIndex]}), rgba(212, 23, 23, ${colors[currentColorIndex]}), rgba(29, 19, 19, ${colors[currentColorIndex]})),
@@ -690,165 +699,215 @@ const rolDicePlayerOne = () => {
     };
 
     const modalTrigFun = () => {
-      if (getSessStorFigurVar == 6) {
+      if (getBackComputerStoVar == 6) {
         // dispDiceHole.focus()
+        // confirmAnsObj.modalshow1 = true;
         myModalStart.show();
         trigClose();
-      } else if (getSessStorFigurVar == 7) {
+      } else if (getBackComputerStoVar == 7) {
+        confirmAnsObj.modalshow1 = true;
         // dispDiceHole.focus()
         myModal1.show();
         trigClose();
-      } else if (getSessStorFigurVar == 8) {
+      } else if (getBackComputerStoVar == 8) {
+        confirmAnsObj.modalshow2 = true;
         myModal2.show();
         trigClose();
-      } else if (getSessStorFigurVar == 9) {
+      } else if (getBackComputerStoVar == 9) {
+        confirmAnsObj.modalshow3 = true;
         myModal3.show();
         trigClose();
-      } else if (getSessStorFigurVar == 10) {
+      } else if (getBackComputerStoVar == 10) {
+        confirmAnsObj.modalshow4 = true;
         myModal4.show();
         trigClose();
-      } else if (getSessStorFigurVar == 11) {
+      } else if (getBackComputerStoVar == 11) {
+        confirmAnsObj.modalshow5 = true;
         myModal5.show();
         trigClose();
-      } else if (getSessStorFigurVar == 12) {
+      } else if (getBackComputerStoVar == 12) {
+        confirmAnsObj.modalshow6 = true;
         myModal6.show();
         trigClose();
-      } else if (getSessStorFigurVar == 13) {
+      } else if (getBackComputerStoVar == 13) {
+        confirmAnsObj.modalshow7 = true;
         myModal7.show();
         trigClose();
-      } else if (getSessStorFigurVar == 14) {
+      } else if (getBackComputerStoVar == 14) {
+        confirmAnsObj.modalshow8 = true;
         myModal8.show();
         trigClose();
-      } else if (getSessStorFigurVar == 15) {
+      } else if (getBackComputerStoVar == 15) {
+        confirmAnsObj.modalshow9 = true;
         myModal9.show();
         trigClose();
-      } else if (getSessStorFigurVar == 16) {
+      } else if (getBackComputerStoVar == 16) {
+        confirmAnsObj.modalshow10 = true;
         myModal10.show();
         trigClose();
-      } else if (getSessStorFigurVar == 17) {
+      } else if (getBackComputerStoVar == 17) {
+        // alert("ITs eleven")
         confirmAnsObj.modalshow11 = true;
         myModal11.show();
         trigClose();
-      } else if (getSessStorFigurVar == 18) {
+      } else if (getBackComputerStoVar == 18) {
         confirmAnsObj.modalshow12 = true;
         myModal12.show();
         trigClose();
-      } else if (getSessStorFigurVar == 19) {
+      } else if (getBackComputerStoVar == 19) {
+        confirmAnsObj.modalshow13 = true;
         myModal13.show();
         trigClose();
-      } else if (getSessStorFigurVar == 20) {
+      } else if (getBackComputerStoVar == 20) {
         confirmAnsObj.modalshow14 = true;
         myModal14.show();
         trigClose();
-      } else if (getSessStorFigurVar == 21) {
+      } else if (getBackComputerStoVar == 21) {
+        confirmAnsObj.modalshow15 = true;
         myModal15.show();
         trigClose();
-      } else if (getSessStorFigurVar == 22) {
+      } else if (getBackComputerStoVar == 22) {
+        confirmAnsObj.modalshow16 = true;
         myModal16.show();
         trigClose();
-      } else if (getSessStorFigurVar == 23) {
+      } else if (getBackComputerStoVar == 23) {
+        confirmAnsObj.modalshow17 = true;
         myModal17.show();
         trigClose();
-      } else if (getSessStorFigurVar == 24) {
+      } else if (getBackComputerStoVar == 24) {
+        confirmAnsObj.modalshow18 = true;
         myModal18.show();
         trigClose();
-      } else if (getSessStorFigurVar == 25) {
+      } else if (getBackComputerStoVar == 25) {
+        confirmAnsObj.modalshow19 = true;
         myModal19.show();
         trigClose();
-      } else if (getSessStorFigurVar == 26) {
+      } else if (getBackComputerStoVar == 26) {
+        confirmAnsObj.modalshow20 = true;
         myModal20.show();
         trigClose();
-      } else if (getSessStorFigurVar == 27) {
+      } else if (getBackComputerStoVar == 27) {
+        confirmAnsObj.modalshow21 = true;
         myModal21.show();
         trigClose();
-      } else if (getSessStorFigurVar == 28) {
+      } else if (getBackComputerStoVar == 28) {
+        confirmAnsObj.modalshow22 = true;
         myModal22.show();
         trigClose();
-      } else if (getSessStorFigurVar == 29) {
+      } else if (getBackComputerStoVar == 29) {
+        confirmAnsObj.modalshow23 = true;
         myModal23.show();
         trigClose();
-      } else if (getSessStorFigurVar == 30) {
+      } else if (getBackComputerStoVar == 30) {
+        confirmAnsObj.modalshow24 = true;
         myModal24.show();
         trigClose();
-      } else if (getSessStorFigurVar == 31) {
+      } else if (getBackComputerStoVar == 31) {
+        confirmAnsObj.modalshow25 = true;
         myModal25.show();
         trigClose();
-      } else if (getSessStorFigurVar == 32) {
+      } else if (getBackComputerStoVar == 32) {
+        confirmAnsObj.modalshow26 = true;
         myModal26.show();
         trigClose();
-      } else if (getSessStorFigurVar == 33) {
+      } else if (getBackComputerStoVar == 33) {
+        confirmAnsObj.modalshow27 = true;
         myModal27.show();
         trigClose();
-      } else if (getSessStorFigurVar == 34) {
+      } else if (getBackComputerStoVar == 34) {
+        confirmAnsObj.modalshow28 = true;
         myModal28.show();
         trigClose();
-      } else if (getSessStorFigurVar == 35) {
+      } else if (getBackComputerStoVar == 35) {
+        confirmAnsObj.modalshow29 = true;
         myModal29.show();
         trigClose();
-      } else if (getSessStorFigurVar == 36) {
+      } else if (getBackComputerStoVar == 36) {
+        confirmAnsObj.modalshow30 = true;
         myModal30.show();
         trigClose();
-      } else if (getSessStorFigurVar == 37) {
+      } else if (getBackComputerStoVar == 37) {
+        confirmAnsObj.modalshow31 = true;
         myModal31.show();
         trigClose();
-      } else if (getSessStorFigurVar == 38) {
+      } else if (getBackComputerStoVar == 38) {
+        confirmAnsObj.modalshow32 = true;
         myModal32.show();
         trigClose();
-      } else if (getSessStorFigurVar == 39) {
+      } else if (getBackComputerStoVar == 39) {
+        confirmAnsObj.modalshow33 = true;
         myModal33.show();
         trigClose();
-      } else if (getSessStorFigurVar == 40) {
+      } else if (getBackComputerStoVar == 40) {
+        confirmAnsObj.modalshow34 = true;
         myModal34.show();
         trigClose();
-      } else if (getSessStorFigurVar == 41) {
+      } else if (getBackComputerStoVar == 41) {
+        confirmAnsObj.modalshow35 = true;
         myModal35.show();
         trigClose();
-      } else if (getSessStorFigurVar == 42) {
+      } else if (getBackComputerStoVar == 42) {
+        confirmAnsObj.modalshow36 = true;
         myModal36.show();
         trigClose();
-      } else if (getSessStorFigurVar == 43) {
+      } else if (getBackComputerStoVar == 43) {
+        confirmAnsObj.modalshow37 = true;
         myModal37.show();
         trigClose();
-      } else if (getSessStorFigurVar == 44) {
+      } else if (getBackComputerStoVar == 44) {
+        confirmAnsObj.modalshow38 = true;
         myModal38.show();
         trigClose();
-      } else if (getSessStorFigurVar == 45) {
+      } else if (getBackComputerStoVar == 45) {
+        confirmAnsObj.modalshow39 = true;
         myModal39.show();
         trigClose();
-      } else if (getSessStorFigurVar == 46) {
+      } else if (getBackComputerStoVar == 46) {
+        confirmAnsObj.modalshow40 = true;
         myModal40.show();
         trigClose();
-      } else if (getSessStorFigurVar == 47) {
+      } else if (getBackComputerStoVar == 47) {
+        confirmAnsObj.modalshow41 = true;
         myModal41.show();
         trigClose();
-      } else if (getSessStorFigurVar == 48) {
+      } else if (getBackComputerStoVar == 48) {
+        confirmAnsObj.modalshow42 = true;
         myModal42.show();
         trigClose();
-      } else if (getSessStorFigurVar == 49) {
+      } else if (getBackComputerStoVar == 49) {
+        confirmAnsObj.modalshow48 = true;
         myModal43.show();
         trigClose();
-      } else if (getSessStorFigurVar == 50) {
+      } else if (getBackComputerStoVar == 50) {
+        confirmAnsObj.modalshow43 = true;
         myModal44.show();
         trigClose();
-      } else if (getSessStorFigurVar == 51) {
+      } else if (getBackComputerStoVar == 51) {
+        confirmAnsObj.modalshow44 = true;
         myModal45.show();
         trigClose();
-      } else if (getSessStorFigurVar == 52) {
+      } else if (getBackComputerStoVar == 52) {
+        confirmAnsObj.modalshow45 = true;
         myModal46.show();
         trigClose();
-      } else if (getSessStorFigurVar == 53) {
+      } else if (getBackComputerStoVar == 53) {
+        confirmAnsObj.modalshow46 = true;
         myModal47.show();
         trigClose();
-      } else if (getSessStorFigurVar == 54) {
+      } else if (getBackComputerStoVar == 54) {
+        confirmAnsObj.modalshow47 = true;
         myModal48.show();
         trigClose();
-      } else if (getSessStorFigurVar == 55) {
+      } else if (getBackComputerStoVar == 55) {
+        confirmAnsObj.modalshow48 = true;
         myModal49.show();
         trigClose();
-      } else if (getSessStorFigurVar == 56) {
+      } else if (getBackComputerStoVar == 56) {
+        confirmAnsObj.modalshow49 = true;
         myModal50.show();
         trigClose();
       }
+      // confirmAnsObj.modalshow50 = true;
     };
 
     // below fuction help me to focus on continue btn
@@ -864,75 +923,180 @@ const rolDicePlayerOne = () => {
 
 const getSelectedOption = () => {
   if (confirmAnsObj.modalshow11) {
-      var selectedOption = document.querySelector('input[name="options"]:checked');
-      if (selectedOption) {
-          if (selectedOption.value === 'continue') {
-              if (computerTurn == true) {
-                  computerTurn = false;
-                  myTurn = true;
-                  alert("You miss it! Its computer turn now");
-                  confirmAnsObj.modalshow11 = false;
-                  $('#modal11').modal('hide');
-              }
-          } else if (selectedOption.value === 'other') {
-              if (computerTurn == true) {
-                  computerTurn = true;
-                  alert("You got it! Its Your turn again");
-                  confirmAnsObj.modalshow11 = false;
-                  $('#modal11').modal('hide');
-              }
-          }
-      } else {
-          alert('No option selected. Please choose an option.');
-      }
-  }else if (confirmAnsObj.modalshow12) {
-      var selectedOption = document.querySelector('input[name="options"]:checked');
-      if (selectedOption) {
-          if (selectedOption.value === 'continue') {
-            if (computerTurn == true) {
-              computerTurn = true;
-              getSessStorFigurVar += 24;
-              alert("You got it! Its Your turn again");
-              confirmAnsObj.modalshow12 = false;
-              $('#modal12').modal('hide');
-              }
-          } else if (selectedOption.value === 'other') {
-            if (computerTurn == true) {
-              computerTurn = false;
-              myTurn = true;
-              alert("You miss it! Its computer turn now");
-              confirmAnsObj.modalshow12 = false;
-              $('#modal12').modal('hide');
-              }
-          }
-      } else {
-              alert('No option selected. Please choose an option.');
-      }
-  }else if (confirmAnsObj.modalshow14) {
-    var selectedOption = document.querySelector('input[name="options"]:checked');
+    var selectedOption = document.querySelector(
+      'input[name="options"]:checked'
+    );
     if (selectedOption) {
-        if (selectedOption.value === 'continue') {
-          if (computerTurn == true) {
-            computerTurn = true;
-            myTurn = false;
-            alert("You got it! Play one More");
-            confirmAnsObj.modalshow14 = false;
-            $('#modal14').modal('hide');
-            }
-        } else if (selectedOption.value === 'other') {
-          if (computerTurn == true) {
-            computerTurn = false;
-            myTurn = true;
-            alert("You miss it! Its computer turn now");
-            confirmAnsObj.modalshow14 = false;
-            $('#modal14').modal('hide');
-            }
+      if (selectedOption.value === "continue") {
+        if (computerTurn == true) {
+          computerTurn = false;
+          myTurn = true;
+          $('#modal11').modal('hide')
+          alert("You miss it! Its 1stTurn turn now");
+        }else if (myTurn == true) {
+          myTurn = false;
+          computerTurn = true;
+          $('#modal11').modal('hide')
+          alert("You miss it! Its 2ndTurn turn now");
         }
+        confirmAnsObj.modalshow11 = false;
+      } else if (selectedOption.value === "other") {
+        if (computerTurn == true) {
+          computerTurn = true;
+          myTurn = false;
+          $('#modal11').modal('hide')
+          alert("You got it! 2ndTurn play once more");
+        }else if (myTurn == true) {
+          myTurn = true;
+          computerTurn = false;
+          $('#modal11').modal('hide')
+          alert("You got it! 1stTurn once more");
+        }
+        confirmAnsObj.modalshow11 = false;
+      }
     } else {
-            alert('No option selected. Please choose an option.');
+      alert("No option selected. Please choose an option to continue.");
     }
-}
-}
+  }else if (confirmAnsObj.modalshow12) {
+    var selectedOption = document.querySelector(
+      'input[name="options"]:checked'
+    );
+    if (selectedOption) {
+      if (selectedOption.value === "continue") {
+        if (computerTurn == true) {
+          computerTurnToSaveSessi += 21;
+          myTurn = true
+          computerTurn = false;
+          alert("You got it! Its 1stTurn turn now");
+          $("#modal12").modal('hide')
+        }else if (myTurn == true) {
+          myTurnToSaveSessi += 21
+          computerTurn = true
+          myTurn = false;
+          alert("You got it! Its 2ndTurn turn now");
+          $("#modal12").modal('hide')
+        }
+        confirmAnsObj.modalshow12 = false;
+      } else if (selectedOption.value === "other") {
+        if (computerTurn == true) {
+          computerTurn = false;
+          myTurn = true;
+          alert("You miss it! Its 1stTurn turn now");
+          $("#modal12").modal('hide')
+        }else if (myTurn == true) {
+          myTurn = false;
+          computerTurn = true;
+          alert("You miss it! Its 2ndTurn turn now");
+          $("#modal12").modal('hide')
+        }
+        confirmAnsObj.modalshow12 = false;
+      }
+    } else {
+      alert("No option selected. Please choose an option to continue.");
+    }
+  }else if(confirmAnsObj.modalshow13) {
+    // $("#modal13").modal('hide')
+    if(myTurn == true){
+      // myTurn = false
+      // computerTurn = true
+      confirmAnsObj.modalshow13 = false;
+      alert("Its computer turn")
+    }else if(computerTurn == true){
+      // computerTurn = false;
+      // myTurn = true;
+      // confirmAnsObj.modalshow13 = false;
+      alert("Its myTurn turn")
+    }
+  }if (confirmAnsObj.modalshow14) {
+    var selectedOption = document.querySelector(
+      'input[name="options"]:checked'
+    );
+    if (selectedOption) {
+      if (selectedOption.value === "continue") {
+        if (computerTurn == true) {
+          computerTurn = false;
+          myTurn = false;
+          $('#modal14').modal('hide')
+          alert("You miss it! Its 1stTurn turn now");
+        }else if (myTurn == true) {
+          myTurn = false;
+          computerTurn = true;
+          $('#modal14').modal('hide')
+          alert("You miss it! Its 2ndTurn turn now");
+        }
+        confirmAnsObj.modalshow14 = false;
+      } else if (selectedOption.value === "other") {
+        if (computerTurn == true) {
+          computerTurn = true;
+          myTurn = false;
+          $('#modal14').modal('hide')
+          alert("You got it! 2ndTurn turn to play once more");
+        }else if (myTurn == true) {
+          myTurn = true;
+          computerTurn = false;
+          $('#modal14').modal('hide')
+          alert("You got it! 1stTurn turn to play once more");
+        }
+        confirmAnsObj.modalshow14 = false;
+      }
+    } else {
+      alert("No option selected. Please choose an option to continue.");
+    }
+  }
+  else if (confirmAnsObj.modalshow15) {
+    var selectedOption = document.querySelector(
+      'input[name="options"]:checked'
+    );
+    if (selectedOption) {
+      if (selectedOption.value === "continue") {
+        if (computerTurn == true) {
+          computerTurnToSaveSessi += 25;
+          computerTurn = false;
+          myTurn = true;
+          alert("You got it! It's 1stTurn to Play");
+        }else if (myTurn == true) {
+          myTurnTurnToSaveSessi += 25;
+          computerTurn = true;
+          myTurn = false;
+          alert("You got it! It's 2ndTurn to Play");
+        }
+        confirmAnsObj.modalshow15 = false;
+      } else if (selectedOption.value === "other") {
+        if (computerTurn == true) {
+          computerTurn = false;
+          myTurn = true;
+          alert("You miss it! It's 1stTurn to Play");
+        }else if (myTurn == true) {
+          computerTurn = true;
+          myTurn = false;
+          alert("You miss it! It's 2ndTurn to Play");
+        }
+        confirmAnsObj.modalshow15 = false;
+      }
+    } else {
+      alert("No option selected. Please choose an option.");
+    }
+  } else if (confirmAnsObj.modalshow16) {
+    if(myTurn){
+      myTurn = false
+      computerTurn = true
+    }else if(computerTurn){
+      computerTurn = false
+      myTurn = true
+    }
+    confirmAnsObj.modalshow16 = false;
+  } else if (confirmAnsObj.modalshow17) {
+    if(myTurn){
+      myTurn = false
+      computerTurn = true
+      getBackComputerStoVar += 3
+    }else if(computerTurn){
+      computerTurn = false
+      myTurn = true
+    }
+    confirmAnsObj.modalshow16 = false;
+  }
+};
 //   catch(e){
 //     console.log(e)
 //   }
