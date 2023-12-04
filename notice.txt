@@ -1,2 +1,52 @@
 //
 for the auto landscape on phone
+function checkOrientation() {
+  if (window.orientation === 90 || window.orientation === -90) {
+      // Landscape orientation
+      document.body.style.display = 'block'; // Show the content
+  } else {
+      // Portrait orientation
+      document.body.style.display = 'none'; // Hide the content
+      alert('Please rotate your device to landscape mode.'); // Show an alert to prompt the user
+  }
+}
+
+// Check orientation on page load
+checkOrientation();
+
+// Check orientation when orientation changes
+window.addEventListener('orientationchange', checkOrientation);
+
+setMySessStorFunc()
+setComputerSessStorFunc()
+
+11 MESSED UP
+
+12 option continue
+<div class="modalStarter modal fade" id="modal12" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="background-color: transparent;">
+    <div class="mediaSta modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5 text-success" id="exampleModalLabel">Welcome to (12) Space</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+         <div class="content d-flex justify-content-between column-gap-2 ">
+           <img class="w-75" src="./cf/12.JPG" alt="" width="">
+         <div id="option12" class="text-center">
+          <h6>Please choose an option:</h6>
+          <div>
+            <input type="radio" id="continueOption" name="options" value="continue"> 1. Therefore leaving the principles of the doctrine of Christ, let us go on unto perfection; not laying again the foundation of repentance from dead works, and of faith toward God,
+          </div>
+          <div>
+            <input type="radio" id="otherOption" name="options" value="other"> 2. Therefore leaving the principles of the doctrine of Christ, not laying again the foundation of repentance from dead works, and of faith toward God, let us go on unto perfection;
+          </div>
+          <button type="button" id="btn-continue" class="byClassName btn btn-secondary contine-focus" onclick="getSelectedOption(this)" data-bs-dismiss="">Continue</button>
+         </div>
+         </div>
+        </div>
+        <div class="modal-footer">
+        </div>
+      </div>
+    </div>
+  </div>

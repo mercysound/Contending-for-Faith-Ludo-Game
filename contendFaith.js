@@ -1,4 +1,5 @@
-// jQuery(document).ready(function() {
+//if any event need to triger after close of modal
+// jQuery(document).ready(function () {
 //   // $('#modalStart').on('show.bs.model', function (e) {
 //   //   console.log('modal is about to show');
 //   // })
@@ -11,13 +12,11 @@
 //   // $('#modalStart').on('hidden.bs.model', function (e) {
 //   //   console.log('modal is about to show');
 //   // })
-//   // alert("gen")
+//   alert("gen");
 // });
-// jQuery(function(){
-//   })
-//if any event need to triger after close of modal
- // to get the session figure
- // variable to set and get session stor 
+
+// to get the session figure
+// variable to set and get session stor
 var setComputerStoVar; // for computer
 var getBackComputerStoVar;
 var setMyStoVar; //for self
@@ -31,10 +30,32 @@ var myTurnToSaveSessi = 0;
 var myTurn = false;
 var computerTurn = true;
 
-var globeChangNum = 40;
+// var globeChangNum = 17;
 
 var currentColorIndex = 0;
 var restart;
+
+// Here is Computer session stor setter and getter func
+const setComputerSessStorFunc = () => {
+  setComputerStoVar = sessionStorage.setItem(
+    "computerNum",
+    JSON.stringify(computerTurnToSaveSessi)
+  );
+};
+const retriveComputerSessStorFunc = () => {
+  getBackComputerStoVar = JSON.parse(sessionStorage.getItem("computerNum"));
+};
+// Here is My session stor setter and getter func
+const setMySessStorFunc = () => {
+  setMyStoVar = sessionStorage.setItem(
+    "MyNum",
+    JSON.stringify(computerTurnToSaveSessi)
+  );
+};
+const retriveMySessStorFunc = () => {
+  getBackMyStoVar = JSON.parse(sessionStorage.getItem("computerNum"));
+};
+
 var confirmAnsObj = {
   modalshow1: false,
   modalshow2: false,
@@ -86,11 +107,75 @@ var confirmAnsObj = {
   modalshow48: false,
   modalshow49: false,
   modalshow50: false,
+  modalshow51: false,
+  modalshow52: false,
+  modalshow53: false,
+  modalshow54: false,
+  modalshow55: false,
+  modalshow56: false,
 };
+
 // here is the table blinking background
 const colors = ["0.1", "0.3", "0.5", "0.7"];
 
-const blinkBackground = () => {
+var diceSound = new Audio("./cf/dice_ass/Rolling-Dice-Sound-effect1.mp3");
+
+// here is the var used to get all modal trigger id
+var allModalComputer = {
+  myModalStart: bootstrap.Modal.getOrCreateInstance("#modalStart"),
+  myModal1: bootstrap.Modal.getOrCreateInstance("#modal1"),
+  myModal2: bootstrap.Modal.getOrCreateInstance("#modal2"),
+  myModal3: bootstrap.Modal.getOrCreateInstance("#modal3"),
+  myModal4: bootstrap.Modal.getOrCreateInstance("#modal4"),
+  myModal5: bootstrap.Modal.getOrCreateInstance("#modal5"),
+  myModal6: bootstrap.Modal.getOrCreateInstance("#modal6"),
+  myModal7: bootstrap.Modal.getOrCreateInstance("#modal7"),
+  myModal8: bootstrap.Modal.getOrCreateInstance("#modal8"),
+  myModal9: bootstrap.Modal.getOrCreateInstance("#modal9"),
+  myModal10: bootstrap.Modal.getOrCreateInstance("#modal10"),
+  myModal11: bootstrap.Modal.getOrCreateInstance("#modal11"),
+  myModal12: bootstrap.Modal.getOrCreateInstance("#modal12"),
+  myModal13: bootstrap.Modal.getOrCreateInstance("#modal13"),
+  myModal14: bootstrap.Modal.getOrCreateInstance("#modal14"),
+  myModal15: bootstrap.Modal.getOrCreateInstance("#modal15"),
+  myModal16: bootstrap.Modal.getOrCreateInstance("#modal16"),
+  myModal17: bootstrap.Modal.getOrCreateInstance("#modal17"),
+  myModal18: bootstrap.Modal.getOrCreateInstance("#modal18"),
+  myModal19: bootstrap.Modal.getOrCreateInstance("#modal19"),
+  myModal20: bootstrap.Modal.getOrCreateInstance("#modal20"),
+  myModal21: bootstrap.Modal.getOrCreateInstance("#modal21"),
+  myModal22: bootstrap.Modal.getOrCreateInstance("#modal22"),
+  myModal23: bootstrap.Modal.getOrCreateInstance("#modal23"),
+  myModal24: bootstrap.Modal.getOrCreateInstance("#modal24"),
+  myModal25: bootstrap.Modal.getOrCreateInstance("#modal25"),
+  myModal26: bootstrap.Modal.getOrCreateInstance("#modal26"),
+  myModal27: bootstrap.Modal.getOrCreateInstance("#modal27"),
+  myModal28: bootstrap.Modal.getOrCreateInstance("#modal28"),
+  myModal29: bootstrap.Modal.getOrCreateInstance("#modal29"),
+  myModal30: bootstrap.Modal.getOrCreateInstance("#modal30"),
+  myModal31: bootstrap.Modal.getOrCreateInstance("#modal31"),
+  myModal32: bootstrap.Modal.getOrCreateInstance("#modal32"),
+  myModal33: bootstrap.Modal.getOrCreateInstance("#modal33"),
+  myModal34: bootstrap.Modal.getOrCreateInstance("#modal34"),
+  myModal35: bootstrap.Modal.getOrCreateInstance("#modal35"),
+  myModal36: bootstrap.Modal.getOrCreateInstance("#modal36"),
+  myModal37: bootstrap.Modal.getOrCreateInstance("#modal37"),
+  myModal38: bootstrap.Modal.getOrCreateInstance("#modal38"),
+  myModal39: bootstrap.Modal.getOrCreateInstance("#modal39"),
+  myModal40: bootstrap.Modal.getOrCreateInstance("#modal40"),
+  myModal41: bootstrap.Modal.getOrCreateInstance("#modal41"),
+  myModal42: bootstrap.Modal.getOrCreateInstance("#modal42"),
+  myModal43: bootstrap.Modal.getOrCreateInstance("#modal43"),
+  myModal44: bootstrap.Modal.getOrCreateInstance("#modal44"),
+  myModal45: bootstrap.Modal.getOrCreateInstance("#modal45"),
+  myModal46: bootstrap.Modal.getOrCreateInstance("#modal46"),
+  myModal47: bootstrap.Modal.getOrCreateInstance("#modal47"),
+  myModal48: bootstrap.Modal.getOrCreateInstance("#modal48"),
+  myModal49: bootstrap.Modal.getOrCreateInstance("#modal49"),
+  myModal50: bootstrap.Modal.getOrCreateInstance("#modal50")
+};
+
+const blinkBackground = ()=>{
   if (getBackComputerStoVar == 6) {
     let recentImgStart = document.getElementById("forImgStart");
     recentImgStart.style.display = "none";
@@ -511,420 +596,6 @@ var tableObjec = {
   for50: document.getElementById("for50"),
 };
 
-const rolDicePlayerOne = () => {
-  if (computerTurn == true) {
-    var correctAnswer;
-    $(".modalStarter").on("hidden.bs.modal", function (e) {
-      // Handle the event after the modal is shown
-      // console.log("Modal is fully shown");
-      dispDiceHole.focus();
-      // Add your custom logic here
-    });
-
-    const myModalStart = bootstrap.Modal.getOrCreateInstance("#modalStart");
-    const myModal1 = bootstrap.Modal.getOrCreateInstance("#modal1");
-    const myModal2 = bootstrap.Modal.getOrCreateInstance("#modal2");
-    const myModal3 = bootstrap.Modal.getOrCreateInstance("#modal3");
-    const myModal4 = bootstrap.Modal.getOrCreateInstance("#modal4");
-    const myModal5 = bootstrap.Modal.getOrCreateInstance("#modal5");
-    const myModal6 = bootstrap.Modal.getOrCreateInstance("#modal6");
-    const myModal7 = bootstrap.Modal.getOrCreateInstance("#modal7");
-    const myModal8 = bootstrap.Modal.getOrCreateInstance("#modal8");
-    const myModal9 = bootstrap.Modal.getOrCreateInstance("#modal9");
-    const myModal10 = bootstrap.Modal.getOrCreateInstance("#modal10");
-    const myModal11 = bootstrap.Modal.getOrCreateInstance("#modal11");
-    const myModal12 = bootstrap.Modal.getOrCreateInstance("#modal12");
-    const myModal13 = bootstrap.Modal.getOrCreateInstance("#modal13");
-    const myModal14 = bootstrap.Modal.getOrCreateInstance("#modal14");
-    const myModal15 = bootstrap.Modal.getOrCreateInstance("#modal15");
-    const myModal16 = bootstrap.Modal.getOrCreateInstance("#modal16");
-    const myModal17 = bootstrap.Modal.getOrCreateInstance("#modal17");
-    const myModal18 = bootstrap.Modal.getOrCreateInstance("#modal18");
-    const myModal19 = bootstrap.Modal.getOrCreateInstance("#modal19");
-    const myModal20 = bootstrap.Modal.getOrCreateInstance("#modal20");
-    const myModal21 = bootstrap.Modal.getOrCreateInstance("#modal21");
-    const myModal22 = bootstrap.Modal.getOrCreateInstance("#modal22");
-    const myModal23 = bootstrap.Modal.getOrCreateInstance("#modal23");
-    const myModal24 = bootstrap.Modal.getOrCreateInstance("#modal24");
-    const myModal25 = bootstrap.Modal.getOrCreateInstance("#modal25");
-    const myModal26 = bootstrap.Modal.getOrCreateInstance("#modal26");
-    const myModal27 = bootstrap.Modal.getOrCreateInstance("#modal27");
-    const myModal28 = bootstrap.Modal.getOrCreateInstance("#modal28");
-    const myModal29 = bootstrap.Modal.getOrCreateInstance("#modal29");
-    const myModal30 = bootstrap.Modal.getOrCreateInstance("#modal30");
-    const myModal31 = bootstrap.Modal.getOrCreateInstance("#modal31");
-    const myModal32 = bootstrap.Modal.getOrCreateInstance("#modal32");
-    const myModal33 = bootstrap.Modal.getOrCreateInstance("#modal33");
-    const myModal34 = bootstrap.Modal.getOrCreateInstance("#modal34");
-    const myModal35 = bootstrap.Modal.getOrCreateInstance("#modal35");
-    const myModal36 = bootstrap.Modal.getOrCreateInstance("#modal36");
-    const myModal37 = bootstrap.Modal.getOrCreateInstance("#modal37");
-    const myModal38 = bootstrap.Modal.getOrCreateInstance("#modal38");
-    const myModal39 = bootstrap.Modal.getOrCreateInstance("#modal39");
-    const myModal40 = bootstrap.Modal.getOrCreateInstance("#modal40");
-    const myModal41 = bootstrap.Modal.getOrCreateInstance("#modal41");
-    const myModal42 = bootstrap.Modal.getOrCreateInstance("#modal42");
-    const myModal43 = bootstrap.Modal.getOrCreateInstance("#modal43");
-    const myModal44 = bootstrap.Modal.getOrCreateInstance("#modal44");
-    const myModal45 = bootstrap.Modal.getOrCreateInstance("#modal45");
-    const myModal46 = bootstrap.Modal.getOrCreateInstance("#modal46");
-    const myModal47 = bootstrap.Modal.getOrCreateInstance("#modal47");
-    const myModal48 = bootstrap.Modal.getOrCreateInstance("#modal48");
-    const myModal49 = bootstrap.Modal.getOrCreateInstance("#modal49");
-    const myModal50 = bootstrap.Modal.getOrCreateInstance("#modal50");
-
-    var diceSound = new Audio("./cf/dice_ass/Rolling-Dice-Sound-effect1.mp3");
-    // Here is my session stor setter and getter func
-
-    const setMyRandNoStorage = () => {
-      setComputerStoVar = sessionStorage.setItem(
-        "computerNum",
-        JSON.stringify(computerTurnToSaveSessi)
-      );
-    };
-    const retriveMyRandNoStorage = () => {
-      getBackComputerStoVar = JSON.parse(sessionStorage.getItem("computerNum"));
-    };
-
-    // This section is use to focus back on roll dice
-    let dispDiceHole = $(".editable");
-    window.addEventListener("DOMContentLoaded", () => {
-      dispDiceHole.focus();
-    });
-
-    // this is to add onclick to all cont btn
-    document.getElementById("btn-continue").addEventListener("click", () => {
-      dispDiceHole.focus();
-    });
-
-    const forEntr = (e) => {
-      if (e.key === "Enter") {
-        // alert('work')
-        rolDicePlayerOne();
-      }
-    };
-    dispDiceRolOne.innerHTML = `<img style="width: 130px; height: 100px;" src='./cf/dice_ass/dice.gif'>`;
-    diceSound.play();
-    // diceRandNoPlayerOne = Math.floor((Math.random() * 6 + 1)); ////
-    diceRandNoPlayerOne = 6;
-    computerTurnToSaveSessi = 11;
-    // computerTurnToSaveSessi = diceRandNoPlayerOne
-
-    // if(computerTurnToSaveSessi + diceRandNoPlayerOne >= 56){
-    //   computerTurnToSaveSessi = 56
-    //   alert("you won")
-    //   restart = confirm("do you want to restart")
-    //   if(restart){
-    //     sessionStorage.clear()
-    //     // setMyRandNoStorage()
-    //     window.location.reload()
-    //   }
-    // }else if((computerTurnToSaveSessi == 50 && diceRandNoPlayerOne == 6) || (computerTurnToSaveSessi >= 51 && diceRandNoPlayerOne == 5)  || (computerTurnToSaveSessi >= 52 && diceRandNoPlayerOne == 4)  || (computerTurnToSaveSessi >= 53 && diceRandNoPlayerOne == 3)  || (computerTurnToSaveSessi >= 54 && diceRandNoPlayerOne == 2)  || (computerTurnToSaveSessi >= 55 && diceRandNoPlayerOne == 1)){
-    //   computerTurnToSaveSessi += diceRandNoPlayerOne
-    //   computerTurnToSaveSessi = 56
-    //   alert("You WOn")
-    //   restart = confirm("do you want to restart")
-    //   if(restart){
-    //     sessionStorage.clear()
-    //     // setMyRandNoStorage()
-    //     window.location.reload()
-    //   }
-    // }else if(diceRandNoPlayerOne == 6 && computerTurnToSaveSessi == 0){
-    //   computerTurnToSaveSessi = diceRandNoPlayerOne
-    // }else if(computerTurnToSaveSessi >= 6){
-    //   computerTurnToSaveSessi += diceRandNoPlayerOne
-    // }
-    // console.log(diceRandNoPlayerOne);
-    // computerTurnToSaveSessi = 19
-    setMyRandNoStorage();
-    retriveMyRandNoStorage();
-    // console.log(getBackComputerStoVar);
-    getBackComputerStoVar = globeChangNum;
-    console.log(getBackComputerStoVar);
-    setTimeout(function () {
-      dispLuck();
-      modalTrigFun();
-      diceSound.pause();
-      // ifSixLuck()
-      // myModal.show()
-    }, 1100);
-    const ifSixLuck = () => {
-      // console.log(typeof(getBackComputerStoVar));
-      if (getBackComputerStoVar == 6) {
-        // alert("hallelujah")
-        const blinkingInterval = setInterval(blinkBackground, 800);
-        setTimeout(() => {
-          clearInterval(blinkingInterval);
-        }, 8000);
-      } else if (getBackComputerStoVar >= 6) {
-        const blinkingInterval = setInterval(blinkBackground, 800);
-        setTimeout(() => {
-          clearInterval(blinkingInterval);
-        }, 8000);
-      } else {
-        // setTimeout(()=>{
-        alert("Hum! You Need 6 to get on road");
-        // }, 500)
-      }
-      // backgroundToBlink.style.backgroundColor = colors[currentColorIndex]
-      // console.log(currentColorIndex);
-    };
-
-    const timeOutIfSIxLuck = () => {
-      setTimeout(() => {
-        ifSixLuck();
-      }, 400);
-    };
-  //  table object before
-    const dispLuck = () => {
-      if (diceRandNoPlayerOne == 1) {
-        dispDiceRolOne.innerHTML = `<img src='./cf/dice_ass/perspective-dice-six-faces-one.png' style="width: 130px; height: 100px;">`;
-        timeOutIfSIxLuck();
-      } else if (diceRandNoPlayerOne == 2) {
-        dispDiceRolOne.innerHTML = `<img src='./cf/dice_ass/perspective-dice-six-faces-two.png' style="width: 130px; height: 100px;">`;
-        timeOutIfSIxLuck();
-      } else if (diceRandNoPlayerOne == 3) {
-        dispDiceRolOne.innerHTML = `<img src='./cf/dice_ass/perspective-dice-six-faces-three.png' style="width: 130px; height: 100px;">`;
-        timeOutIfSIxLuck();
-        // ifSixLuck();
-        // dispDiceHole.focus()
-        // myModal2.show()
-        // trigClose()
-      } else if (diceRandNoPlayerOne == 4) {
-        dispDiceRolOne.innerHTML = `<img src='./cf/dice_ass/perspective-dice-six-faces-four.png' style="width: 130px; height: 100px;">`;
-        timeOutIfSIxLuck();
-      } else if (diceRandNoPlayerOne == 5) {
-        dispDiceRolOne.innerHTML = `<img src='./cf/dice_ass/perspective-dice-six-faces-five.png' style="width: 130px; height: 100px;">`;
-        timeOutIfSIxLuck();
-      } else if (diceRandNoPlayerOne == 6) {
-        dispDiceRolOne.innerHTML = `<img src='./cf/dice_ass/perspective-dice-six-faces-six.png' style="width: 130px; height: 100px;">`;
-        timeOutIfSIxLuck();
-      }
-    };
-
-    const modalTrigFun = () => {
-      if (getBackComputerStoVar == 6) {
-        // dispDiceHole.focus()
-        // confirmAnsObj.modalshow1 = true;
-        myModalStart.show();
-        trigClose();
-      } else if (getBackComputerStoVar == 7) {
-        confirmAnsObj.modalshow1 = true;
-        // dispDiceHole.focus()
-        myModal1.show();
-        trigClose();
-      } else if (getBackComputerStoVar == 8) {
-        confirmAnsObj.modalshow2 = true;
-        myModal2.show();
-        trigClose();
-      } else if (getBackComputerStoVar == 9) {
-        confirmAnsObj.modalshow3 = true;
-        myModal3.show();
-        trigClose();
-      } else if (getBackComputerStoVar == 10) {
-        confirmAnsObj.modalshow4 = true;
-        myModal4.show();
-        trigClose();
-      } else if (getBackComputerStoVar == 11) {
-        confirmAnsObj.modalshow5 = true;
-        myModal5.show();
-        trigClose();
-      } else if (getBackComputerStoVar == 12) {
-        confirmAnsObj.modalshow6 = true;
-        myModal6.show();
-        trigClose();
-      } else if (getBackComputerStoVar == 13) {
-        confirmAnsObj.modalshow7 = true;
-        myModal7.show();
-        trigClose();
-      } else if (getBackComputerStoVar == 14) {
-        confirmAnsObj.modalshow8 = true;
-        myModal8.show();
-        trigClose();
-      } else if (getBackComputerStoVar == 15) {
-        confirmAnsObj.modalshow9 = true;
-        myModal9.show();
-        trigClose();
-      } else if (getBackComputerStoVar == 16) {
-        confirmAnsObj.modalshow10 = true;
-        myModal10.show();
-        trigClose();
-      } else if (getBackComputerStoVar == 17) {
-        // alert("ITs eleven")
-        confirmAnsObj.modalshow11 = true;
-        myModal11.show();
-        trigClose();
-      } else if (getBackComputerStoVar == 18) {
-        confirmAnsObj.modalshow12 = true;
-        myModal12.show();
-        trigClose();
-      } else if (getBackComputerStoVar == 19) {
-        confirmAnsObj.modalshow13 = true;
-        myModal13.show();
-        trigClose();
-      } else if (getBackComputerStoVar == 20) {
-        confirmAnsObj.modalshow14 = true;
-        myModal14.show();
-        trigClose();
-      } else if (getBackComputerStoVar == 21) {
-        confirmAnsObj.modalshow15 = true;
-        myModal15.show();
-        trigClose();
-      } else if (getBackComputerStoVar == 22) {
-        confirmAnsObj.modalshow16 = true;
-        myModal16.show();
-        trigClose();
-      } else if (getBackComputerStoVar == 23) {
-        confirmAnsObj.modalshow17 = true;
-        myModal17.show();
-        trigClose();
-      } else if (getBackComputerStoVar == 24) {
-        confirmAnsObj.modalshow18 = true;
-        myModal18.show();
-        trigClose();
-      } else if (getBackComputerStoVar == 25) {
-        confirmAnsObj.modalshow19 = true;
-        myModal19.show();
-        trigClose();
-      } else if (getBackComputerStoVar == 26) {
-        confirmAnsObj.modalshow20 = true;
-        myModal20.show();
-        trigClose();
-      } else if (getBackComputerStoVar == 27) {
-        confirmAnsObj.modalshow21 = true;
-        myModal21.show();
-        trigClose();
-      } else if (getBackComputerStoVar == 28) {
-        confirmAnsObj.modalshow22 = true;
-        myModal22.show();
-        trigClose();
-      } else if (getBackComputerStoVar == 29) {
-        confirmAnsObj.modalshow23 = true;
-        myModal23.show();
-        trigClose();
-      } else if (getBackComputerStoVar == 30) {
-        confirmAnsObj.modalshow24 = true;
-        myModal24.show();
-        trigClose();
-      } else if (getBackComputerStoVar == 31) {
-        confirmAnsObj.modalshow25 = true;
-        myModal25.show();
-        trigClose();
-      } else if (getBackComputerStoVar == 32) {
-        confirmAnsObj.modalshow26 = true;
-        myModal26.show();
-        trigClose();
-      } else if (getBackComputerStoVar == 33) {
-        confirmAnsObj.modalshow27 = true;
-        myModal27.show();
-        trigClose();
-      } else if (getBackComputerStoVar == 34) {
-        confirmAnsObj.modalshow28 = true;
-        myModal28.show();
-        trigClose();
-      } else if (getBackComputerStoVar == 35) {
-        confirmAnsObj.modalshow29 = true;
-        myModal29.show();
-        trigClose();
-      } else if (getBackComputerStoVar == 36) {
-        confirmAnsObj.modalshow30 = true;
-        myModal30.show();
-        trigClose();
-      } else if (getBackComputerStoVar == 37) {
-        confirmAnsObj.modalshow31 = true;
-        myModal31.show();
-        trigClose();
-      } else if (getBackComputerStoVar == 38) {
-        confirmAnsObj.modalshow32 = true;
-        myModal32.show();
-        trigClose();
-      } else if (getBackComputerStoVar == 39) {
-        confirmAnsObj.modalshow33 = true;
-        myModal33.show();
-        trigClose();
-      } else if (getBackComputerStoVar == 40) {
-        confirmAnsObj.modalshow34 = true;
-        myModal34.show();
-        trigClose();
-      } else if (getBackComputerStoVar == 41) {
-        confirmAnsObj.modalshow35 = true;
-        myModal35.show();
-        trigClose();
-      } else if (getBackComputerStoVar == 42) {
-        confirmAnsObj.modalshow36 = true;
-        myModal36.show();
-        trigClose();
-      } else if (getBackComputerStoVar == 43) {
-        confirmAnsObj.modalshow37 = true;
-        myModal37.show();
-        trigClose();
-      } else if (getBackComputerStoVar == 44) {
-        confirmAnsObj.modalshow38 = true;
-        myModal38.show();
-        trigClose();
-      } else if (getBackComputerStoVar == 45) {
-        confirmAnsObj.modalshow39 = true;
-        myModal39.show();
-        trigClose();
-      } else if (getBackComputerStoVar == 46) {
-        confirmAnsObj.modalshow40 = true;
-        myModal40.show();
-        trigClose();
-      } else if (getBackComputerStoVar == 47) {
-        confirmAnsObj.modalshow41 = true;
-        myModal41.show();
-        trigClose();
-      } else if (getBackComputerStoVar == 48) {
-        confirmAnsObj.modalshow42 = true;
-        myModal42.show();
-        trigClose();
-      } else if (getBackComputerStoVar == 49) {
-        confirmAnsObj.modalshow48 = true;
-        myModal43.show();
-        trigClose();
-      } else if (getBackComputerStoVar == 50) {
-        confirmAnsObj.modalshow43 = true;
-        myModal44.show();
-        trigClose();
-      } else if (getBackComputerStoVar == 51) {
-        confirmAnsObj.modalshow44 = true;
-        myModal45.show();
-        trigClose();
-      } else if (getBackComputerStoVar == 52) {
-        confirmAnsObj.modalshow45 = true;
-        myModal46.show();
-        trigClose();
-      } else if (getBackComputerStoVar == 53) {
-        confirmAnsObj.modalshow46 = true;
-        myModal47.show();
-        trigClose();
-      } else if (getBackComputerStoVar == 54) {
-        confirmAnsObj.modalshow47 = true;
-        myModal48.show();
-        trigClose();
-      } else if (getBackComputerStoVar == 55) {
-        confirmAnsObj.modalshow48 = true;
-        myModal49.show();
-        trigClose();
-      } else if (getBackComputerStoVar == 56) {
-        confirmAnsObj.modalshow49 = true;
-        myModal50.show();
-        trigClose();
-      }
-      // confirmAnsObj.modalshow50 = true;
-    };
-
-    // below fuction help me to focus on continue btn
-    // of triggered modal
-    const trigClose = () => {
-      setTimeout(function () {
-        $(".contine-focus").focus();
-      }, 700);
-    };
-    // This below function is use to check if the option selected is correct
-  }
-};
-
 const getSelectedOption = () => {
   if (confirmAnsObj.modalshow11) {
     var selectedOption = document.querySelector(
@@ -978,7 +649,7 @@ const getSelectedOption = () => {
           myTurn = false;
           alert("You got it! Its 2ndTurn turn now");
         }
-        blinkBackground()
+        blinkBackground();
         $("#modal12").modal("hide");
         confirmAnsObj.modalshow12 = false;
       } else if (selectedOption.value === "other") {
@@ -1064,7 +735,7 @@ const getSelectedOption = () => {
           computerTurn = true;
           alert("You got it! It's 2ndTurn to Play");
         }
-        blinkBackground()
+        blinkBackground();
         $("#modal15").modal("hide");
         confirmAnsObj.modalshow15 = false;
       } else if (selectedOption.value === "other") {
@@ -1108,7 +779,7 @@ const getSelectedOption = () => {
       myTurn = true;
       alert("Its myTurnTurn turn");
     }
-    blinkBackground()
+    blinkBackground();
     confirmAnsObj.modalshow17 = false;
     $("#modal17").modal("hide");
   } else if (confirmAnsObj.modalshow18) {
@@ -1155,7 +826,7 @@ const getSelectedOption = () => {
         }
         $("#modal19").modal("hide");
         confirmAnsObj.modalshow19 = false;
-        blinkBackground()
+        blinkBackground();
       }
     } else {
       alert("No option selected. Please choose an option.");
@@ -1205,7 +876,7 @@ const getSelectedOption = () => {
           alert("You got it! Its 2ndTurn turn now");
           $("#modal21").modal("hide");
         }
-        blinkBackground()
+        blinkBackground();
         confirmAnsObj.modalshow21 = false;
       }
     } else {
@@ -1248,13 +919,13 @@ const getSelectedOption = () => {
           computerTurn = false;
           myTurn = true;
           alert("You got it! It's 1stTurn to Play");
-          blinkBackground()
+          blinkBackground();
         } else if (myTurn == true) {
           getBackMyStoVar += 13;
           myTurn = false;
           computerTurn = true;
           alert("You got it! It's 2ndTurn to Play");
-          blinkBackground()
+          blinkBackground();
         }
         $("#modal23").modal("hide");
         confirmAnsObj.modalshow23 = false;
@@ -1263,10 +934,10 @@ const getSelectedOption = () => {
       alert("No option selected. Please choose an option.");
     }
   } else if (confirmAnsObj.modalshow24) {
-    blinkBackground()
+    blinkBackground();
     if (myTurn == true) {
       getBackMyStoVar = 11;
-      blinkBackground()
+      blinkBackground();
       myTurn = false;
       computerTurn = true;
       confirmAnsObj.modalshow24 = false;
@@ -1274,7 +945,7 @@ const getSelectedOption = () => {
       alert("Its computer turn");
     } else if (computerTurn == true) {
       getBackComputerStoVar = 11;
-      blinkBackground()
+      blinkBackground();
       computerTurn = false;
       myTurn = true;
       confirmAnsObj.modalshow24 = false;
@@ -1296,10 +967,10 @@ const getSelectedOption = () => {
       alert("No option selected. Please choose an option to continue.");
     }
   } else if (confirmAnsObj.modalshow26) {
-    blinkBackground()
+    blinkBackground();
     if (myTurn == true) {
       getBackMyStoVar += 7;
-      blinkBackground()
+      blinkBackground();
       myTurn = false;
       computerTurn = true;
       confirmAnsObj.modalshow26 = false;
@@ -1307,7 +978,7 @@ const getSelectedOption = () => {
       alert("Its computer turn");
     } else if (computerTurn == true) {
       getBackComputerStoVar += 7;
-      blinkBackground()
+      blinkBackground();
       computerTurn = false;
       myTurn = true;
       confirmAnsObj.modalshow26 = false;
@@ -1315,10 +986,10 @@ const getSelectedOption = () => {
       alert("Its myTurn turn");
     }
   } else if (confirmAnsObj.modalshow27) {
-    blinkBackground()
+    blinkBackground();
     if (myTurn == true) {
       getBackMyStoVar = 6;
-      blinkBackground()
+      blinkBackground();
       myTurn = false;
       computerTurn = true;
       confirmAnsObj.modalshow27 = false;
@@ -1326,7 +997,7 @@ const getSelectedOption = () => {
       alert("Its computer turn");
     } else if (computerTurn == true) {
       getBackComputerStoVar = 6;
-      blinkBackground()
+      blinkBackground();
       computerTurn = false;
       myTurn = true;
       confirmAnsObj.modalshow27 = false;
@@ -1364,7 +1035,7 @@ const getSelectedOption = () => {
           myTurn = false;
           alert("You miss it! It's 2ndTurn to Play");
         }
-        blinkBackground()
+        blinkBackground();
         $("#modal29").modal("hide");
         confirmAnsObj.modalshow29 = false;
       } else if (selectedOption.value === "other") {
@@ -1384,10 +1055,10 @@ const getSelectedOption = () => {
       alert("No option selected. Please choose an option.");
     }
   } else if (confirmAnsObj.modalshow30) {
-    blinkBackground()
+    blinkBackground();
     if (myTurn == true) {
       getBackMyStoVar = 11;
-      blinkBackground()
+      blinkBackground();
       myTurn = false;
       computerTurn = true;
       confirmAnsObj.modalshow30 = false;
@@ -1395,7 +1066,7 @@ const getSelectedOption = () => {
       alert("Its computer turn");
     } else if (computerTurn == true) {
       getBackComputerStoVar = 11;
-      blinkBackground()
+      blinkBackground();
       computerTurn = false;
       myTurn = true;
       confirmAnsObj.modalshow30 = false;
@@ -1432,7 +1103,7 @@ const getSelectedOption = () => {
           myTurn = false;
           alert("You miss it! It's 2ndTurn to Play");
         }
-        blinkBackground()
+        blinkBackground();
         $("#modal32").modal("hide");
         confirmAnsObj.modalshow32 = false;
       } else if (selectedOption.value === "other") {
@@ -1471,17 +1142,15 @@ const getSelectedOption = () => {
     if (selectedOption) {
       if (selectedOption.value === "continue") {
         if (computerTurn == true) {
-          getBackComputerStoVar = 10;
           computerTurn = false;
           myTurn = true;
           alert("You miss it! It's 1stTurn to Play");
         } else if (myTurn == true) {
-          getBackMyStoVar = 10;
           computerTurn = true;
           myTurn = false;
           alert("You miss it! It's 2ndTurn to Play");
         }
-        blinkBackground()
+        blinkBackground();
         $("#modal34").modal("hide");
         confirmAnsObj.modalshow34 = false;
       } else if (selectedOption.value === "other") {
@@ -1500,188 +1169,677 @@ const getSelectedOption = () => {
     } else {
       alert("No option selected. Please choose an option.");
     }
+  } else if (confirmAnsObj.modalshow35) {
+    if (myTurn == true) {
+      myTurn = false;
+      computerTurn = true;
+      confirmAnsObj.modalshow35 = false;
+      alert("Its computer turn now");
+    } else if (computerTurn == true) {
+      computerTurn = false;
+      myTurn = true;
+      confirmAnsObj.modalshow35 = false;
+      alert("Its myTurn turn now");
+    }
+    $("#modal35").modal("hide");
+  } else if (confirmAnsObj.modalshow36) {
+    if (myTurn == true) {
+      myTurn = false;
+      computerTurn = true;
+      confirmAnsObj.modalshow36 = false;
+      alert("Its computer turn now");
+    } else if (computerTurn == true) {
+      computerTurn = false;
+      myTurn = true;
+      confirmAnsObj.modalshow36 = false;
+      alert("Its myTurn turn now");
+    }
+    $("#modal36").modal("hide");
+  } else if (confirmAnsObj.modalshow37) {
+    var selectedOption = document.querySelector(
+      'input[name="options"]:checked'
+    );
+    if (selectedOption) {
+      if (selectedOption.value === "continue") {
+        if (computerTurn == true) {
+          computerTurn = false;
+          myTurn = true;
+          alert("You got it! It's 1stTurn to Play");
+        } else if (myTurn == true) {
+          myTurn = false;
+          computerTurn = true;
+          alert("You got it! It's 2ndTurn to Play");
+        }
+        $("#modal37").modal("hide");
+        confirmAnsObj.modalshow37 = false;
+      } else if (selectedOption.value === "other") {
+        if (computerTurn == true) {
+          getBackComputerStoVar = 10;
+          computerTurn = false;
+          myTurn = true;
+          alert("You miss it! It's 1stTurn to Play");
+        } else if (myTurn == true) {
+          getBackMyStoVar = 10;
+          computerTurn = true;
+          myTurn = false;
+          alert("You miss it! It's 2ndTurn to Play");
+        }
+        blinkBackground();
+        $("#modal37").modal("hide");
+        confirmAnsObj.modalshow37 = false;
+      }
+    } else {
+      alert("No option selected. Please choose an option.");
+    }
+  } else if (confirmAnsObj.modalshow38) {
+    blinkBackground();
+    if (myTurn == true) {
+      getBackMyStoVar = 12;
+      blinkBackground();
+      myTurn = false;
+      computerTurn = true;
+      confirmAnsObj.modalshow38 = false;
+      $("#modal38").modal("hide");
+      alert("Its computer turn");
+    } else if (computerTurn == true) {
+      getBackComputerStoVar = 12;
+      blinkBackground();
+      computerTurn = false;
+      myTurn = true;
+      confirmAnsObj.modalshow38 = false;
+      $("#modal38").modal("hide");
+      alert("Its myTurn turn");
+    }
+  } else if (confirmAnsObj.modalshow39) {
+    var selectedOption = document.querySelector(
+      'input[name="options"]:checked'
+    );
+    if (selectedOption) {
+      if (selectedOption.value === "continue") {
+        if (computerTurn == true) {
+          // getBackComputerStoVar = 10;
+          computerTurn = false;
+          myTurn = true;
+          alert("You miss it! It's 1stTurn to Play");
+        } else if (myTurn == true) {
+          // getBackMyStoVar = 10;
+          computerTurn = true;
+          myTurn = false;
+          alert("You miss it! It's 2ndTurn to Play");
+        }
+        blinkBackground();
+        $("#modal39").modal("hide");
+        confirmAnsObj.modalshow39 = false;
+      } else if (selectedOption.value === "other") {
+        if (computerTurn == true) {
+          computerTurn = false;
+          myTurn = true;
+          alert("You got it! It's 1stTurn to Play");
+        } else if (myTurn == true) {
+          myTurn = false;
+          computerTurn = true;
+          alert("You got it! It's 2ndTurn to Play");
+        }
+        $("#modal39").modal("hide");
+        confirmAnsObj.modalshow39 = false;
+      }
+    } else {
+      alert("No option selected. Please choose an option.");
+    }
+  } else if (confirmAnsObj.modalshow40) {
+    if (myTurn == true) {
+      myTurn = false;
+      computerTurn = true;
+      confirmAnsObj.modalshow40 = false;
+      alert("Its computer turn now");
+    } else if (computerTurn == true) {
+      computerTurn = false;
+      myTurn = true;
+      confirmAnsObj.modalshow40 = false;
+      alert("Its myTurn turn now");
+    }
+    $("#modal40").modal("hide");
+  } else if (confirmAnsObj.modalshow41) {
+    blinkBackground();
+    if (myTurn == true) {
+      getBackMyStoVar = 12;
+      blinkBackground();
+      myTurn = false;
+      computerTurn = true;
+      confirmAnsObj.modalshow41 = false;
+      $("#modal41").modal("hide");
+      alert("Its computer turn");
+    } else if (computerTurn == true) {
+      getBackComputerStoVar = 12;
+      blinkBackground();
+      computerTurn = false;
+      myTurn = true;
+      confirmAnsObj.modalshow41 = false;
+      $("#modal41").modal("hide");
+      alert("Its myTurn turn");
+    }
+  } else if (confirmAnsObj.modalshow42) {
+    if (myTurn == true) {
+      myTurn = false;
+      computerTurn = true;
+      confirmAnsObj.modalshow42 = false;
+      alert("Its computer turn now");
+    } else if (computerTurn == true) {
+      computerTurn = false;
+      myTurn = true;
+      confirmAnsObj.modalshow42 = false;
+      alert("Its myTurn turn now");
+    }
+    $("#modal42").modal("hide");
+  } else if (confirmAnsObj.modalshow43) {
+    if (myTurn == true) {
+      myTurn = false;
+      computerTurn = true;
+      confirmAnsObj.modalshow43 = false;
+      alert("Its computer turn now");
+    } else if (computerTurn == true) {
+      computerTurn = false;
+      myTurn = true;
+      confirmAnsObj.modalshow43 = false;
+      alert("Its myTurn turn now");
+    }
+    $("#modal43").modal("hide");
+  } else if (confirmAnsObj.modalshow44) {
+    if (myTurn == true) {
+      myTurn = false;
+      computerTurn = true;
+      confirmAnsObj.modalshow44 = false;
+      alert("Its computer turn now");
+    } else if (computerTurn == true) {
+      computerTurn = false;
+      myTurn = true;
+      confirmAnsObj.modalshow44 = false;
+      alert("Its myTurn turn now");
+    }
+    $("#modal44").modal("hide");
+  } else if (confirmAnsObj.modalshow45) {
+    if (myTurn == true) {
+      getBackMyStoVar = 6;
+      blinkBackground();
+      myTurn = false;
+      computerTurn = true;
+      confirmAnsObj.modalshow45 = false;
+      $("#modal45").modal("hide");
+      alert("Its computer turn");
+    } else if (computerTurn == true) {
+      getBackComputerStoVar = 6;
+      blinkBackground();
+      computerTurn = false;
+      myTurn = true;
+      confirmAnsObj.modalshow45 = false;
+      $("#modal45").modal("hide");
+      alert("Its myTurn turn");
+    }
+  } else if (confirmAnsObj.modalshow46) {
+    var selectedOption = document.querySelector(
+      'input[name="options"]:checked'
+    );
+    if (selectedOption) {
+      if (selectedOption.value === "continue") {
+        if (computerTurn == true) {
+          getBackComputerStoVar = 6;
+          computerTurn = false;
+          myTurn = true;
+          alert("You miss it! It's 1stTurn to Play");
+        } else if (myTurn == true) {
+          getBackMyStoVar = 6;
+          computerTurn = true;
+          myTurn = false;
+          alert("You miss it! It's 2ndTurn to Play");
+        }
+        blinkBackground();
+        $("#modal46").modal("hide");
+        confirmAnsObj.modalshow46 = false;
+      } else if (selectedOption.value === "other") {
+        if (computerTurn == true) {
+          computerTurn = false;
+          myTurn = true;
+          alert("You got it! It's 1stTurn to Play");
+        } else if (myTurn == true) {
+          myTurn = false;
+          computerTurn = true;
+          alert("You got it! It's 2ndTurn to Play");
+        }
+        $("#modal46").modal("hide");
+        confirmAnsObj.modalshow46 = false;
+      }
+    } else {
+      alert("No option selected. Please choose an option.");
+    }
+  } else if (confirmAnsObj.modalshow47) {
+    if (myTurn == true) {
+      myTurn = false;
+      computerTurn = true;
+      confirmAnsObj.modalshow47 = false;
+      alert("Its computer turn now");
+    } else if (computerTurn == true) {
+      computerTurn = false;
+      myTurn = true;
+      confirmAnsObj.modalshow47 = false;
+      alert("Its myTurn turn now");
+    }
+    $("#modal47").modal("hide");
+  } else if (confirmAnsObj.modalshow48) {
+    var selectedOption = document.querySelector(
+      'input[name="options"]:checked'
+    );
+    if (selectedOption) {
+      if (selectedOption.value === "continue") {
+        if (computerTurn == true) {
+          computerTurn = false;
+          myTurn = true;
+          alert("You got it! It's 1stTurn to Play");
+        } else if (myTurn == true) {
+          myTurn = false;
+          computerTurn = true;
+          alert("You got it! It's 2ndTurn to Play");
+        }
+        $("#modal48").modal("hide");
+        confirmAnsObj.modalshow48 = false;
+      } else if (selectedOption.value === "other") {
+        if (computerTurn == true) {
+          getBackComputerStoVar = 6;
+          computerTurn = false;
+          myTurn = true;
+          alert("You miss it! It's 1stTurn to Play");
+        } else if (myTurn == true) {
+          getBackMyStoVar = 6;
+          computerTurn = true;
+          myTurn = false;
+          alert("You miss it! It's 2ndTurn to Play");
+        }
+        blinkBackground();
+        $("#modal48").modal("hide");
+        confirmAnsObj.modalshow48 = false;
+      }
+    } else {
+      alert("No option selected. Please choose an option.");
+    }
+  } else if (confirmAnsObj.modalshow49) {
+    var selectedOption = document.querySelector(
+      'input[name="options"]:checked'
+    );
+    if (selectedOption) {
+      if (selectedOption.value === "continue") {
+        if (computerTurn == true) {
+          getBackComputerStoVar = 18;
+          computerTurn = false;
+          myTurn = true;
+          alert("You miss it! It's 1stTurn to Play");
+        } else if (myTurn == true) {
+          getBackMyStoVar = 18;
+          computerTurn = true;
+          myTurn = false;
+          alert("You miss it! It's 2ndTurn to Play");
+        }
+        blinkBackground();
+        $("#modal49").modal("hide");
+        confirmAnsObj.modalshow49 = false;
+      } else if (selectedOption.value === "other") {
+        if (computerTurn == true) {
+          computerTurn = false;
+          myTurn = true;
+          alert("You got it! It's 1stTurn to Play");
+        } else if (myTurn == true) {
+          myTurn = false;
+          computerTurn = true;
+          alert("You got it! It's 2ndTurn to Play");
+        }
+        $("#modal49").modal("hide");
+        confirmAnsObj.modalshow49 = false;
+      }
+    } else {
+      alert("No option selected. Please choose an option.");
+    }
   }
-  //  else if (confirmAnsObj.modalshow30) {
-  //   var selectedOption = document.querySelector(
-  //     'input[name="options"]:checked'
-  //   );
-  //   if (selectedOption) {
-  //     if (selectedOption.value === "continue") {
-  //       if (computerTurn == true) {
-  //         computerTurn = false;
-  //         myTurn = true;
-  //         alert("You miss it! It's 1stTurn to Play");
-  //       } else if (myTurn == true) {
-  //         computerTurn = true;
-  //         myTurn = false;
-  //         alert("You miss it! It's 2ndTurn to Play");
-  //       }
-  //       $("#modal30").modal("hide");
-  //       confirmAnsObj.modalshow30 = false;
-  //     } else if (selectedOption.value === "other") {
-  //       if (computerTurn == true) {
-  //         getBackComputerStoVar = 10;
-  //         computerTurn = false;
-  //         myTurn = true;
-  //         alert("You got it! It's 1stTurn to Play");
-  //         blinkBackground()
-  //       } else if (myTurn == true) {
-  //         getBackMyStoVar = 10;
-  //         myTurn = false;
-  //         computerTurn = true;
-  //         alert("You got it! It's 2ndTurn to Play");
-  //         blinkBackground()
-  //       }
-  //       $("#modal30").modal("hide");
-  //       confirmAnsObj.modalshow30 = false;
-  //     }
-  //   } else {
-  //     alert("No option selected. Please choose an option.");
-  //   }
-  // }
+};
+
+const forEntr = (e) => {
+  if (e.key === "Enter") {
+    // alert('work')
+    rolDicePlayerOne();
   }
-  //  else if (confirmAnsObj.modalshow19) {
-  //   var selectedOption = document.querySelector(
-  //     'input[name="options"]:checked'
-  //   );
-  //   if (selectedOption) {
-  //     if (selectedOption.value === "continue") {
-  //       if (computerTurn == true) {
-  //         computerTurnToSaveSessi += 15;
-  //         computerTurn = false;
-  //         myTurn = true;
-  //         alert("You got it! It's 1stTurn to Play");
-  //       } else if (myTurn == true) {
-  //         myTurnToSaveSessi += 15;
-  //         myTurn = false;
-  //         computerTurn = true;
-  //         alert("You got it! It's 2ndTurn to Play");
-  //       }
-  //       $("#modal19").modal("hide");
-  //       confirmAnsObj.modalshow19 = false;
-  //     } else if (selectedOption.value === "other") {
-  //       if (computerTurn == true) {
-  //         computerTurn = false;
-  //         myTurn = true;
-  //         alert("You miss it! It's 1stTurn to Play");
-  //       } else if (myTurn == true) {
-  //         computerTurn = true;
-  //         myTurn = false;
-  //         alert("You miss it! It's 2ndTurn to Play");
-  //       }
-  //       $("#modal19").modal("hide");
-  //       confirmAnsObj.modalshow19 = false;
-  //     }
-  //   } else {
-  //     alert("No option selected. Please choose an option.");
-  //   }
-  // }
-//   catch(e){
-//     console.log(e)
-//   }
-// };
+};
+var correctAnswer;
 
-// function handleDismiss() {
-// // Optional: Add additional logic if needed before dismissing the modal
-// alert('Modal cannot be dismissed without selecting an option.');
-// }
-// try{
-// // Get all radio buttons with the name 'options'
-// var radioButtons = document.getElementsByName("options");
 
-// for (var i = 0; i < radioButtons.length; i++) {
-//     if (radioButtons[i].checked == true) {
-//         // Condition 1: Radio button is checked and has a valid value (1, 2, or 3)
-//         if (radioButtons[i].value == 1 || radioButtons[i].value == 2 || radioButtons[i].value == 3) {
-//             console.log("Condition 1: is true");
-//             radioButtons[i].checked == ""
-//             break;
-//         }
-//     } else if (radioButtons[i].checked == false && document.getElementById("pickoption").innerText == "") {
-//         // Condition 2: Radio button is not checked, and pickoption text is empty
-//         console.log("Condition 2: last condition");
-//         radioButtons[i].checked == ""
-//         break;
-//     } else if (radioButtons[i].checked == false && document.getElementById("pickoption").innerText === "Pick correct answer") {
-//         // Condition 3: Radio button is not checked, pickoption text is "Pick correct answer",
-//         // and the value of the unchecked radio button is not 1, 2, or 3
-//         if (radioButtons[i].value != 1 || radioButtons[i].value != 2) {
-//             console.log("Condition 3: is false");
-//             radioButtons[i].checked == ""
-//             break;
-//         }
-//     }
-// }
+const rolDicePlayerOne = () => {
+  if (computerTurn == true) {
+    $(".modalStarter").on("hidden.bs.modal", function (e) {
+      // Handle the event after the modal is shown
+      dispDiceHole.focus();
+    });
+    // This section is use to focus back on roll dice
+    let dispDiceHole = $(".editable");
+    window.addEventListener("DOMContentLoaded", () => {
+      dispDiceHole.focus();
+    });
 
-// Get all radio buttons with the name 'options'
-// var radioButtons = document.getElementsByName("options");
-// Loop through radio buttons to find the selected one
-// alert("wko  ")
-// for (var i = 0; i < radioButtons.length; i++) {
-//   if(radioButtons[i].checked){
-// Display the selected option value
-// let forChooseCorrect = 1
-// alert("we check")
-// break
-//      if(radioButtons[i].value == 1){
-//       // alert("hum")
-//       var popup = document.getElementById('popup');
-// var popupText = document.getElementById('popupText');
-// // Set the popup text
-// popupText.innerText = "Play once AGain";
-// // Show the popup
-// popup.style.display = 'block';
+    // this is to add onclick to all cont btn
+    document.getElementById("btn-continue").addEventListener("click", () => {
+      dispDiceHole.focus();
+    });
 
-// // Hide the popup after 3 seconds (adjust as needed)
-// if(myTurn == true){
-//   alert("Your Turn")
-//   myTurn = true
-//   computerTurn = false
-//   // break
-// }else if(computerTurn == true){
-//   alert("Computer Turn")
-//   computerTurn = true
-//   myTurn = false
-//   // break
-// }
-// setTimeout(function() {
-//     popup.style.display = 'none';
-// }, 1000);
-// break
-//     }else if(radioButtons[i].value == 2){
-//       if(myTurn == true){
-//         alert("computer Turn")
-//         myTurn = false
-//         computerTurn = true
-//       }else if(computerTurn == true){
-//         alert("your Turn")
-//         computerTurn = false
-//         myTurn = true
-//       }
+    dispDiceRolOne.innerHTML = `<img style="width: 130px; height: 100px;" src='./cf/dice_ass/dice.gif'>`;
 
-//     break
-//     }
-//   }else if(radioButtons[i].checked == ""){
-//     //  if(radioButtons[i].value != 1 && radioButtons[i].value != 2){
-//       // if(radioButtons[i].value != 1 && radioButtons[i].value != 2){
-//         alert("not going")
-//         break
-//       // }
-//     // }
-//     // alert("done")
-//     // break
-//   }
-//   else{
-//     if(myTurn == true){
-//       alert("computer Turn")
-//       myTurn = false
-//       computerTurn = true
-//     }else if(computerTurn == true){
-//       alert("your Turn")
-//       computerTurn = false
-//       myTurn = true
-//     }
+    diceSound.play();
 
-//   break
-//   }
-// }
+    diceRandNoPlayerOne = Math.floor((Math.random() * 6 + 1)); ////
+    // diceRandNoPlayerOne = 6;
+    // computerTurnToSaveSessi = 11;
+    getBackComputerStoVar = diceRandNoPlayerOne
+
+    if(computerTurnToSaveSessi + diceRandNoPlayerOne >= 56){
+      computerTurnToSaveSessi = 56
+      alert("you won")
+      restart = confirm("do you want to restart")
+      if(restart){
+        sessionStorage.clear()
+        // setComputerSessStorFunc()
+        window.location.reload()
+      }
+    }else if((computerTurnToSaveSessi == 50 && diceRandNoPlayerOne == 6) || (computerTurnToSaveSessi >= 51 && diceRandNoPlayerOne == 5)  || (computerTurnToSaveSessi >= 52 && diceRandNoPlayerOne == 4)  || (computerTurnToSaveSessi >= 53 && diceRandNoPlayerOne == 3)  || (computerTurnToSaveSessi >= 54 && diceRandNoPlayerOne == 2)  || (computerTurnToSaveSessi >= 55 && diceRandNoPlayerOne == 1)){
+      computerTurnToSaveSessi += diceRandNoPlayerOne
+      computerTurnToSaveSessi = 56
+      alert("You WOn")
+      restart = confirm("do you want to restart")
+      if(restart){
+        sessionStorage.clear()
+        // setComputerSessStorFunc()
+        window.location.reload()
+      }
+    }else if(diceRandNoPlayerOne == 6 && computerTurnToSaveSessi == 0){
+      computerTurnToSaveSessi = diceRandNoPlayerOne
+    }else if(computerTurnToSaveSessi >= 6){
+      computerTurnToSaveSessi += diceRandNoPlayerOne
+    }
+    setComputerSessStorFunc();
+    retriveComputerSessStorFunc();
+    // getBackComputerStoVar = globeChangNum;
+    // console.log(getBackComputerStoVar);
+    setTimeout(function () {
+      dispLuck();
+      modalTrigFun();
+      diceSound.pause();
+      // ifSixLuck()
+      myModal.show()
+    }, 1100);
+
+    const ifSixLuck = () => {
+      if (getBackComputerStoVar == 6) {
+        const blinkingInterval = setInterval(blinkBackground, 800);
+        setTimeout(() => {
+          clearInterval(blinkingInterval);
+        }, 8000);
+      } else if (getBackComputerStoVar >= 6) {
+        const blinkingInterval = setInterval(blinkBackground, 800);
+        setTimeout(() => {
+          clearInterval(blinkingInterval);
+        }, 8000);
+      } else {
+        setTimeout(()=>{
+        alert("Hum! You Need 6 to get on road");
+         }, 500)
+      }
+      // backgroundToBlink.style.backgroundColor = colors[currentColorIndex]
+    };
+
+    const timeOutIfSIxLuck = () => {
+      setTimeout(() => {
+        ifSixLuck();
+      }, 400);
+    };
+    //  table object before
+    const dispLuck = () => {
+      if (diceRandNoPlayerOne == 1) {
+        dispDiceRolOne.innerHTML = `<img src='./cf/dice_ass/perspective-dice-six-faces-one.png' style="width: 130px; height: 100px;">`;
+        timeOutIfSIxLuck();
+      } else if (diceRandNoPlayerOne == 2) {
+        dispDiceRolOne.innerHTML = `<img src='./cf/dice_ass/perspective-dice-six-faces-two.png' style="width: 130px; height: 100px;">`;
+        timeOutIfSIxLuck();
+      } else if (diceRandNoPlayerOne == 3) {
+        dispDiceRolOne.innerHTML = `<img src='./cf/dice_ass/perspective-dice-six-faces-three.png' style="width: 130px; height: 100px;">`;
+        timeOutIfSIxLuck();
+        // ifSixLuck();
+        // dispDiceHole.focus()
+        // myModal2.show()
+        // trigClose()
+      } else if (diceRandNoPlayerOne == 4) {
+        dispDiceRolOne.innerHTML = `<img src='./cf/dice_ass/perspective-dice-six-faces-four.png' style="width: 130px; height: 100px;">`;
+        timeOutIfSIxLuck();
+      } else if (diceRandNoPlayerOne == 5) {
+        dispDiceRolOne.innerHTML = `<img src='./cf/dice_ass/perspective-dice-six-faces-five.png' style="width: 130px; height: 100px;">`;
+        timeOutIfSIxLuck();
+      } else if (diceRandNoPlayerOne == 6) {
+        dispDiceRolOne.innerHTML = `<img src='./cf/dice_ass/perspective-dice-six-faces-six.png' style="width: 130px; height: 100px;">`;
+        timeOutIfSIxLuck();
+      }
+    };
+
+    const modalTrigFun = () => {
+      if (getBackComputerStoVar == 6) {
+        // dispDiceHole.focus()
+        // confirmAnsObj.modalshow1 = true;
+        allModalComputer.myModalStart.show();
+        trigClose();
+      } else if (getBackComputerStoVar == 7) {
+        confirmAnsObj.modalshow1 = true;
+        // dispDiceHole.focus()
+        allModalComputer.myModal1.show();
+        trigClose();
+      } else if (getBackComputerStoVar == 8) {
+        confirmAnsObj.modalshow2 = true;
+        allModalComputer.myModal2.show();
+        trigClose();
+      } else if (getBackComputerStoVar == 9) {
+        confirmAnsObj.modalshow3 = true;
+        allModalComputer.myModal3.show();
+        trigClose();
+      } else if (getBackComputerStoVar == 10) {
+        confirmAnsObj.modalshow4 = true;
+        allModalComputer.myModal4.show();
+        trigClose();
+      } else if (getBackComputerStoVar == 11) {
+        confirmAnsObj.modalshow5 = true;
+        allModalComputer.myModal5.show();
+        trigClose();
+      } else if (getBackComputerStoVar == 12) {
+        confirmAnsObj.modalshow6 = true;
+        allModalComputer.myModal6.show();
+        trigClose();
+      } else if (getBackComputerStoVar == 13) {
+        confirmAnsObj.modalshow7 = true;
+        allModalComputer.myModal7.show();
+        trigClose();
+      } else if (getBackComputerStoVar == 14) {
+        confirmAnsObj.modalshow8 = true;
+        allModalComputer.myModal8.show();
+        trigClose();
+      } else if (getBackComputerStoVar == 15) {
+        confirmAnsObj.modalshow9 = true;
+        allModalComputer.myModal9.show();
+        trigClose();
+      } else if (getBackComputerStoVar == 16) {
+        confirmAnsObj.modalshow10 = true;
+        allModalComputer.myModal10.show();
+        trigClose();
+      } else if (getBackComputerStoVar == 17) {
+        // alert("ITs eleven")
+        confirmAnsObj.modalshow11 = true;
+        allModalComputer.myModal11.show();
+        trigClose();
+      } else if (getBackComputerStoVar == 18) {
+        confirmAnsObj.modalshow12 = true;
+        allModalComputer.myModal12.show();
+        trigClose();
+      } else if (getBackComputerStoVar == 19) {
+        confirmAnsObj.modalshow13 = true;
+        allModalComputer.myModal13.show();
+        trigClose();
+      } else if (getBackComputerStoVar == 20) {
+        confirmAnsObj.modalshow14 = true;
+        allModalComputer.myModal14.show();
+        trigClose();
+      } else if (getBackComputerStoVar == 21) {
+        confirmAnsObj.modalshow15 = true;
+        allModalComputer.myModal15.show();
+        trigClose();
+      } else if (getBackComputerStoVar == 22) {
+        confirmAnsObj.modalshow16 = true;
+        allModalComputer.myModal16.show();
+        trigClose();
+      } else if (getBackComputerStoVar == 23) {
+        confirmAnsObj.modalshow17 = true;
+        allModalComputer.myModal17.show();
+        trigClose();
+      } else if (getBackComputerStoVar == 24) {
+        confirmAnsObj.modalshow18 = true;
+        allModalComputer.myModal18.show();
+        trigClose();
+      } else if (getBackComputerStoVar == 25) {
+        confirmAnsObj.modalshow19 = true;
+        allModalComputer.myModal19.show();
+        trigClose();
+      } else if (getBackComputerStoVar == 26) {
+        confirmAnsObj.modalshow20 = true;
+        allModalComputer.myModal20.show();
+        trigClose();
+      } else if (getBackComputerStoVar == 27) {
+        confirmAnsObj.modalshow21 = true;
+        allModalComputer.myModal21.show();
+        trigClose();
+      } else if (getBackComputerStoVar == 28) {
+        confirmAnsObj.modalshow22 = true;
+        allModalComputer.myModal22.show();
+        trigClose();
+      } else if (getBackComputerStoVar == 29) {
+        confirmAnsObj.modalshow23 = true;
+        allModalComputer.myModal23.show();
+        trigClose();
+      } else if (getBackComputerStoVar == 30) {
+        confirmAnsObj.modalshow24 = true;
+        allModalComputer.myModal24.show();
+        trigClose();
+      } else if (getBackComputerStoVar == 31) {
+        confirmAnsObj.modalshow25 = true;
+        allModalComputer.myModal25.show();
+        trigClose();
+      } else if (getBackComputerStoVar == 32) {
+        confirmAnsObj.modalshow26 = true;
+        allModalComputer.myModal26.show();
+        trigClose();
+      } else if (getBackComputerStoVar == 33) {
+        confirmAnsObj.modalshow27 = true;
+        allModalComputer.myModal27.show();
+        trigClose();
+      } else if (getBackComputerStoVar == 34) {
+        confirmAnsObj.modalshow28 = true;
+        allModalComputer.myModal28.show();
+        trigClose();
+      } else if (getBackComputerStoVar == 35) {
+        confirmAnsObj.modalshow29 = true;
+        allModalComputer.myModal29.show();
+        trigClose();
+      } else if (getBackComputerStoVar == 36) {
+        confirmAnsObj.modalshow30 = true;
+        allModalComputer.myModal30.show();
+        trigClose();
+      } else if (getBackComputerStoVar == 37) {
+        confirmAnsObj.modalshow31 = true;
+        allModalComputer.myModal31.show();
+        trigClose();
+      } else if (getBackComputerStoVar == 38) {
+        confirmAnsObj.modalshow32 = true;
+        allModalComputer.myModal32.show();
+        trigClose();
+      } else if (getBackComputerStoVar == 39) {
+        confirmAnsObj.modalshow33 = true;
+        allModalComputer.myModal33.show();
+        trigClose();
+      } else if (getBackComputerStoVar == 40) {
+        confirmAnsObj.modalshow34 = true;
+        allModalComputer.myModal34.show();
+        trigClose();
+      } else if (getBackComputerStoVar == 41) {
+        confirmAnsObj.modalshow35 = true;
+        allModalComputer.myModal35.show();
+        trigClose();
+      } else if (getBackComputerStoVar == 42) {
+        confirmAnsObj.modalshow36 = true;
+        allModalComputer.myModal36.show();
+        trigClose();
+      } else if (getBackComputerStoVar == 43) {
+        confirmAnsObj.modalshow37 = true;
+        allModalComputer.myModal37.show();
+        trigClose();
+      } else if (getBackComputerStoVar == 44) {
+        confirmAnsObj.modalshow38 = true;
+        allModalComputer.myModal38.show();
+        trigClose();
+      } else if (getBackComputerStoVar == 45) {
+        confirmAnsObj.modalshow39 = true;
+        allModalComputer.myModal39.show();
+        trigClose();
+      } else if (getBackComputerStoVar == 46) {
+        confirmAnsObj.modalshow40 = true;
+        allModalComputer.myModal40.show();
+        trigClose();
+      } else if (getBackComputerStoVar == 47) {
+        confirmAnsObj.modalshow41 = true;
+        allModalComputer.myModal41.show();
+        trigClose();
+      } else if (getBackComputerStoVar == 48) {
+        confirmAnsObj.modalshow42 = true;
+        allModalComputer.myModal42.show();
+        trigClose();
+      } else if (getBackComputerStoVar == 49) {
+        confirmAnsObj.modalshow43 = true;
+        allModalComputer.myModal43.show();
+        trigClose();
+      } else if (getBackComputerStoVar == 50) {
+        confirmAnsObj.modalshow44 = true;
+        allModalComputer.myModal44.show();
+        trigClose();
+      } else if (getBackComputerStoVar == 51) {
+        confirmAnsObj.modalshow45 = true;
+        allModalComputer.myModal45.show();
+        trigClose();
+      } else if (getBackComputerStoVar == 52) {
+        confirmAnsObj.modalshow46 = true;
+        allModalComputer.myModal46.show();
+        trigClose();
+      } else if (getBackComputerStoVar == 53) {
+        confirmAnsObj.modalshow47 = true;
+        allModalComputer.myModal47.show();
+        trigClose();
+      } else if (getBackComputerStoVar == 54) {
+        confirmAnsObj.modalshow48 = true;
+        allModalComputer.myModal48.show();
+        trigClose();
+      } else if (getBackComputerStoVar == 55) {
+        confirmAnsObj.modalshow49 = true;
+        allModalComputer.myModal49.show();
+        trigClose();
+      } else if (getBackComputerStoVar == 56 || getBackComputerStoVar >= 56) {
+        confirmAnsObj.modalshow50 = true;
+        allModalComputer.myModal50.show();
+        trigClose();
+      }
+      // confirmAnsObj.modalshow50 = true;
+    };
+
+    // below fuction help me to focus on continue btn
+    // of triggered modal
+    const trigClose = () => {
+      setTimeout(function () {
+        $(".contine-focus").focus();
+      }, 700);
+    };
+    // This below function is use to check if the option selected is correct
+  }
+};

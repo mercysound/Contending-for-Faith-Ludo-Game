@@ -1,284 +1,912 @@
-var myDays = new Date;
-var todays = (myDays.getDay()+1);
-function displayTime(){
-  var myDay = new Date;
-  let today = (myDay.getDay()+1)
-  var sc = myDay.getSeconds().toString().padStart(2, "0")
-  var mn = myDay.getMinutes().toString().padStart(2, "0")
-  var hr = (myDay.getHours()).toString().padStart(2, "0")
-  var mnth = (myDay.getMonth()+1).toString().padStart(2, "0")
-  var yr = myDay.getFullYear()
-  var allDatTim = (hr + ':' + mn + ':' + sc +  "  " + mnth + '-' + yr)
-  datTime.innerText = allDatTim
-}
-// console.log(today);
-// if(today == 1){
-//   dayName.innerText = "Sunday"
-//   var int = setInterval(()=>{
-//   datTime.innerText = allDatTim
-// }, 2000)
-// }
-let isLoading = true
-const callTimeFunc = () =>{
-  if(todays == 1){
-          dayName.innerText = "Sunday"
-        }else if (todays == 2){
-          dayName.innerText = "Monday"
-        }else if (todays == 3){
-          dayName.innerText = "Tuesday"
-        }else if (todays == 4){
-          dayName.innerText = "Wednesday"
-        }else if (todays == 5){
-          dayName.innerText = "Thursday"
-        }else if (todays == 6){
-          dayName.innerText = "Friday"
-        }else if (todays == 7){
-          dayName.innerText = "Saturday"
+if (confirmAnsObj.modalshow11) {
+    var selectedOption = document.querySelector(
+      'input[name="options"]:checked'
+    );
+    if (selectedOption) {
+      if (selectedOption.value === "continue") {
+        if (computerTurn == true) {
+          computerTurn = false;
+          myTurn = true;
+          $("#modal11").modal("hide");
+          alert("You miss it! Its 1stTurn turn now");
+        } else if (myTurn == true) {
+          myTurn = false;
+          computerTurn = true;
+          $("#modal11").modal("hide");
+          alert("You miss it! Its 2ndTurn turn now");
         }
-        setInterval(displayTime, 100)
-}
-const defaultWeb = async ()=>{
-  var myKey = '3a9bfbff1f72ab21718f0227e59a487d'
-  var myLocation = cityName.value
-  var endPoint = `https://api.openweathermap.org/data/2.5/weather?q=lagos&appid=${myKey}&units=metric`
-
-  if(navigator.geolocation){
-    navigator.geolocation.getCurrentPosition((position)=>{
-      let myLati = position.coords.latitude
-      let myLong = position.coords.longitude
-      let currentLocEndPoint = `https://api.openweathermap.org/data/2.5/weather?lat=${myLati}&lon=${myLong}&appid=${myKey}&units=metric`
-     cityName.value = ""
-  // while loading the fetch info
-      if(isLoading){
-        bodyBg.style.display = "none"
-        isLoad.innerHTML = "is Loading....."
-      }
-
-      fetch(currentLocEndPoint)
-      .then((Response)=>
-         Response.json()
-      )
-      .then((convertedResponse)=>{
-  // for notice of done loading diplay content
-        isLoading = false
-        bodyBg.style.display = "block"
-        isLoad.innerHTML = ""
-        console.log(convertedResponse);
-if(convertedResponse.main.temp >= 1 && convertedResponse.main.temp <= 5){
-bodyBg.style.background = `url("./asset/1 to 5.jpeg")`
-bodyBg.style.backgroundRepeat = `no-repeat`
-bodyBg.style.backgroundSize = `100% 100%`
-}else if(convertedResponse.main.temp >= 5 && convertedResponse.main.temp <= 10){
-bodyBg.style.background = `url("./asset/5 to 10.jpeg")`
-bodyBg.style.backgroundRepeat = `no-repeat`
-bodyBg.style.backgroundSize = `100% 100%`
-}else if(convertedResponse.main.temp >= 10 && convertedResponse.main.temp <= 15){
-bodyBg.style.background = `url("./asset/10 to 15.jpeg")`
-bodyBg.style.backgroundRepeat = `no-repeat`
-bodyBg.style.backgroundSize = `100% 100%`
-}else if(convertedResponse.main.temp >= 15 && convertedResponse.main.temp <= 20){
-bodyBg.style.background = `url("./asset/15 to 20.jpeg")`
-bodyBg.style.backgroundRepeat = `no-repeat`
-bodyBg.style.backgroundSize = `100% 100%`
-}else if(convertedResponse.main.temp >= 20 && convertedResponse.main.temp <= 25){
-bodyBg.style.background = `url("./asset/10 to 15.jpeg")`
-bodyBg.style.backgroundRepeat = `no-repeat`
-bodyBg.style.backgroundSize = `100% 100%`
-}else if(convertedResponse.main.temp >= 25 && convertedResponse.main.temp <= 30){
-bodyBg.style.background = `url("./asset/25 to 30.jpeg")`
-bodyBg.style.backgroundRepeat = `no-repeat`
-bodyBg.style.backgroundSize = `100% 100%`
-}else if(convertedResponse.main.temp >= 30 && convertedResponse.main.temp <= 35){
-bodyBg.style.background = `url("./asset/30-35.jpeg")`
-bodyBg.style.backgroundRepeat = `no-repeat`
-bodyBg.style.backgroundSize = `100% 100%`
-}else if(convertedResponse.main.temp >= 35 && convertedResponse.main.temp <= 40){
-bodyBg.style.background = `url("./asset/35-40.jpeg")`
-bodyBg.style.backgroundRepeat = `no-repeat`
-bodyBg.style.backgroundSize = `100% 100%`
-}else{
-bodyBg.style.background = `url("./asset/else pic.jpeg")`
-bodyBg.style.backgroundRepeat = `no-repeat`
-bodyBg.style.backgroundSize = `100% 100%`
-}
-        // first col weather detail
-        tempe.innerHTML = `<h1 class="display-1">${convertedResponse.main.temp}<span>&#176;</span>C</h1>`
-        locations.innerHTML = `<h1>${convertedResponse.name}, ${convertedResponse.sys.country}</h1>`
-        weatherDet.innerHTML = convertedResponse.weather[0].description
-        // second col weather detail
-        city.innerHTML = `<span style="padding-left: 100px;">${convertedResponse.name}</span>`
-        country.innerHTML = `<span style="padding-left: 70px;">${convertedResponse.sys.country}</span>`
-        longitude.innerHTML = `<span style="padding-left: 50px;">${convertedResponse.coord.lon}</span>` 
-        latitude.innerHTML = `<span style="padding-left: 70px;">${convertedResponse.coord.lat}</span>`
-        temperature.innerHTML = `<span style="padding-left: 40px;">${convertedResponse.main.temp}<span>&#176;</span>C</span>`
-        weather.innerHTML = `<span style="padding-left: 80px;">${convertedResponse.weather[0].main}</span>`
-        humidity.innerHTML = `<span style="padding-left: 80px;">${convertedResponse.main.humidity}%</span>`
-        wind.innerHTML = `<span style="padding-left: 100px;">${convertedResponse.wind.deg} m/s</span>` 
-        pressure.innerHTML = `<span style="padding-left: 70px;">${convertedResponse.main.pressure} <span>hPa</span></span>`
-        callTimeFunc()
-      }
-      )
-      .catch((err)=>{
-        console.log(err);
-      })
-    },
-    async ()=>{
-
-  // while loading the fetch info
-      if(isLoading){
-          bodyBg.style.display = "none"
-          isLoad.innerHTML = "is Loading....."
+        confirmAnsObj.modalshow11 = false;
+      } else if (selectedOption.value === "other") {
+        if (computerTurn == true) {
+          computerTurn = true;
+          myTurn = false;
+          $("#modal11").modal("hide");
+          alert("You got it! 2ndTurn play once more");
+        } else if (myTurn == true) {
+          myTurn = true;
+          computerTurn = false;
+          $("#modal11").modal("hide");
+          alert("You got it! 1stTurn once more");
         }
-      // console.log(error);
-    //     fetch(endPoint)
-    // .then((response)=>{console.log(response)})
-    let myFetch = await fetch(endPoint)
-    // console.log(myFetch);
-    var cvtRes = await myFetch.json()
-    // .catch((err)=>{
-    //     console.log(err);
-    //   })  
-    alert("This site has been block from access your location, therefore you will have lagos, Nigerian as your default location");
-        isLoading = false
-        bodyBg.style.display = "block"
-        isLoad.innerHTML = ""
-        if(cvtRes.main.temp >= 1 && cvtRes.main.temp <= 5){
-          bodyBg.style.background = `url("./asset/1 to 5.jpeg")`
-          bodyBg.style.backgroundRepeat = `no-repeat`
-          bodyBg.style.backgroundSize = `100% 100%`
-          }else if(cvtRes.main.temp >= 5 && cvtRes.main.temp <= 10){
-          bodyBg.style.background = `url("./asset/5 to 10.jpeg")`
-          bodyBg.style.backgroundRepeat = `no-repeat`
-          bodyBg.style.backgroundSize = `100% 100%`
-          }else if(cvtRes.main.temp >= 10 && cvtRes.main.temp <= 15){
-          bodyBg.style.background = `url("./asset/10 to 15.jpeg")`
-          bodyBg.style.backgroundRepeat = `no-repeat`
-          bodyBg.style.backgroundSize = `100% 100%`
-          }else if(cvtRes.main.temp >= 15 && cvtRes.main.temp <= 20){
-          bodyBg.style.background = `url("./asset/15 to 20.jpeg")`
-          bodyBg.style.backgroundRepeat = `no-repeat`
-          bodyBg.style.backgroundSize = `100% 100%`
-          }else if(cvtRes.main.temp >= 20 && cvtRes.main.temp <= 25){
-          bodyBg.style.background = `url("./asset/10 to 15.jpeg")`
-          bodyBg.style.backgroundRepeat = `no-repeat`
-          bodyBg.style.backgroundSize = `100% 100%`
-          }else if(cvtRes.main.temp >= 25 && cvtRes.main.temp <= 30){
-          bodyBg.style.background = `url("./asset/25 to 30.jpeg")`
-          bodyBg.style.backgroundRepeat = `no-repeat`
-          bodyBg.style.backgroundSize = `100% 100%`
-          }else if(cvtRes.main.temp >= 30 && cvtRes.main.temp <= 35){
-          bodyBg.style.background = `url("./asset/30-35.jpeg")`
-          bodyBg.style.backgroundRepeat = `no-repeat`
-          bodyBg.style.backgroundSize = `100% 100%`
-          }else if(cvtRes.main.temp >= 35 && cvtRes.main.temp <= 40){
-          bodyBg.style.background = `url("./asset/35-40.jpeg")`
-          bodyBg.style.backgroundRepeat = `no-repeat`
-          bodyBg.style.backgroundSize = `100% 100%`
-          }else{
-          bodyBg.style.background = `url("./asset/else pic.jpeg")`
-          bodyBg.style.backgroundRepeat = `no-repeat`
-          bodyBg.style.backgroundSize = `100% 100%`
-          }
-
-        tempe.innerHTML = `<h1 class="display-1" >${cvtRes.main.temp}<span>&#176;</span>C</h1>`
-        locations.innerHTML = `<h1>${cvtRes.name}, ${cvtRes.sys.country}</h1>`
-        weatherDet.innerHTML = cvtRes.weather[0].description
-        // second col weather detail
-        city.innerHTML = `<span style="padding-left: 100px;">${cvtRes.name}</span>`
-        country.innerHTML = `<span style="padding-left: 70px;">${cvtRes.sys.country}</span>`
-        longitude.innerHTML = `<span style="padding-left: 50px;">${cvtRes.coord.lon}</span>` 
-        latitude.innerHTML = `<span style="padding-left: 70px;">${cvtRes.coord.lat}</span>`
-        temperature.innerHTML = `<span style="padding-left: 40px;">${cvtRes.main.temp}<span>&#176;</span>C</span>`
-        weather.innerHTML = `<span style="padding-left: 80px;">${cvtRes.weather[0].main}</span>`
-        humidity.innerHTML = `<span style="padding-left: 80px;">${cvtRes.main.humidity}%</span>`
-        wind.innerHTML = `<span style="padding-left: 100px;">${cvtRes.wind.deg} m/s</span>` 
-        pressure.innerHTML = `<span style="padding-left: 70px;">${cvtRes.main.pressure} <span>hPa</span></span>`
-        callTimeFunc()
-      //   .catch((err)=>{
-      //   console.log(err);
-      // })
-    } )
-  }else{
-    alert("your browser is not support geolocation")
+        confirmAnsObj.modalshow11 = false;
+      }
+    } else {
+      alert("No option selected. Please choose an option to continue.");
+    }
+  } else if (confirmAnsObj.modalshow12) {
+    var selectedOption = document.querySelector(
+      'input[name="options"]:checked'
+    );
+    if (selectedOption) {
+      if (selectedOption.value === "continue") {
+        if (computerTurn == true) {
+          computerTurnToSaveSessi += 21;
+          myTurn = true;
+          computerTurn = false;
+          alert("You got it! Its 1stTurn turn now");
+        } else if (myTurn == true) {
+          myTurnToSaveSessi += 21;
+          computerTurn = true;
+          myTurn = false;
+          alert("You got it! Its 2ndTurn turn now");
+        }
+        setMySessStorFunc()
+        setComputerSessStorFunc()
+        blinkBackground();
+        $("#modal12").modal("hide");
+        confirmAnsObj.modalshow12 = false;
+      } else if (selectedOption.value === "other") {
+        if (computerTurn == true) {
+          computerTurn = false;
+          myTurn = true;
+          alert("You miss it! Its 1stTurn turn now");
+          $("#modal12").modal("hide");
+        } else if (myTurn == true) {
+          myTurn = false;
+          computerTurn = true;
+          alert("You miss it! Its 2ndTurn turn now");
+          $("#modal12").modal("hide");
+        }
+        confirmAnsObj.modalshow12 = false;
+      }
+    } else {
+      alert("No option selected. Please choose an option to continue.");
+    }
+  } else if (confirmAnsObj.modalshow13) {
+    if (myTurn == true) {
+      myTurn = false;
+      computerTurn = true;
+      confirmAnsObj.modalshow13 = false;
+      $("#modal13").modal("hide");
+      alert("Its computer turn");
+    } else if (computerTurn == true) {
+      computerTurn = false;
+      myTurn = true;
+      confirmAnsObj.modalshow13 = false;
+      $("#modal13").modal("hide");
+      alert("Its myTurn turn");
+    }
+  } else if (confirmAnsObj.modalshow14) {
+    var selectedOption = document.querySelector(
+      'input[name="options"]:checked'
+    );
+    if (selectedOption) {
+      if (selectedOption.value === "continue") {
+        if (computerTurn == true) {
+          computerTurn = false;
+          myTurn = false;
+          $("#modal14").modal("hide");
+          alert("You miss it! Its 1stTurn turn now");
+        } else if (myTurn == true) {
+          myTurn = false;
+          computerTurn = true;
+          $("#modal14").modal("hide");
+          alert("You miss it! Its 2ndTurn turn now");
+        }
+        confirmAnsObj.modalshow14 = false;
+      } else if (selectedOption.value === "other") {
+        if (computerTurn == true) {
+          computerTurn = true;
+          myTurn = false;
+          $("#modal14").modal("hide");
+          alert("You got it! 2ndTurn turn to play once more");
+        } else if (myTurn == true) {
+          myTurn = true;
+          computerTurn = false;
+          $("#modal14").modal("hide");
+          alert("You got it! 1stTurn turn to play once more");
+        }
+        confirmAnsObj.modalshow14 = false;
+      }
+    } else {
+      alert("No option selected. Please choose an option to continue.");
+    }
+  } else if (confirmAnsObj.modalshow15) {
+    var selectedOption = document.querySelector(
+      'input[name="options"]:checked'
+    );
+    if (selectedOption) {
+      if (selectedOption.value === "continue") {
+        if (computerTurn == true) {
+          computerTurnToSaveSessi += 25;
+          computerTurn = false;
+          myTurn = true;
+          alert("You got it! It's 1stTurn to Play");
+        } else if (myTurn == true) {
+          myTurnToSaveSessi += 25;
+          myTurn = false;
+          computerTurn = true;
+          alert("You got it! It's 2ndTurn to Play");
+        }
+        setMySessStorFunc()
+        setComputerSessStorFunc()
+        blinkBackground();
+        $("#modal15").modal("hide");
+        confirmAnsObj.modalshow15 = false;
+      } else if (selectedOption.value === "other") {
+        if (computerTurn == true) {
+          computerTurn = false;
+          myTurn = true;
+          alert("You miss it! It's 1stTurn to Play");
+        } else if (myTurn == true) {
+          computerTurn = true;
+          myTurn = false;
+          alert("You miss it! It's 2ndTurn to Play");
+        }
+        $("#modal15").modal("hide");
+        confirmAnsObj.modalshow15 = false;
+      }
+    } else {
+      alert("No option selected. Please choose an option.");
+    }
+  } else if (confirmAnsObj.modalshow16) {
+    if (myTurn == true) {
+      myTurn = false;
+      computerTurn = true;
+      confirmAnsObj.modalshow16 = false;
+      alert("Its computerTurn turn");
+    } else if (computerTurn == true) {
+      computerTurn = false;
+      myTurn = true;
+      confirmAnsObj.modalshow16 = false;
+      alert("Its myTurnTurn turn");
+    }
+    $("#modal16").modal("hide");
+  } else if (confirmAnsObj.modalshow17) {
+    if (myTurn == true) {
+      myTurnToSaveSessi += 3;
+      myTurn = false;
+      computerTurn = true;
+      alert("Its computerTurn turn");
+    } else if (computerTurn == true) {
+      computerTurnToSaveSessi += 3;
+      computerTurn = false;
+      myTurn = true;
+      alert("Its myTurnTurn turn");
+    }
+    setMySessStorFunc()
+    setComputerSessStorFunc()
+    blinkBackground();
+    confirmAnsObj.modalshow17 = false;
+    $("#modal17").modal("hide");
+  } else if (confirmAnsObj.modalshow18) {
+    if (myTurn == true) {
+      myTurn = false;
+      computerTurn = true;
+      confirmAnsObj.modalshow18 = false;
+      alert("Its computer turn now");
+    } else if (computerTurn == true) {
+      computerTurn = false;
+      myTurn = true;
+      confirmAnsObj.modalshow18 = false;
+      alert("Its myTurn turn now");
+    }
+    $("#modal18").modal("hide");
+  } else if (confirmAnsObj.modalshow19) {
+    var selectedOption = document.querySelector(
+      'input[name="options"]:checked'
+    );
+    if (selectedOption) {
+      if (selectedOption.value === "continue") {
+        if (computerTurn == true) {
+          computerTurn = false;
+          myTurn = true;
+          alert("You miss it! It's 1stTurn to Play");
+        } else if (myTurn == true) {
+          computerTurn = true;
+          myTurn = false;
+          alert("You miss it! It's 2ndTurn to Play");
+        }
+        $("#modal19").modal("hide");
+        confirmAnsObj.modalshow19 = false;
+      } else if (selectedOption.value === "other") {
+        if (computerTurn == true) {
+          computerTurnToSaveSessi += 20;
+          computerTurn = false;
+          myTurn = true;
+          alert("You got it! It's 1stTurn to Play");
+        } else if (myTurn == true) {
+          myTurnToSaveSessi += 20;
+          myTurn = false;
+          computerTurn = true;
+          alert("You got it! It's 2ndTurn to Play");
+        }
+        setMySessStorFunc()
+        setComputerSessStorFunc()
+        $("#modal19").modal("hide");
+        confirmAnsObj.modalshow19 = false;
+        blinkBackground();
+      }
+    } else {
+      alert("No option selected. Please choose an option.");
+    }
+  } else if (confirmAnsObj.modalshow20) {
+    if (myTurn == true) {
+      myTurn = false;
+      computerTurn = true;
+      confirmAnsObj.modalshow20 = false;
+      alert("Its computer turn now");
+    } else if (computerTurn == true) {
+      computerTurn = false;
+      myTurn = true;
+      confirmAnsObj.modalshow20 = false;
+      alert("Its myTurn turn now");
+    }
+    $("#modal20").modal("hide");
+  } else if (confirmAnsObj.modalshow21) {
+    var selectedOption = document.querySelector(
+      'input[name="options"]:checked'
+    );
+    if (selectedOption) {
+      if (selectedOption.value === "continue") {
+        if (computerTurn == true) {
+          computerTurn = false;
+          myTurn = true;
+          alert("You miss it! Its 1stTurn turn now");
+          $("#modal21").modal("hide");
+        } else if (myTurn == true) {
+          myTurn = false;
+          computerTurn = true;
+          alert("You miss it! Its 2ndTurn turn now");
+          $("#modal12").modal("hide");
+        }
+        confirmAnsObj.modalshow21 = false;
+      } else if (selectedOption.value === "other") {
+        if (computerTurn == true) {
+          computerTurnToSaveSessi += 19;
+          myTurn = true;
+          computerTurn = false;
+          alert("You got it! Its 1stTurn turn now");
+          $("#modal21").modal("hide");
+        } else if (myTurn == true) {
+          myTurnToSaveSessi += 19;
+          computerTurn = true;
+          myTurn = false;
+          alert("You got it! Its 2ndTurn turn now");
+          $("#modal21").modal("hide");
+        }
+        setMySessStorFunc()
+        setComputerSessStorFunc()
+        blinkBackground();
+        confirmAnsObj.modalshow21 = false;
+      }
+    } else {
+      alert("No option selected. Please choose an option to continue.");
+    }
+  } else if (confirmAnsObj.modalshow22) {
+    if (computerTurn == true) {
+      computerTurn = true;
+      myTurn = false;
+      $("#modal22").modal("hide");
+      alert("You Got it! Its 2ndTurn turn to play once more");
+    } else if (myTurn == true) {
+      myTurn = true;
+      computerTurn = true;
+      $("#modal22").modal("hide");
+      alert("You you Got it! Its 1stTurn Play once more");
+    } else {
+      alert("No option selected. Please choose an option to continue.");
+    }
+  } else if (confirmAnsObj.modalshow23) {
+    var selectedOption = document.querySelector(
+      'input[name="options"]:checked'
+    );
+    if (selectedOption) {
+      if (selectedOption.value === "continue") {
+        if (computerTurn == true) {
+          computerTurn = false;
+          myTurn = true;
+          alert("You miss it! It's 1stTurn to Play");
+        } else if (myTurn == true) {
+          computerTurn = true;
+          myTurn = false;
+          alert("You miss it! It's 2ndTurn to Play");
+        }
+        $("#modal23").modal("hide");
+        confirmAnsObj.modalshow23 = false;
+      } else if (selectedOption.value === "other") {
+        if (computerTurn == true) {
+          computerTurnToSaveSessi += 13;
+          computerTurn = false;
+          myTurn = true;
+          alert("You got it! It's 1stTurn to Play");
+          blinkBackground();
+        } else if (myTurn == true) {
+          myTurnToSaveSessi += 13;
+          myTurn = false;
+          computerTurn = true;
+          alert("You got it! It's 2ndTurn to Play");
+          blinkBackground();
+        }
+        $("#modal23").modal("hide");
+        confirmAnsObj.modalshow23 = false;
+      }
+    } else {
+      alert("No option selected. Please choose an option.");
+    }
+  } else if (confirmAnsObj.modalshow24) {
+    blinkBackground();
+    if (myTurn == true) {
+      myTurnToSaveSessi = 11;
+      blinkBackground();
+      myTurn = false;
+      computerTurn = true;
+      confirmAnsObj.modalshow24 = false;
+      $("#modal24").modal("hide");
+      alert("Its computer turn");
+    } else if (computerTurn == true) {
+      computerTurnToSaveSessi = 11;
+      blinkBackground();
+      computerTurn = false;
+      myTurn = true;
+      confirmAnsObj.modalshow24 = false;
+      $("#modal24").modal("hide");
+      alert("Its myTurn turn");
+    }
+  } else if (confirmAnsObj.modalshow25) {
+    if (computerTurn == true) {
+      computerTurn = true;
+      myTurn = false;
+      $("#modal25").modal("hide");
+      alert("You Got it! Its 2ndTurn turn to play once more");
+    } else if (myTurn == true) {
+      myTurn = true;
+      computerTurn = true;
+      $("#modal25").modal("hide");
+      alert("You you Got it! Its 1stTurn Play once more");
+    } else {
+      alert("No option selected. Please choose an option to continue.");
+    }
+  } else if (confirmAnsObj.modalshow26) {
+    blinkBackground();
+    if (myTurn == true) {
+      myTurnToSaveSessi += 7;
+      blinkBackground();
+      myTurn = false;
+      computerTurn = true;
+      confirmAnsObj.modalshow26 = false;
+      $("#modal26").modal("hide");
+      alert("Its computer turn");
+    } else if (computerTurn == true) {
+      computerTurnToSaveSessi += 7;
+      blinkBackground();
+      computerTurn = false;
+      myTurn = true;
+      confirmAnsObj.modalshow26 = false;
+      $("#modal26").modal("hide");
+      alert("Its myTurn turn");
+    }
+  } else if (confirmAnsObj.modalshow27) {
+    blinkBackground();
+    if (myTurn == true) {
+      myTurnToSaveSessi = 6;
+      blinkBackground();
+      myTurn = false;
+      computerTurn = true;
+      confirmAnsObj.modalshow27 = false;
+      $("#modal27").modal("hide");
+      alert("Its computer turn");
+    } else if (computerTurn == true) {
+      computerTurnToSaveSessi = 6;
+      blinkBackground();
+      computerTurn = false;
+      myTurn = true;
+      confirmAnsObj.modalshow27 = false;
+      $("#modal27").modal("hide");
+      alert("Its myTurn turn");
+    }
+  } else if (confirmAnsObj.modalshow28) {
+    if (computerTurn == true) {
+      computerTurn = true;
+      myTurn = false;
+      $("#modal28").modal("hide");
+      alert("You Got it! Its 2ndTurn turn to play once more");
+    } else if (myTurn == true) {
+      myTurn = true;
+      computerTurn = true;
+      $("#modal28").modal("hide");
+      alert("You you Got it! Its 1stTurn Play once more");
+    } else {
+      alert("No option selected. Please choose an option to continue.");
+    }
+  } else if (confirmAnsObj.modalshow29) {
+    var selectedOption = document.querySelector(
+      'input[name="options"]:checked'
+    );
+    if (selectedOption) {
+      if (selectedOption.value === "continue") {
+        if (computerTurn == true) {
+          computerTurnToSaveSessi = 10;
+          computerTurn = false;
+          myTurn = true;
+          alert("You miss it! It's 1stTurn to Play");
+        } else if (myTurn == true) {
+          myTurnToSaveSessi = 10;
+          computerTurn = true;
+          myTurn = false;
+          alert("You miss it! It's 2ndTurn to Play");
+        }
+        setMySessStorFunc()
+        setComputerSessStorFunc()
+        blinkBackground();
+        $("#modal29").modal("hide");
+        confirmAnsObj.modalshow29 = false;
+      } else if (selectedOption.value === "other") {
+        if (computerTurn == true) {
+          computerTurn = false;
+          myTurn = true;
+          alert("You got it! It's 1stTurn to Play");
+        } else if (myTurn == true) {
+          myTurn = false;
+          computerTurn = true;
+          alert("You got it! It's 2ndTurn to Play");
+        }
+        $("#modal29").modal("hide");
+        confirmAnsObj.modalshow29 = false;
+      }
+    } else {
+      alert("No option selected. Please choose an option.");
+    }
+  } else if (confirmAnsObj.modalshow30) {
+    blinkBackground();
+    if (myTurn == true) {
+      myTurnToSaveSessi = 11;
+      blinkBackground();
+      myTurn = false;
+      computerTurn = true;
+      confirmAnsObj.modalshow30 = false;
+      $("#modal30").modal("hide");
+      alert("Its computer turn");
+    } else if (computerTurn == true) {
+      computerTurnToSaveSessi = 11;
+      blinkBackground();
+      computerTurn = false;
+      myTurn = true;
+      confirmAnsObj.modalshow30 = false;
+      $("#modal30").modal("hide");
+      alert("Its myTurn turn");
+    }
+  } else if (confirmAnsObj.modalshow31) {
+    if (myTurn == true) {
+      myTurn = false;
+      computerTurn = true;
+      confirmAnsObj.modalshow31 = false;
+      alert("Its computer turn now");
+    } else if (computerTurn == true) {
+      computerTurn = false;
+      myTurn = true;
+      confirmAnsObj.modalshow31 = false;
+      alert("Its myTurn turn now");
+    }
+    $("#modal31").modal("hide");
+  } else if (confirmAnsObj.modalshow32) {
+    var selectedOption = document.querySelector(
+      'input[name="options"]:checked'
+    );
+    if (selectedOption) {
+      if (selectedOption.value === "continue") {
+        if (computerTurn == true) {
+          computerTurnToSaveSessi = 10;
+          computerTurn = false;
+          myTurn = true;
+          alert("You miss it! It's 1stTurn to Play");
+        } else if (myTurn == true) {
+          myTurnToSaveSessi = 10;
+          computerTurn = true;
+          myTurn = false;
+          alert("You miss it! It's 2ndTurn to Play");
+        }
+        blinkBackground();
+        $("#modal32").modal("hide");
+        confirmAnsObj.modalshow32 = false;
+      } else if (selectedOption.value === "other") {
+        if (computerTurn == true) {
+          computerTurn = false;
+          myTurn = true;
+          alert("You got it! It's 1stTurn to Play");
+        } else if (myTurn == true) {
+          myTurn = false;
+          computerTurn = true;
+          alert("You got it! It's 2ndTurn to Play");
+        }
+        $("#modal32").modal("hide");
+        confirmAnsObj.modalshow32 = false;
+      }
+    } else {
+      alert("No option selected. Please choose an option.");
+    }
+  } else if (confirmAnsObj.modalshow33) {
+    if (myTurn == true) {
+      myTurn = false;
+      computerTurn = true;
+      confirmAnsObj.modalshow33 = false;
+      alert("Its computer turn now");
+    } else if (computerTurn == true) {
+      computerTurn = false;
+      myTurn = true;
+      confirmAnsObj.modalshow33 = false;
+      alert("Its myTurn turn now");
+    }
+    $("#modal33").modal("hide");
+  } else if (confirmAnsObj.modalshow34) {
+    var selectedOption = document.querySelector(
+      'input[name="options"]:checked'
+    );
+    if (selectedOption) {
+      if (selectedOption.value === "continue") {
+        if (computerTurn == true) {
+          computerTurn = false;
+          myTurn = true;
+          alert("You miss it! It's 1stTurn to Play");
+        } else if (myTurn == true) {
+          computerTurn = true;
+          myTurn = false;
+          alert("You miss it! It's 2ndTurn to Play");
+        }
+        blinkBackground();
+        $("#modal34").modal("hide");
+        confirmAnsObj.modalshow34 = false;
+      } else if (selectedOption.value === "other") {
+        if (computerTurn == true) {
+          computerTurn = false;
+          myTurn = true;
+          alert("You got it! It's 1stTurn to Play");
+        } else if (myTurn == true) {
+          myTurn = false;
+          computerTurn = true;
+          alert("You got it! It's 2ndTurn to Play");
+        }
+        $("#modal34").modal("hide");
+        confirmAnsObj.modalshow34 = false;
+      }
+    } else {
+      alert("No option selected. Please choose an option.");
+    }
+  } else if (confirmAnsObj.modalshow35) {
+    if (myTurn == true) {
+      myTurn = false;
+      computerTurn = true;
+      confirmAnsObj.modalshow35 = false;
+      alert("Its computer turn now");
+    } else if (computerTurn == true) {
+      computerTurn = false;
+      myTurn = true;
+      confirmAnsObj.modalshow35 = false;
+      alert("Its myTurn turn now");
+    }
+    $("#modal35").modal("hide");
+  } else if (confirmAnsObj.modalshow36) {
+    if (myTurn == true) {
+      myTurn = false;
+      computerTurn = true;
+      confirmAnsObj.modalshow36 = false;
+      alert("Its computer turn now");
+    } else if (computerTurn == true) {
+      computerTurn = false;
+      myTurn = true;
+      confirmAnsObj.modalshow36 = false;
+      alert("Its myTurn turn now");
+    }
+    $("#modal36").modal("hide");
+  } else if (confirmAnsObj.modalshow37) {
+    var selectedOption = document.querySelector(
+      'input[name="options"]:checked'
+    );
+    if (selectedOption) {
+      if (selectedOption.value === "continue") {
+        if (computerTurn == true) {
+          computerTurn = false;
+          myTurn = true;
+          alert("You got it! It's 1stTurn to Play");
+        } else if (myTurn == true) {
+          myTurn = false;
+          computerTurn = true;
+          alert("You got it! It's 2ndTurn to Play");
+        }
+        $("#modal37").modal("hide");
+        confirmAnsObj.modalshow37 = false;
+      } else if (selectedOption.value === "other") {
+        if (computerTurn == true) {
+          computerTurnToSaveSessi = 10;
+          computerTurn = false;
+          myTurn = true;
+          alert("You miss it! It's 1stTurn to Play");
+        } else if (myTurn == true) {
+          myTurnToSaveSessi = 10;
+          computerTurn = true;
+          myTurn = false;
+          alert("You miss it! It's 2ndTurn to Play");
+        }
+        blinkBackground();
+        $("#modal37").modal("hide");
+        confirmAnsObj.modalshow37 = false;
+      }
+    } else {
+      alert("No option selected. Please choose an option.");
+    }
+  } else if (confirmAnsObj.modalshow38) {
+    blinkBackground();
+    if (myTurn == true) {
+      myTurnToSaveSessi = 12;
+      blinkBackground();
+      myTurn = false;
+      computerTurn = true;
+      confirmAnsObj.modalshow38 = false;
+      $("#modal38").modal("hide");
+      alert("Its computer turn");
+    } else if (computerTurn == true) {
+      computerTurnToSaveSessi = 12;
+      blinkBackground();
+      computerTurn = false;
+      myTurn = true;
+      confirmAnsObj.modalshow38 = false;
+      $("#modal38").modal("hide");
+      alert("Its myTurn turn");
+    }
+  } else if (confirmAnsObj.modalshow39) {
+    var selectedOption = document.querySelector(
+      'input[name="options"]:checked'
+    );
+    if (selectedOption) {
+      if (selectedOption.value === "continue") {
+        if (computerTurn == true) {
+          // computerTurnToSaveSessi = 10;
+          computerTurn = false;
+          myTurn = true;
+          alert("You miss it! It's 1stTurn to Play");
+        } else if (myTurn == true) {
+          // myTurnToSaveSessi = 10;
+          computerTurn = true;
+          myTurn = false;
+          alert("You miss it! It's 2ndTurn to Play");
+        }
+        blinkBackground();
+        $("#modal39").modal("hide");
+        confirmAnsObj.modalshow39 = false;
+      } else if (selectedOption.value === "other") {
+        if (computerTurn == true) {
+          computerTurn = false;
+          myTurn = true;
+          alert("You got it! It's 1stTurn to Play");
+        } else if (myTurn == true) {
+          myTurn = false;
+          computerTurn = true;
+          alert("You got it! It's 2ndTurn to Play");
+        }
+        $("#modal39").modal("hide");
+        confirmAnsObj.modalshow39 = false;
+      }
+    } else {
+      alert("No option selected. Please choose an option.");
+    }
+  } else if (confirmAnsObj.modalshow40) {
+    if (myTurn == true) {
+      myTurn = false;
+      computerTurn = true;
+      confirmAnsObj.modalshow40 = false;
+      alert("Its computer turn now");
+    } else if (computerTurn == true) {
+      computerTurn = false;
+      myTurn = true;
+      confirmAnsObj.modalshow40 = false;
+      alert("Its myTurn turn now");
+    }
+    $("#modal40").modal("hide");
+  } else if (confirmAnsObj.modalshow41) {
+    blinkBackground();
+    if (myTurn == true) {
+      myTurnToSaveSessi = 12;
+      blinkBackground();
+      myTurn = false;
+      computerTurn = true;
+      confirmAnsObj.modalshow41 = false;
+      $("#modal41").modal("hide");
+      alert("Its computer turn");
+    } else if (computerTurn == true) {
+      computerTurnToSaveSessi = 12;
+      blinkBackground();
+      computerTurn = false;
+      myTurn = true;
+      confirmAnsObj.modalshow41 = false;
+      $("#modal41").modal("hide");
+      alert("Its myTurn turn");
+    }
+  } else if (confirmAnsObj.modalshow42) {
+    if (myTurn == true) {
+      myTurn = false;
+      computerTurn = true;
+      confirmAnsObj.modalshow42 = false;
+      alert("Its computer turn now");
+    } else if (computerTurn == true) {
+      computerTurn = false;
+      myTurn = true;
+      confirmAnsObj.modalshow42 = false;
+      alert("Its myTurn turn now");
+    }
+    $("#modal42").modal("hide");
+  } else if (confirmAnsObj.modalshow43) {
+    if (myTurn == true) {
+      myTurn = false;
+      computerTurn = true;
+      confirmAnsObj.modalshow43 = false;
+      alert("Its computer turn now");
+    } else if (computerTurn == true) {
+      computerTurn = false;
+      myTurn = true;
+      confirmAnsObj.modalshow43 = false;
+      alert("Its myTurn turn now");
+    }
+    $("#modal43").modal("hide");
+  } else if (confirmAnsObj.modalshow44) {
+    if (myTurn == true) {
+      myTurn = false;
+      computerTurn = true;
+      confirmAnsObj.modalshow44 = false;
+      alert("Its computer turn now");
+    } else if (computerTurn == true) {
+      computerTurn = false;
+      myTurn = true;
+      confirmAnsObj.modalshow44 = false;
+      alert("Its myTurn turn now");
+    }
+    $("#modal44").modal("hide");
+  } else if (confirmAnsObj.modalshow45) {
+    if (myTurn == true) {
+      myTurnToSaveSessi = 6;
+      blinkBackground();
+      myTurn = false;
+      computerTurn = true;
+      confirmAnsObj.modalshow45 = false;
+      $("#modal45").modal("hide");
+      alert("Its computer turn");
+    } else if (computerTurn == true) {
+      computerTurnToSaveSessi = 6;
+      blinkBackground();
+      computerTurn = false;
+      myTurn = true;
+      confirmAnsObj.modalshow45 = false;
+      $("#modal45").modal("hide");
+      alert("Its myTurn turn");
+    }
+  } else if (confirmAnsObj.modalshow46) {
+    var selectedOption = document.querySelector(
+      'input[name="options"]:checked'
+    );
+    if (selectedOption) {
+      if (selectedOption.value === "continue") {
+        if (computerTurn == true) {
+          computerTurnToSaveSessi = 6;
+          computerTurn = false;
+          myTurn = true;
+          alert("You miss it! It's 1stTurn to Play");
+        } else if (myTurn == true) {
+          myTurnToSaveSessi = 6;
+          computerTurn = true;
+          myTurn = false;
+          alert("You miss it! It's 2ndTurn to Play");
+        }
+        blinkBackground();
+        $("#modal46").modal("hide");
+        confirmAnsObj.modalshow46 = false;
+      } else if (selectedOption.value === "other") {
+        if (computerTurn == true) {
+          computerTurn = false;
+          myTurn = true;
+          alert("You got it! It's 1stTurn to Play");
+        } else if (myTurn == true) {
+          myTurn = false;
+          computerTurn = true;
+          alert("You got it! It's 2ndTurn to Play");
+        }
+        $("#modal46").modal("hide");
+        confirmAnsObj.modalshow46 = false;
+      }
+    } else {
+      alert("No option selected. Please choose an option.");
+    }
+  } else if (confirmAnsObj.modalshow47) {
+    if (myTurn == true) {
+      myTurn = false;
+      computerTurn = true;
+      confirmAnsObj.modalshow47 = false;
+      alert("Its computer turn now");
+    } else if (computerTurn == true) {
+      computerTurn = false;
+      myTurn = true;
+      confirmAnsObj.modalshow47 = false;
+      alert("Its myTurn turn now");
+    }
+    $("#modal47").modal("hide");
+  } else if (confirmAnsObj.modalshow48) {
+    var selectedOption = document.querySelector(
+      'input[name="options"]:checked'
+    );
+    if (selectedOption) {
+      if (selectedOption.value === "continue") {
+        if (computerTurn == true) {
+          computerTurn = false;
+          myTurn = true;
+          alert("You got it! It's 1stTurn to Play");
+        } else if (myTurn == true) {
+          myTurn = false;
+          computerTurn = true;
+          alert("You got it! It's 2ndTurn to Play");
+        }
+        $("#modal48").modal("hide");
+        confirmAnsObj.modalshow48 = false;
+      } else if (selectedOption.value === "other") {
+        if (computerTurn == true) {
+          computerTurnToSaveSessi = 6;
+          computerTurn = false;
+          myTurn = true;
+          alert("You miss it! It's 1stTurn to Play");
+        } else if (myTurn == true) {
+          myTurnToSaveSessi = 6;
+          computerTurn = true;
+          myTurn = false;
+          alert("You miss it! It's 2ndTurn to Play");
+        }
+        blinkBackground();
+        $("#modal48").modal("hide");
+        confirmAnsObj.modalshow48 = false;
+      }
+    } else {
+      alert("No option selected. Please choose an option.");
+    }
+  } else if (confirmAnsObj.modalshow49) {
+    var selectedOption = document.querySelector(
+      'input[name="options"]:checked'
+    );
+    if (selectedOption) {
+      if (selectedOption.value === "continue") {
+        if (computerTurn == true) {
+          computerTurnToSaveSessi = 18;
+          computerTurn = false;
+          myTurn = true;
+          alert("You miss it! It's 1stTurn to Play");
+        } else if (myTurn == true) {
+          myTurnToSaveSessi = 18;
+          computerTurn = true;
+          myTurn = false;
+          alert("You miss it! It's 2ndTurn to Play");
+        }
+        blinkBackground();
+        $("#modal49").modal("hide");
+        confirmAnsObj.modalshow49 = false;
+      } else if (selectedOption.value === "other") {
+        if (computerTurn == true) {
+          computerTurn = false;
+          myTurn = true;
+          alert("You got it! It's 1stTurn to Play");
+        } else if (myTurn == true) {
+          myTurn = false;
+          computerTurn = true;
+          alert("You got it! It's 2ndTurn to Play");
+        }
+        $("#modal49").modal("hide");
+        confirmAnsObj.modalshow49 = false;
+      }
+    } else {
+      alert("No option selected. Please choose an option.");
+    }
   }
-}
-async function myWeather (){
-  var myKey = '3a9bfbff1f72ab21718f0227e59a487d'
-  var myLocation = cityName.value
-  var endPoint = `https://api.openweathermap.org/data/2.5/weather?q=${myLocation}&appid=${myKey}&units=metric`
-  cityName.value = ""
-  cityName.focus()
-  // while loading the fetch info
-  if(isLoading){
-        bodyBg.style.display = "none"
-        isLoad.innerHTML = "is Loading....."
-      }
-  // let myFetch = await fetch(endPoint)
-  // // console.log(myFetch);
-  // var cvtRes = await myFetch.json()
-  myFetch = fetch(endPoint)
-  .then((Response) => Response.json())
-  .then((cvtRes) => {
-
-    isLoading = false
-    bodyBg.style.display = "block"
-    isLoad.innerHTML = ""
-if(cvtRes.main.temp >= 1 && cvtRes.main.temp <= 5){
-bodyBg.style.background = `url("./asset/1 to 5.jpeg")`
-bodyBg.style.backgroundRepeat = `no-repeat`
-bodyBg.style.backgroundSize = `100% 100%`
-}else if(cvtRes.main.temp >= 5 && cvtRes.main.temp <= 10){
-bodyBg.style.background = `url("./asset/5 to 10.jpeg")`
-bodyBg.style.backgroundRepeat = `no-repeat`
-bodyBg.style.backgroundSize = `100% 100%`
-}else if(cvtRes.main.temp >= 10 && cvtRes.main.temp <= 15){
-bodyBg.style.background = `url("./asset/10 to 15.jpeg")`
-bodyBg.style.backgroundRepeat = `no-repeat`
-bodyBg.style.backgroundSize = `100% 100%`
-}else if(cvtRes.main.temp >= 15 && cvtRes.main.temp <= 20){
-bodyBg.style.background = `url("./asset/15 to 20.jpeg")`
-bodyBg.style.backgroundRepeat = `no-repeat`
-bodyBg.style.backgroundSize = `100% 100%`
-}else if(cvtRes.main.temp >= 20 && cvtRes.main.temp <= 25){
-bodyBg.style.background = `url("./asset/10 to 15.jpeg")`
-bodyBg.style.backgroundRepeat = `no-repeat`
-bodyBg.style.backgroundSize = `100% 100%`
-}else if(cvtRes.main.temp >= 25 && cvtRes.main.temp <= 30){
-bodyBg.style.background = `url("./asset/25 to 30.jpeg")`
-bodyBg.style.backgroundRepeat = `no-repeat`
-bodyBg.style.backgroundSize = `100% 100%`
-}else if(cvtRes.main.temp >= 30 && cvtRes.main.temp <= 35){
-bodyBg.style.background = `url("./asset/30-35.jpeg")`
-bodyBg.style.backgroundRepeat = `no-repeat`
-bodyBg.style.backgroundSize = `100% 100%`
-}else if(cvtRes.main.temp >= 35 && cvtRes.main.temp <= 40){
-bodyBg.style.background = `url("./asset/35-40.jpeg")`
-bodyBg.style.backgroundRepeat = `no-repeat`
-bodyBg.style.backgroundSize = `100% 100%`
-}else{
-bodyBg.style.background = `url("./asset/else pic.jpeg")`
-bodyBg.style.backgroundRepeat = `no-repeat`
-bodyBg.style.backgroundSize = `100% 100%`
-}
-
-tempe.innerHTML = `<h1 class="display-1" >${cvtRes.main.temp}<span>&#176;</span>C</h1>`
-    locations.innerHTML = `<h1>${cvtRes.name}, ${cvtRes.sys.country}</h1>`
-    weatherDet.innerHTML = cvtRes.weather[0].description
-    // second col weather detail
-    city.innerHTML = `<span style="padding-left: 100px;">${cvtRes.name}</span>`
-    country.innerHTML = `<span style="padding-left: 70px;">${cvtRes.sys.country}</span>`
-    longitude.innerHTML = `<span style="padding-left: 50px;">${cvtRes.coord.lon}</span>` 
-    latitude.innerHTML = `<span style="padding-left: 70px;">${cvtRes.coord.lat}</span>`
-    temperature.innerHTML = `<span style="padding-left: 40px;">${cvtRes.main.temp}<span>&#176;</span>C</span>`
-    weather.innerHTML = `<span style="padding-left: 80px;">${cvtRes.weather[0].main}</span>`
-    humidity.innerHTML = `<span style="padding-left: 80px;">${cvtRes.main.humidity}%</span>`
-    wind.innerHTML = `<span style="padding-left: 100px;">${cvtRes.wind.deg} m/s</span>` 
-    pressure.innerHTML = `<span style="padding-left: 70px;">${cvtRes.main.pressure} <span>hPa</span></span>`
-    callTimeFunc()
-  })
-  .catch((err)=>{
-        console.log(err);
-        alert('city name never exist')
-      })
-  // for notice of done loading diplay content
-}

@@ -1,0 +1,333 @@
+if (computerTurn == true) {
+    $(".modalStarter").on("hidden.bs.modal", function (e) {
+      // Handle the event after the modal is shown
+      dispDiceHole.focus();
+    });
+    // This section is use to focus back on roll dice
+    let dispDiceHole = $(".editable");
+    window.addEventListener("DOMContentLoaded", () => {
+      dispDiceHole.focus();
+    });
+
+    // this is to add onclick to all cont btn
+    document.getElementById("btn-continue").addEventListener("click", () => {
+      dispDiceHole.focus();
+    });
+
+    dispDiceRolOne.innerHTML = `<img style="width: 130px; height: 100px;" src='./cf/dice_ass/dice.gif'>`;
+
+    diceSound.play();
+
+    diceRandNoPlayerOne = Math.floor((Math.random() * 6 + 1)); ////
+    // diceRandNoPlayerOne = 6;
+    // computerTurnToSaveSessi = 11;
+    getBackComputerStoVar = diceRandNoPlayerOne
+
+    if(computerTurnToSaveSessi + diceRandNoPlayerOne >= 56){
+      computerTurnToSaveSessi = 56
+      alert("you won")
+      restart = confirm("do you want to restart")
+      if(restart){
+        sessionStorage.clear()
+        // setComputerSessStorFunc()
+        window.location.reload()
+      }
+    }else if((computerTurnToSaveSessi == 50 && diceRandNoPlayerOne == 6) || (computerTurnToSaveSessi >= 51 && diceRandNoPlayerOne == 5)  || (computerTurnToSaveSessi >= 52 && diceRandNoPlayerOne == 4)  || (computerTurnToSaveSessi >= 53 && diceRandNoPlayerOne == 3)  || (computerTurnToSaveSessi >= 54 && diceRandNoPlayerOne == 2)  || (computerTurnToSaveSessi >= 55 && diceRandNoPlayerOne == 1)){
+      computerTurnToSaveSessi += diceRandNoPlayerOne
+      computerTurnToSaveSessi = 56
+      alert("You WOn")
+      restart = confirm("do you want to restart")
+      if(restart){
+        sessionStorage.clear()
+        // setComputerSessStorFunc()
+        window.location.reload()
+      }
+    }else if(diceRandNoPlayerOne == 6 && computerTurnToSaveSessi == 0){
+      computerTurnToSaveSessi = diceRandNoPlayerOne
+    }else if(computerTurnToSaveSessi >= 6){
+      computerTurnToSaveSessi += diceRandNoPlayerOne
+    }
+    setComputerSessStorFunc();
+    retriveComputerSessStorFunc();
+    // getBackComputerStoVar = globeChangNum;
+    // console.log(getBackComputerStoVar);
+    setTimeout(function () {
+      dispLuck();
+      modalTrigFun();
+      diceSound.pause();
+      // ifSixLuck()
+      myModal.show()
+    }, 1100);
+
+    const ifSixLuck = () => {
+      if (getBackComputerStoVar == 6) {
+        const blinkingInterval = setInterval(blinkBackground, 800);
+        setTimeout(() => {
+          clearInterval(blinkingInterval);
+        }, 8000);
+      } else if (getBackComputerStoVar >= 6) {
+        const blinkingInterval = setInterval(blinkBackground, 800);
+        setTimeout(() => {
+          clearInterval(blinkingInterval);
+        }, 8000);
+      } else {
+        setTimeout(()=>{
+        alert("Hum! You Need 6 to get on road");
+         }, 500)
+      }
+      // backgroundToBlink.style.backgroundColor = colors[currentColorIndex]
+    };
+
+    const timeOutIfSIxLuck = () => {
+      setTimeout(() => {
+        ifSixLuck();
+      }, 400);
+    };
+    //  table object before
+    const dispLuck = () => {
+      if (diceRandNoPlayerOne == 1) {
+        dispDiceRolOne.innerHTML = `<img src='./cf/dice_ass/perspective-dice-six-faces-one.png' style="width: 130px; height: 100px;">`;
+        timeOutIfSIxLuck();
+      } else if (diceRandNoPlayerOne == 2) {
+        dispDiceRolOne.innerHTML = `<img src='./cf/dice_ass/perspective-dice-six-faces-two.png' style="width: 130px; height: 100px;">`;
+        timeOutIfSIxLuck();
+      } else if (diceRandNoPlayerOne == 3) {
+        dispDiceRolOne.innerHTML = `<img src='./cf/dice_ass/perspective-dice-six-faces-three.png' style="width: 130px; height: 100px;">`;
+        timeOutIfSIxLuck();
+        // ifSixLuck();
+        // dispDiceHole.focus()
+        // myModal2.show()
+        // trigClose()
+      } else if (diceRandNoPlayerOne == 4) {
+        dispDiceRolOne.innerHTML = `<img src='./cf/dice_ass/perspective-dice-six-faces-four.png' style="width: 130px; height: 100px;">`;
+        timeOutIfSIxLuck();
+      } else if (diceRandNoPlayerOne == 5) {
+        dispDiceRolOne.innerHTML = `<img src='./cf/dice_ass/perspective-dice-six-faces-five.png' style="width: 130px; height: 100px;">`;
+        timeOutIfSIxLuck();
+      } else if (diceRandNoPlayerOne == 6) {
+        dispDiceRolOne.innerHTML = `<img src='./cf/dice_ass/perspective-dice-six-faces-six.png' style="width: 130px; height: 100px;">`;
+        timeOutIfSIxLuck();
+      }
+    };
+
+    const modalTrigFun = () => {
+      if (getBackComputerStoVar == 6) {
+        // dispDiceHole.focus()
+        // confirmAnsObj.modalshow1 = true;
+        allModalComputer.myModalStart.show();
+        trigClose();
+      } else if (getBackComputerStoVar == 7) {
+        confirmAnsObj.modalshow1 = true;
+        // dispDiceHole.focus()
+        allModalComputer.myModal1.show();
+        trigClose();
+      } else if (getBackComputerStoVar == 8) {
+        confirmAnsObj.modalshow2 = true;
+        allModalComputer.myModal2.show();
+        trigClose();
+      } else if (getBackComputerStoVar == 9) {
+        confirmAnsObj.modalshow3 = true;
+        allModalComputer.myModal3.show();
+        trigClose();
+      } else if (getBackComputerStoVar == 10) {
+        confirmAnsObj.modalshow4 = true;
+        allModalComputer.myModal4.show();
+        trigClose();
+      } else if (getBackComputerStoVar == 11) {
+        confirmAnsObj.modalshow5 = true;
+        allModalComputer.myModal5.show();
+        trigClose();
+      } else if (getBackComputerStoVar == 12) {
+        confirmAnsObj.modalshow6 = true;
+        allModalComputer.myModal6.show();
+        trigClose();
+      } else if (getBackComputerStoVar == 13) {
+        confirmAnsObj.modalshow7 = true;
+        allModalComputer.myModal7.show();
+        trigClose();
+      } else if (getBackComputerStoVar == 14) {
+        confirmAnsObj.modalshow8 = true;
+        allModalComputer.myModal8.show();
+        trigClose();
+      } else if (getBackComputerStoVar == 15) {
+        confirmAnsObj.modalshow9 = true;
+        allModalComputer.myModal9.show();
+        trigClose();
+      } else if (getBackComputerStoVar == 16) {
+        confirmAnsObj.modalshow10 = true;
+        allModalComputer.myModal10.show();
+        trigClose();
+      } else if (getBackComputerStoVar == 17) {
+        // alert("ITs eleven")
+        confirmAnsObj.modalshow11 = true;
+        allModalComputer.myModal11.show();
+        trigClose();
+      } else if (getBackComputerStoVar == 18) {
+        confirmAnsObj.modalshow12 = true;
+        allModalComputer.myModal12.show();
+        trigClose();
+      } else if (getBackComputerStoVar == 19) {
+        confirmAnsObj.modalshow13 = true;
+        allModalComputer.myModal13.show();
+        trigClose();
+      } else if (getBackComputerStoVar == 20) {
+        confirmAnsObj.modalshow14 = true;
+        allModalComputer.myModal14.show();
+        trigClose();
+      } else if (getBackComputerStoVar == 21) {
+        confirmAnsObj.modalshow15 = true;
+        allModalComputer.myModal15.show();
+        trigClose();
+      } else if (getBackComputerStoVar == 22) {
+        confirmAnsObj.modalshow16 = true;
+        allModalComputer.myModal16.show();
+        trigClose();
+      } else if (getBackComputerStoVar == 23) {
+        confirmAnsObj.modalshow17 = true;
+        allModalComputer.myModal17.show();
+        trigClose();
+      } else if (getBackComputerStoVar == 24) {
+        confirmAnsObj.modalshow18 = true;
+        allModalComputer.myModal18.show();
+        trigClose();
+      } else if (getBackComputerStoVar == 25) {
+        confirmAnsObj.modalshow19 = true;
+        allModalComputer.myModal19.show();
+        trigClose();
+      } else if (getBackComputerStoVar == 26) {
+        confirmAnsObj.modalshow20 = true;
+        allModalComputer.myModal20.show();
+        trigClose();
+      } else if (getBackComputerStoVar == 27) {
+        confirmAnsObj.modalshow21 = true;
+        allModalComputer.myModal21.show();
+        trigClose();
+      } else if (getBackComputerStoVar == 28) {
+        confirmAnsObj.modalshow22 = true;
+        allModalComputer.myModal22.show();
+        trigClose();
+      } else if (getBackComputerStoVar == 29) {
+        confirmAnsObj.modalshow23 = true;
+        allModalComputer.myModal23.show();
+        trigClose();
+      } else if (getBackComputerStoVar == 30) {
+        confirmAnsObj.modalshow24 = true;
+        allModalComputer.myModal24.show();
+        trigClose();
+      } else if (getBackComputerStoVar == 31) {
+        confirmAnsObj.modalshow25 = true;
+        allModalComputer.myModal25.show();
+        trigClose();
+      } else if (getBackComputerStoVar == 32) {
+        confirmAnsObj.modalshow26 = true;
+        allModalComputer.myModal26.show();
+        trigClose();
+      } else if (getBackComputerStoVar == 33) {
+        confirmAnsObj.modalshow27 = true;
+        allModalComputer.myModal27.show();
+        trigClose();
+      } else if (getBackComputerStoVar == 34) {
+        confirmAnsObj.modalshow28 = true;
+        allModalComputer.myModal28.show();
+        trigClose();
+      } else if (getBackComputerStoVar == 35) {
+        confirmAnsObj.modalshow29 = true;
+        allModalComputer.myModal29.show();
+        trigClose();
+      } else if (getBackComputerStoVar == 36) {
+        confirmAnsObj.modalshow30 = true;
+        allModalComputer.myModal30.show();
+        trigClose();
+      } else if (getBackComputerStoVar == 37) {
+        confirmAnsObj.modalshow31 = true;
+        allModalComputer.myModal31.show();
+        trigClose();
+      } else if (getBackComputerStoVar == 38) {
+        confirmAnsObj.modalshow32 = true;
+        allModalComputer.myModal32.show();
+        trigClose();
+      } else if (getBackComputerStoVar == 39) {
+        confirmAnsObj.modalshow33 = true;
+        allModalComputer.myModal33.show();
+        trigClose();
+      } else if (getBackComputerStoVar == 40) {
+        confirmAnsObj.modalshow34 = true;
+        allModalComputer.myModal34.show();
+        trigClose();
+      } else if (getBackComputerStoVar == 41) {
+        confirmAnsObj.modalshow35 = true;
+        allModalComputer.myModal35.show();
+        trigClose();
+      } else if (getBackComputerStoVar == 42) {
+        confirmAnsObj.modalshow36 = true;
+        allModalComputer.myModal36.show();
+        trigClose();
+      } else if (getBackComputerStoVar == 43) {
+        confirmAnsObj.modalshow37 = true;
+        allModalComputer.myModal37.show();
+        trigClose();
+      } else if (getBackComputerStoVar == 44) {
+        confirmAnsObj.modalshow38 = true;
+        allModalComputer.myModal38.show();
+        trigClose();
+      } else if (getBackComputerStoVar == 45) {
+        confirmAnsObj.modalshow39 = true;
+        allModalComputer.myModal39.show();
+        trigClose();
+      } else if (getBackComputerStoVar == 46) {
+        confirmAnsObj.modalshow40 = true;
+        allModalComputer.myModal40.show();
+        trigClose();
+      } else if (getBackComputerStoVar == 47) {
+        confirmAnsObj.modalshow41 = true;
+        allModalComputer.myModal41.show();
+        trigClose();
+      } else if (getBackComputerStoVar == 48) {
+        confirmAnsObj.modalshow42 = true;
+        allModalComputer.myModal42.show();
+        trigClose();
+      } else if (getBackComputerStoVar == 49) {
+        confirmAnsObj.modalshow43 = true;
+        allModalComputer.myModal43.show();
+        trigClose();
+      } else if (getBackComputerStoVar == 50) {
+        confirmAnsObj.modalshow44 = true;
+        allModalComputer.myModal44.show();
+        trigClose();
+      } else if (getBackComputerStoVar == 51) {
+        confirmAnsObj.modalshow45 = true;
+        allModalComputer.myModal45.show();
+        trigClose();
+      } else if (getBackComputerStoVar == 52) {
+        confirmAnsObj.modalshow46 = true;
+        allModalComputer.myModal46.show();
+        trigClose();
+      } else if (getBackComputerStoVar == 53) {
+        confirmAnsObj.modalshow47 = true;
+        allModalComputer.myModal47.show();
+        trigClose();
+      } else if (getBackComputerStoVar == 54) {
+        confirmAnsObj.modalshow48 = true;
+        allModalComputer.myModal48.show();
+        trigClose();
+      } else if (getBackComputerStoVar == 55) {
+        confirmAnsObj.modalshow49 = true;
+        allModalComputer.myModal49.show();
+        trigClose();
+      } else if (getBackComputerStoVar == 56 || getBackComputerStoVar >= 56) {
+        confirmAnsObj.modalshow50 = true;
+        allModalComputer.myModal50.show();
+        trigClose();
+      }
+      // confirmAnsObj.modalshow50 = true;
+    };
+
+    // below fuction help me to focus on continue btn
+    // of triggered modal
+    const trigClose = () => {
+      setTimeout(function () {
+        $(".contine-focus").focus();
+      }, 700);
+    };
+    // This below function is use to check if the option selected is correct
+  }
