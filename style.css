@@ -1,10 +1,4 @@
-body {
-  margin: 0;
-  /* overflow: hidden; */
-   /* Prevent scrolling on mobile devices */
-  /* display: none; */
-   /* Hide the content by default */
-}
+
 
 @media screen and (orientation: portrait) {
   body::before {
@@ -46,25 +40,47 @@ body {
   font-size: 18px;
 }
 
-table{
+/* table{
+  margin: auto;
+} */
+
+/* body, html {
+  height: 100vh;
+  margin: 0;
+  background-color: red;
+} */
+
+table {
+  width: 100%;
+  height: 100%;
+  border-collapse: collapse;
+  /* margin: auto; */
+  border: 1px solid black;
+}
+
+td {
+  /* border: 1px solid red; */
+  /* background-color: red; */
+  width: 10%; /* Each column takes 10% of the table width */
+   /* Each row takes 16.66% of the table height (100% / 6 rows) */
+  box-sizing: border-box; /* Include border in the width and height */
+}
+td img{
   margin: auto;
 }
-.tbPar{
-  /* width: 50%; */
+
+/* .tbPar{
   margin: 0px;
   padding: 0px;
-}
-.tbPar table td{
+} */
+
+/* .tbPar table td{
   width: 150px;
   height: 100px;
-  /* max-width: 30px;
-  max-height: 30px; */
 }
 .tbPar table {
   border: solid 5px red;
-  /* max-width: 30px;
-  max-height: 30px; */
-}
+} */
 
 .editable{
   border: none;
